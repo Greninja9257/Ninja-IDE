@@ -1,0 +1,75 @@
+{
+  "name": "@turbowarp/packager",
+  "version": "3.13.0",
+  "description": "Converts Scratch projects into HTML files, zip archives, or executable programs for Windows, macOS, and Linux.",
+  "main": "dist/packager.js",
+  "scripts": {
+    "start": "webpack serve",
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack",
+    "build-prod": "cross-env NODE_ENV=production npm run build",
+    "watch": "webpack --watch",
+    "build-standalone": "cross-env STANDALONE=1 npm run build && node src/build/generate-standalone.js",
+    "build-standalone-prod": "cross-env NODE_ENV=production npm run build-standalone",
+    "build-node": "cross-env BUILD_MODE=node npm run build",
+    "build-node-prod": "cross-env NODE_ENV=production npm run build-node",
+    "test": "jest",
+    "prepublishOnly": "npm run test && npm run build-node-prod && node src/build/nodejs/update-readme.js node",
+    "postpublish": "node src/build/nodejs/update-readme.js restore"
+  },
+  "author": "GarboMuffin",
+  "homepage": "https://github.com/TurboWarp/packager#readme",
+  "keywords": [
+    "scratch",
+    "packager"
+  ],
+  "bugs": {
+    "url": "https://github.com/TurboWarp/packager/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TurboWarp/packager.git"
+  },
+  "license": "MPL-2.0",
+  "dependencies": {
+    "@fiahfy/icns": "^0.0.7",
+    "@turbowarp/json": "^0.1.1",
+    "@turbowarp/jszip": "^3.11.0",
+    "@turbowarp/sbdl": "^7.0.0",
+    "cross-fetch": "^4.1.0",
+    "sha.js": "^2.4.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "@turbowarp/scratch-storage": "^2.0.0",
+    "@turbowarp/scratch-svg-renderer": "^1.1.0",
+    "babel-jest": "^27.4.5",
+    "babel-loader": "^8.2.3",
+    "copy-webpack-plugin": "^6.4.1",
+    "cross-env": "^10.1.0",
+    "css-loader": "^5.2.7",
+    "fastestsmallesttextencoderdecoder": "^1.0.22",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.2",
+    "jest": "^27.4.5",
+    "rimraf": "^2.7.1",
+    "scratch-audio": "github:TurboWarp/scratch-audio#develop",
+    "scratch-render": "github:TurboWarp/scratch-render#develop",
+    "scratch-vm": "github:TurboWarp/scratch-vm#develop",
+    "style-loader": "^2.0.0",
+    "svelte": "^3.44.3",
+    "svelte-loader": "^3.1.2",
+    "url-loader": "^4.1.1",
+    "webpack": "4.47.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^3.11.3",
+    "worker-loader": "^2.0.0"
+  },
+  "overrides": {
+    "webpack@4.47.0": {
+      "terser-webpack-plugin": "^4.2.3"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@import "../../css/z-index.css";
+@import "../../css/colors.css";
+
+.manager {
+    position: fixed;
+    inset: 0;
+    z-index: $z-index-stage-wrapper-overlay;
+    overflow: hidden;
+    background: $fullscreen-background;
+}
+
+.cell {
+    position: absolute;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Draws the divider on shared edges only; outer edges fall outside the viewport. */
+    outline: 1px solid $ui-black-transparent;
+}
+
+.frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}

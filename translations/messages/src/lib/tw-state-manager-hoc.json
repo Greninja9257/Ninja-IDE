@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.invalidParameters.fps",
+    "description": "Alert displayed when fps URL parameter is invalid",
+    "defaultMessage": "\"fps\" URL parameter is invalid"
+  }
+]

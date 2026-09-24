@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ninja.layout.blocks",
+    "description": "Layout centred on the block workspace",
+    "defaultMessage": "Blocks"
+  },
+  {
+    "id": "ninja.layout.python",
+    "description": "Layout centred on the Python editor",
+    "defaultMessage": "Python"
+  },
+  {
+    "id": "ninja.layout.engine",
+    "description": "Layout with scene tree, viewport and inspector",
+    "defaultMessage": "Game Engine"
+  },
+  {
+    "id": "ninja.menuBar.layout",
+    "description": "Label for choosing the editor layout",
+    "defaultMessage": "Layout"
+  }
+]

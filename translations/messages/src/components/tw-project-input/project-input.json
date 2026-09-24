@@ -1,0 +1,7 @@
+[
+  {
+    "id": "tw.input.tooltip",
+    "description": "Project ID input tooltip",
+    "defaultMessage": "Paste a Scratch project link or ID"
+  }
+]

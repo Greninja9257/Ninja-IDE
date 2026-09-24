@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tw.unshared3.1",
+    "description": "Title of page shown when a project is unshared",
+    "defaultMessage": "This project is unshared."
+  },
+  {
+    "id": "tw.unshared.wrongId",
+    "description": "Appears on unshared projects. People often mistype the project number.",
+    "defaultMessage": "Make sure you entered the right project ID or URL."
+  },
+  {
+    "id": "tw.unshared3.cache",
+    "description": "Appears on unshared projects. {minutes} is replaced with a number such as 30.",
+    "defaultMessage": "If it was shared recently, it may take up to {minutes} minutes to load here."
+  },
+  {
+    "id": "tw.unshared.bug",
+    "description": "Appears on unshared projects",
+    "defaultMessage": "If this project is actually shared, please report a bug."
+  },
+  {
+    "id": "tw.unshared3.learnMore",
+    "description": "Link to documentation about unshared projects",
+    "defaultMessage": "Learn more about unshared projects"
+  },
+  {
+    "id": "gui.crashMessage.reload",
+    "description": "Button to reload the page when page crashes",
+    "defaultMessage": "Reload"
+  },
+  {
+    "id": "tw.legalReason.title",
+    "description": "Title of page shown when a project is unavailable due to a copyright claim",
+    "defaultMessage": "This project is unavailable due to a copyright claim."
+  },
+  {
+    "id": "tw.legalReason.notice",
+    "description": "Link to the copyright notice that caused a project to be unavailable",
+    "defaultMessage": "Read the notice"
+  }
+]

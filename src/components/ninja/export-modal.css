@@ -1,0 +1,34 @@
+@import "../../css/colors.css";
+
+.targets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .5rem 1rem;
+    font-weight: normal;
+    margin-bottom: 1.5rem;
+}
+
+.status {
+    border-top: 1px dashed $ui-black-transparent;
+    padding: 1rem 0;
+}
+
+.progress {
+    height: .5rem;
+    border-radius: .25rem;
+    background: $ui-black-transparent;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: $looks-secondary;
+    transition: width .15s;
+}
+
+.error {
+    display: block;
+    font-size: .875rem;
+    color: $error-primary;
+    overflow-wrap: anywhere;
+}

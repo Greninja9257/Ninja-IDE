@@ -1,0 +1,273 @@
+@import "../../css/colors.css";
+@import "../../css/units.css";
+
+/*
+ * Values taken from scratch.mit.edu/projects.css:
+ *
+ *   .inner                 { width: 942px; margin: 0 auto }
+ *   .preview .guiPlayer    { width: 482px }
+ *   .preview .project-notes{ margin-left: 1rem; flex: 1; flex-flow: column;
+ *                            height: calc(362px + 44px - .3125rem) }
+ *   .preview .project-title{ font-size: 1.75rem; font-weight: 500 }
+ *   .preview .preview-row  { margin-top: 1rem; justify-content: space-between;
+ *                            align-items: flex-start; flex-wrap: nowrap }
+ *   .project-description   { border-radius: 8px; padding: .5rem;
+ *                            background: hsla(215,100%,65%,.1) }
+ *   .preview img.avatar    { border-radius: 5px }  --avatar-size: 3rem
+ */
+
+.inner {
+    width: 942px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: left;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #4b5263;
+}
+
+.row {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #4b5263;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* ------------------------------------- notes column, right of the stage */
+
+.notes {
+    display: flex;
+    flex: 1;
+    flex-flow: column;
+    align-items: flex-start;
+    margin-left: 1rem;
+    margin-top: .3125rem;
+    height: calc(362px + 44px - .3125rem);
+    min-width: 0;
+    overflow: auto;
+}
+
+.notes > * { margin-bottom: .75rem; }
+.notes > .block:last-child { margin-bottom: 0; }
+.notes > .block { flex: 1; }
+
+.block {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 0;
+}
+
+.textlabel {
+    margin: 0 0 .5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.description {
+    border: 1px solid hsla(215, 100%, 65%, .1);
+    border-radius: 8px;
+    background-color: hsla(215, 100%, 65%, .1);
+    padding: .5rem;
+    width: calc(100% - (1rem + 2px));
+    min-height: 4rem;
+    flex: 1;
+    overflow: auto;
+    white-space: pre-line;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    text-align: left;
+}
+
+.description a { color: $motion-primary; }
+
+.placeholder {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: #8c93a8;
+    font-style: italic;
+    line-height: 1.5rem;
+    text-align: left;
+}
+
+/* ------------------------------------------------ author row, below all */
+
+.credit-row {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.avatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 5px;
+    background: $ui-secondary;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.username {
+    min-height: 1.25rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $motion-primary;
+}
+
+.spacer { flex: 1; }
+
+/*   .stats { line-height: 2rem }
+ *   .project-loves,... { display:flex; padding-right:2rem; font-size:1rem;
+ *                        font-weight:bold; align-items:center }
+ *   .project-loves:before,... { margin-right:.5rem; width:1.75rem;
+ *                               height:1.75rem; background-size:contain }
+ */
+.stats {
+    display: flex;
+    line-height: 2rem;
+}
+
+.stat {
+    display: flex;
+    align-items: center;
+    padding-right: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #4b5263;
+}
+
+.stat:last-child { padding-right: 0; }
+
+.stat-icon {
+    margin-right: .5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.remix-stat-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 1rem;
+    transform: rotate(180deg) scaleX(-1);
+}
+
+/* Loves and favourites are actions on Scratch, not just counts. */
+.actionable { cursor: pointer; }
+
+@media only screen and (max-width: 980px) {
+    .row { flex-wrap: wrap; }
+    .notes { margin-left: 0; margin-top: 1rem; height: auto; width: 100%; }
+}
+
+/* ---------------------------------------------------- action buttons row */
+
+/*   .preview .see-inside-button,.preview .remix-button {
+ *       border-radius:.25rem; height:2.5rem; font-size:.875rem;
+ *       padding:.6875rem .9375rem .6875rem .875rem }
+ *   .preview .remix-button { background-color: hsl(144,45%,36%) }
+ */
+.head-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: nowrap;
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    min-width: 0;
+}
+
+.buttons {
+    display: flex;
+    gap: .5rem;
+    flex-shrink: 0;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    height: 2.5rem;
+    padding: .6875rem .9375rem .6875rem .875rem;
+    border: 0;
+    border-radius: .25rem;
+    font-family: inherit;
+    font-size: .875rem;
+    font-weight: bold;
+    color: $ui-white;
+    background-color: $motion-primary;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.button:hover { filter: brightness(1.08); }
+
+.button-icon {
+    margin-right: .4375rem;
+    width: .875rem;
+    height: .875rem;
+    object-fit: contain;
+    filter: invert(1);
+    flex-shrink: 0;
+}
+
+.remix-button-icon {
+    transform: rotate(180deg) scaleX(-1);
+    filter: brightness(0) invert(1);
+}
+
+.see-inside-button-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    filter: none;
+}
+
+.remix { background-color: hsl(144, 45%, 36%); }
+
+/* --------------------------------------------------------------- comments */
+
+.comments-heading {
+    margin: 2rem 0 .75rem;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/*   .preview .comments-container .comments-turned-off {
+ *       border:1px solid hsla(215,100%,65%,.25); border-radius:.5rem;
+ *       background:hsla(215,100%,65%,.1); padding:1.5rem 0; text-align:center }
+ */
+.comments-empty {
+    border: 1px solid hsla(215, 100%, 65%, .25);
+    border-radius: .5rem;
+    background: hsla(215, 100%, 65%, .1);
+    padding: 1.5rem 0;
+    width: 100%;
+    text-align: center;
+    color: #4b5263;
+    font-size: .875rem;
+}

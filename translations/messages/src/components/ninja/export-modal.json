@@ -1,0 +1,17 @@
+[
+  {
+    "id": "ninja.export.title",
+    "description": "Title of the export window",
+    "defaultMessage": "Export"
+  },
+  {
+    "id": "ninja.export.label",
+    "description": "Label above the list of export formats",
+    "defaultMessage": "Export as:"
+  },
+  {
+    "id": "gui.prompt.cancel",
+    "description": "Button in prompt for cancelling the dialog",
+    "defaultMessage": "Cancel"
+  }
+]

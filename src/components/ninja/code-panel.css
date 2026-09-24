@@ -1,0 +1,105 @@
+@import "../../css/colors.css";
+@import "../../css/units.css";
+
+.panel {
+    /* scratch-gui's .blocks-wrapper is `position: relative` with no flex
+       context of its own, so a `flex: 1` child collapses to zero height.
+       Filling the wrapper absolutely is how its other children size
+       themselves. */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+}
+
+/* A dropdown in Scratch's register: same height and radius as the editor's
+   other controls, label plus caret, menu below. */
+.dropdown {
+    position: absolute;
+    top: $space;
+    right: $space;
+    z-index: 20;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    height: 2rem;
+    padding: 0 .6rem;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+    background: $ui-white;
+    color: $text-primary;
+    font-family: inherit;
+    font-size: .875rem;
+    cursor: pointer;
+    user-select: none;
+}
+.button:hover { background: $ui-primary; }
+.open { border-color: $motion-primary; }
+
+.label { font-weight: bold; }
+
+.caret {
+    width: 8px;
+    height: 5px;
+    margin-left: .1rem;
+    transition: transform .12s;
+}
+.open .caret { transform: rotate(180deg); }
+
+.menu {
+    position: absolute;
+    top: calc(2rem + 4px);
+    right: 0;
+    min-width: 100%;
+    padding: .25rem;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+    background: $ui-white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    width: 100%;
+    padding: .4rem .5rem;
+    border: 0;
+    border-radius: $form-radius;
+    background: transparent;
+    color: $text-primary;
+    font-family: inherit;
+    font-size: .875rem;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.item:hover { background: $ui-primary; }
+.selected { color: $motion-primary; font-weight: bold; }
+
+.icon { width: 1rem; height: 1rem; flex-shrink: 0; }
+
+.check {
+    width: 15px;
+    height: 12px;
+    margin-left: auto;
+    visibility: hidden;
+}
+.selected .check { visibility: visible; }
+
+.content {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    position: relative;
+}
+
+/* Both stay mounted: unmounting the workspace makes scratch-blocks rebuild
+   every block and lose its scroll position. */
+.slot { position: absolute; inset: 0; z-index: 1; display: flex; overflow: hidden; }

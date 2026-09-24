@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ninja.extensionTags.graphics",
+    "description": "Tag for filtering the extension library to graphics extensions",
+    "defaultMessage": "Graphics"
+  },
+  {
+    "id": "ninja.extensionTags.sound",
+    "description": "Tag for filtering the extension library to sound extensions",
+    "defaultMessage": "Sound"
+  },
+  {
+    "id": "ninja.extensionTags.data",
+    "description": "Tag for filtering the extension library to data extensions",
+    "defaultMessage": "Data"
+  },
+  {
+    "id": "ninja.extensionTags.input",
+    "description": "Tag for filtering the extension library to input and hardware extensions",
+    "defaultMessage": "Input"
+  },
+  {
+    "id": "ninja.extensionTags.network",
+    "description": "Tag for filtering the extension library to network extensions",
+    "defaultMessage": "Network"
+  },
+  {
+    "id": "ninja.extensionTags.utility",
+    "description": "Tag for filtering the extension library to utility extensions",
+    "defaultMessage": "Utility"
+  },
+  {
+    "id": "ninja.extensionTags.niche",
+    "description": "Tag for filtering the extension library to rarely useful extensions",
+    "defaultMessage": "Niche"
+  }
+]

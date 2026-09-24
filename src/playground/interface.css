@@ -1,0 +1,124 @@
+@import "../css/colors.css";
+
+/* Base styles used by Scratch https://github.com/LLK/scratch-www/blob/develop/src/main.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: bold;
+    line-height: 1.7em;
+}
+h1 {
+    font-weight: 2.5rem;
+}
+h2 {
+    font-weight: 2rem;
+}
+h3 {
+    font-size: 1.4rem;
+}
+h4 {
+    font-size: 1rem;
+}
+a {
+    color: $link-color;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $page-background;
+}
+
+.editor {
+    height: 100%;
+}
+.editor .center {
+    height: 100%;
+}
+
+/* Scratch's project page column. */
+.preview-row {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.player {
+    flex-shrink: 0;
+}
+
+@media only screen and (max-width: 980px) {
+    .preview-row { flex-wrap: wrap; }
+}
+
+.player-only .center {
+    width: 942px;
+    max-width: 100%;
+    margin: auto;
+
+    /* Scratch's project page sits on white with room around it, rather than
+       the editor's tinted page background. */
+    padding: .75rem 0 3rem;
+}
+
+/* Scratch's content area: #view { background-color: hsl(0,0%,99%) } */
+.player-only {
+    background-color: hsl(0, 0%, 99%);
+}
+.menu {
+    margin-bottom: 4px;
+}
+.section {
+    margin: 8px 0 8px 0;
+}
+
+.footer {
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 2px solid $ui-black-transparent;
+}
+.footer a {
+    font-weight: bold;
+    text-decoration: none;
+}
+.footer-content {
+    max-width: 600px;
+    margin: auto;
+}
+.footer-text {
+    text-align: center;
+    margin: 5px 0 10px 0;
+}
+.footer-columns {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-wrap: wrap;
+}
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.footer-section > * {
+    margin-bottom: 10px;
+}

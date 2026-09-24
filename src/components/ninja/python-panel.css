@@ -1,0 +1,15 @@
+@import "../../css/units.css";
+
+/* Inside the block editor's .injectionDiv: above the workspace (z-index auto)
+   and its scrollbars (20), below the category column (40) and the drag layer
+   (1000). It starts where the flyout ends, so the two never overlap. */
+.host {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 25;
+    overflow: hidden;
+    border-top-right-radius: $space;
+    border-bottom-right-radius: $space;
+}
