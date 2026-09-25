@@ -1,14 +1,27 @@
-scratch-gui modified for use in [TurboWarp](https://turbowarp.org/)
+# Ninja IDE
+
+The editor for Ninja. It is a modified version of [TurboWarp](https://turbowarp.org/)'s scratch-gui,
+which is itself based on [Scratch](https://scratch.mit.edu/) by the Scratch Foundation. Ninja is not
+affiliated with or endorsed by TurboWarp, the Scratch Foundation or MIT.
+
+Modified by Greninja9257 in 2026: Ninja branding, the Ninja account and community integration
+(saving, sharing, cloud variables), a built-in pause button, and other changes. The full history
+of changes is in this repository's commits.
 
 ## Setup
 
-See https://docs.turbowarp.org/development/getting-started to setup the complete TurboWarp environment.
+```sh
+npm install
+npm run build   # production build for the Ninja server, served at /ide/
+```
 
-If you just want to play with the GUI then it's the same process as upstream scratch-gui.
+The built files in `build/` are served by the Ninja server. See
+https://docs.turbowarp.org/development/getting-started for the wider TurboWarp development setup.
 
 ## License
 
-TurboWarp's modifications to Scratch are licensed under the GNU General Public License v3.0. See LICENSE or https://www.gnu.org/licenses/ for details.
+Ninja IDE is licensed under the GNU General Public License v3.0, the same license as TurboWarp's
+modifications to Scratch. See LICENSE or https://www.gnu.org/licenses/ for details.
 
 The following is the original license for scratch-gui, which we are required to retain. This is NOT the license of this project.
 
@@ -297,4 +310,3 @@ Here's what will happen in the project state machine:
 ## Donate
 We provide [Scratch](https://scratch.mit.edu) free of charge, and want to keep it that way! Please consider making a [donation](https://www.scratchfoundation.org/donate) to support our continued engineering, design, community, and resource development efforts. Donations of any size are appreciated. Thank you!
 -->
-# Ninja
