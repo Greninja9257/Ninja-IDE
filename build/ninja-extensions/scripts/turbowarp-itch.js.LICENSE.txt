@@ -1,0 +1,4 @@
+/*!
+   * Itch.io JavaScript API reference from https://static.itch.io/api.js
+   * Modified by Softed
+   */

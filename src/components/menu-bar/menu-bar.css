@@ -45,8 +45,10 @@
 .inactive {
     opacity: 0;
 }
+/* Same size as the website's nav logo: 95% of an 81px-wide slot. */
 .scratch-logo {
-    height:  1.6rem;
+    width: 77px;
+    height: auto;
     vertical-align: middle;
 }
 

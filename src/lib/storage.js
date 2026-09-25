@@ -9,6 +9,12 @@ import defaultProject from './default-project';
 class Storage extends ScratchStorage {
     constructor () {
         super();
+        // Download assets on the main thread like the project itself. The
+        // default tool routes them through a Web Worker started from a blob:
+        // URL; when that worker is slow to start (notably inside the project
+        // page's player iframe) every asset download waits on it, with no
+        // timeout or fallback.
+        this.webHelper.assetTool = this.webHelper.projectTool;
         this.cacheDefaultProject();
     }
     addOfficialScratchWebStores () {

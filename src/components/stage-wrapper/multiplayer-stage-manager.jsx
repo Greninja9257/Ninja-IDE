@@ -3,6 +3,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import VM from 'scratch-vm';
 
+import {getMultiplayerStartState} from '../../lib/multiplayer-start-state';
 import styles from './multiplayer-stage-manager.css';
 
 const MAX_WINDOWS = 4;
@@ -89,7 +90,7 @@ class MultiplayerStageManager extends React.Component {
         if (this.state.adding || this.state.clients.length + 1 >= MAX_WINDOWS) return;
         this.setState({adding: true});
         try {
-            const project = await this.props.vm.saveProjectSb3('arraybuffer');
+            const project = await getMultiplayerStartState(this.props.vm);
             if (this.unmounted) return;
             const client = {
                 id: this.nextClientId++,

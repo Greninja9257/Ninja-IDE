@@ -1,3 +1,17 @@
+@import "../../css/colors.css";
+
 .controls-container {
     display: flex;
+}
+
+.pause-button {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.375rem;
+    border-radius: 0.25rem;
+    user-select: none;
+    cursor: pointer;
+}
+.pause-button:hover {
+    background-color: $looks-light-transparent;
 }

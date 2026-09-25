@@ -71,10 +71,12 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
                 if (props.isEmbedded) {
                     initializedGui = initEmbedded(initializedGui);
                 }
+                const ninjaSessionReducer = require('../reducers/ninja-session').default;
                 reducers = {
                     locales: localesReducer,
                     scratchGui: guiReducer,
-                    scratchPaint: ScratchPaintReducer
+                    scratchPaint: ScratchPaintReducer,
+                    session: ninjaSessionReducer
                 };
                 initialState = {
                     locales: initializedLocales,

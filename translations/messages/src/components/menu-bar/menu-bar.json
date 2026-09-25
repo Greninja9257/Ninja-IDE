@@ -133,5 +133,15 @@
     "id": "gui.menuBar.caturdayMode",
     "description": "April fools: Cat blocks mode",
     "defaultMessage": "Caturday mode"
+  },
+  {
+    "id": "ninja.menuBar.join",
+    "description": "Link for creating a Ninja account",
+    "defaultMessage": "Join Ninja"
+  },
+  {
+    "id": "gui.menuBar.signIn",
+    "description": "Link for signing in to Ninja",
+    "defaultMessage": "Sign in"
   }
 ]

@@ -5,6 +5,7 @@ import log from './log';
 
 import {setProjectTitle} from '../reducers/project-title';
 import {setAuthor, setDescription, setStats} from '../reducers/tw';
+import {setProjectShared} from '../reducers/ninja-session';
 import {ProjectUnavailableLegalReasons} from './tw-load-project-error';
 
 export const fetchProjectMeta = async projectId => {
@@ -12,8 +13,7 @@ export const fetchProjectMeta = async projectId => {
     // trampoline says not to, so we're going to try putting a cache buster in here.
     const cacheBuster = `?rudebuster=${Math.random()}`;
     const urls = [
-        `https://trampoline.turbowarp.org/api/projects/${projectId}${cacheBuster}`,
-        `https://trampoline.turbowarp.xyz/api/projects/${projectId}${cacheBuster}`
+        `/api/projects/${projectId}/meta${cacheBuster}`
     ];
     let firstError;
     for (const url of urls) {
@@ -66,6 +66,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                 this.props.onSetAuthor('', '');
                 this.props.onSetDescription('', '');
                 this.props.onSetStats({views: null, loves: null, favorites: null, remixes: null});
+                this.props.onSetShared(false);
                 const projectId = this.props.reduxProjectId;
 
                 if (projectId === '0') {
@@ -99,6 +100,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                                 remixes: data.stats.remixes
                             });
                         }
+                        this.props.onSetShared(Boolean(data.is_published));
                         setIndexable(true);
                     })
                         .catch(err => {
@@ -116,6 +118,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                 onSetDescription,
                 onSetStats,
                 onSetProjectTitle,
+                onSetShared,
                 /* eslint-enable no-unused-vars */
                 ...props
             } = this.props;
@@ -131,7 +134,8 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
         onSetAuthor: PropTypes.func,
         onSetDescription: PropTypes.func,
     onSetStats: PropTypes.func,
-        onSetProjectTitle: PropTypes.func
+        onSetProjectTitle: PropTypes.func,
+        onSetShared: PropTypes.func
     };
     const mapStateToProps = state => ({
         reduxProjectId: state.scratchGui.projectState.projectId
@@ -146,7 +150,8 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
             instructions,
             credits
         })),
-        onSetProjectTitle: title => dispatch(setProjectTitle(title))
+        onSetProjectTitle: title => dispatch(setProjectTitle(title)),
+        onSetShared: isShared => dispatch(setProjectShared(isShared))
     });
     return connect(
         mapStateToProps,

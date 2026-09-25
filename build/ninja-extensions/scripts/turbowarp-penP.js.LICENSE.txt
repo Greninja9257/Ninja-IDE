@@ -1,0 +1,9 @@
+//! HEED THY WARNING LOTS OF JAVASCRIPT BASED HTML AHEAD !//
+
+//!!No built in function for this to my knowledge!!
+
+//!DONT FORGET THIS IS HERE
+
+//!Pain.json
+
+//!Useless square blocks

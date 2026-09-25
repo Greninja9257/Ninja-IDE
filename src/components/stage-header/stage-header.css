@@ -104,3 +104,39 @@
     /* relied on by addons */
     display: flex;
 }
+
+/* Ninja: set thumbnail */
+.thumbnail-button {
+    position: relative;
+    background-color: $ui-white;
+    border-radius: $form-radius;
+}
+[dir="ltr"] .thumbnail-button { margin-right: .2rem; }
+[dir="rtl"] .thumbnail-button { margin-left: .2rem; }
+.thumbnail-menu {
+    position: absolute;
+    top: calc(100% + .25rem);
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    min-width: 10rem;
+    padding: .25rem 0;
+    border: 1px solid $ui-black-transparent;
+    border-radius: $form-radius;
+    background: $ui-white;
+    box-shadow: 0 0 .5rem hsla(0, 0%, 0%, .15);
+}
+.thumbnail-menu-item {
+    border: 0;
+    background: none;
+    padding: .5rem .75rem;
+    color: $text-primary;
+    font-family: inherit;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.thumbnail-menu-item:hover { background: $motion-primary; color: $ui-white; }

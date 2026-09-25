@@ -157,6 +157,34 @@ const alerts = [
         maxDisplaySecs: 3
     },
     {
+        alertId: 'thumbnailSaved',
+        alertType: AlertTypes.INLINE,
+        clearList: ['thumbnailSaved', 'thumbnailError'],
+        content: (
+            <FormattedMessage
+                defaultMessage="Thumbnail saved."
+                description="Message indicating that the project thumbnail was saved"
+                id="ninja.alerts.thumbnailSaved"
+            />
+        ),
+        iconURL: successImage,
+        level: AlertLevels.SUCCESS,
+        maxDisplaySecs: 3
+    },
+    {
+        alertId: 'thumbnailError',
+        clearList: ['thumbnailSaved', 'thumbnailError'],
+        closeButton: true,
+        content: (
+            <FormattedMessage
+                defaultMessage="Could not save the thumbnail."
+                description="Message indicating that the project thumbnail could not be saved"
+                id="ninja.alerts.thumbnailError"
+            />
+        ),
+        level: AlertLevels.WARN
+    },
+    {
         alertId: 'twSaveToDiskSuccess',
         alertType: AlertTypes.INLINE,
         clearList: ['saveSuccess', 'saving', 'savingError', 'twCreatingRestorePoint',

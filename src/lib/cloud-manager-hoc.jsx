@@ -69,6 +69,10 @@ const cloudManagerHOC = function (WrappedComponent) {
 
             if (this.shouldDisconnect(this.props, prevProps)) {
                 this.disconnectFromCloud();
+                // e.g. the project just got its id: rejoin straight away.
+                if (this.shouldConnect(this.props)) {
+                    this.connectToCloud();
+                }
             }
         }
         componentWillUnmount () {
@@ -92,13 +96,21 @@ const cloudManagerHOC = function (WrappedComponent) {
         }
         shouldConnect (props) {
             if (this.shouldUseLocalCloud(props)) {
-                return !this.isConnected() && this.canUseCloud(props) && props.vm.runtime.hasCloudData();
+                // The provider must exist before the first cloud variable is
+                // created so the VM can receive its creation confirmation.
+                return !this.isConnected() && this.canUseCloud(props);
             }
             return !this.isConnected() && this.canUseCloud(props) &&
                 props.isShowingWithId && props.vm.runtime.hasCloudData() &&
                 props.canModifyCloudData;
         }
         shouldDisconnect (props, prevProps) {
+            // The editor's simulated cloud is local to this browser, so who owns
+            // the project and whether it currently has cloud variables do not
+            // matter. Keep the provider ready for the first variable creation.
+            if (this.shouldUseLocalCloud(props)) {
+                return this.isConnected() && !this.canUseCloud(props);
+            }
             return this.isConnected() &&
                 ( // Can no longer use cloud or cloud provider info is now stale
                     !this.canUseCloud(props) ||
@@ -213,6 +225,10 @@ const cloudManagerHOC = function (WrappedComponent) {
         const loadingState = state.scratchGui.projectState.loadingState;
         return {
             reduxCloudHost: state.scratchGui.tw.cloudHost,
+            // The Ninja server identifies people by session; the name only
+            // has to be non-empty for the connection to start.
+            username: (state.session && state.session.session && state.session.session.user &&
+                state.session.session.user.username) || state.scratchGui.tw.username,
             cloudVariablesDisabledByUser: !state.scratchGui.tw.cloud,
             isShowingWithId: getIsShowingWithId(loadingState),
             projectId: state.scratchGui.projectState.projectId,

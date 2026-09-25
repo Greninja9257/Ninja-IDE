@@ -45,6 +45,16 @@
     "defaultMessage": "Project saved."
   },
   {
+    "id": "ninja.alerts.thumbnailSaved",
+    "description": "Message indicating that the project thumbnail was saved",
+    "defaultMessage": "Thumbnail saved."
+  },
+  {
+    "id": "ninja.alerts.thumbnailError",
+    "description": "Message indicating that the project thumbnail could not be saved",
+    "defaultMessage": "Could not save the thumbnail."
+  },
+  {
     "id": "tw.alerts.savedToDisk",
     "description": "Message indicating that project was successfully saved to the user's disk",
     "defaultMessage": "Saved to your computer."

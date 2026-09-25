@@ -1,0 +1,12 @@
+[
+  {
+    "id": "ninja.controls.pause",
+    "description": "Title of the button that pauses the project",
+    "defaultMessage": "Pause"
+  },
+  {
+    "id": "ninja.controls.resume",
+    "description": "Title of the button that resumes a paused project",
+    "defaultMessage": "Resume"
+  }
+]

@@ -131,6 +131,7 @@ const GUIComponent = props => {
         onActivateCostumesTab,
         onActivateSoundsTab,
         onActivateTab,
+        onClickLogin,
         onClickLogo,
         onExtensionButtonClick,
         onOpenCustomExtensionModal,
@@ -324,6 +325,7 @@ const GUIComponent = props => {
                     onClickDesktopSettings={onClickDesktopSettings}
                     onClickNewWindow={onClickNewWindow}
                     onClickPackager={onClickPackager}
+                    onClickLogin={onClickLogin}
                     onClickLogo={onClickLogo}
                     onCloseAccountNav={onCloseAccountNav}
                     onLogOut={onLogOut}
@@ -512,6 +514,7 @@ GUIComponent.propTypes = {
     onClickDesktopSettings: PropTypes.func,
     onClickNewWindow: PropTypes.func,
     onClickPackager: PropTypes.func,
+    onClickLogin: PropTypes.func,
     onClickLogo: PropTypes.func,
     onCloseAccountNav: PropTypes.func,
     onExtensionButtonClick: PropTypes.func,

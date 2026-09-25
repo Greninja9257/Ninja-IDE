@@ -11,6 +11,7 @@ import VM from 'scratch-vm';
 
 import Box from '../box/box.jsx';
 import Button from '../button/button.jsx';
+import AccountNav from './account-nav.jsx';
 import CommunityButton from './community-button.jsx';
 import ShareButton from './share-button.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
@@ -94,6 +95,7 @@ import addonsIcon from './addons.svg';
 import errorIcon from './tw-error.svg';
 import advancedIcon from './tw-advanced.svg';
 
+import ninjaLogo from './ninja-logo.png';
 import ninetiesLogo from './nineties_logo.svg';
 import catLogo from './cat_logo.svg';
 import prehistoricLogo from './prehistoric-logo.svg';
@@ -334,7 +336,7 @@ class MenuBar extends React.Component {
             } else if (mode === '220022BC') {
                 document.getElementById('logo_img').src = prehistoricLogo;
             } else {
-                document.getElementById('logo_img').src = this.props.logo;
+                document.getElementById('logo_img').src = this.props.logo || ninjaLogo;
             }
 
             this.props.onSetTimeTravelMode(mode);
@@ -499,6 +501,18 @@ class MenuBar extends React.Component {
             >
                 <div className={styles.mainMenu}>
                     <div className={styles.fileGroup}>
+                        <div className={classNames(styles.menuBarItem)}>
+                            <img
+                                id="logo_img"
+                                alt="Ninja"
+                                className={classNames(styles.scratchLogo, {
+                                    [styles.clickable]: typeof this.props.onClickLogo !== 'undefined'
+                                })}
+                                draggable={false}
+                                src={this.props.logo || ninjaLogo}
+                                onClick={this.props.onClickLogo}
+                            />
+                        </div>
                         {this.props.errors.length > 0 && <div>
                             <MenuLabel
                                 open={this.props.errorsMenuOpen}
@@ -895,12 +909,95 @@ class MenuBar extends React.Component {
                             </MenuBarItemTooltip>
                         </div>
                     ) : null}
+                    {this.props.enableCommunity && this.props.projectId && this.props.projectId !== '0' &&
+                        (this.props.isShowingProject || this.props.isUpdating) && (
+                        <div className={classNames(styles.menuBarItem)}>
+                            <ProjectWatcher onDoneUpdating={this.props.onSeeCommunity}>
+                                {
+                                    waitForUpdate => (
+                                        <CommunityButton
+                                            className={styles.menuBarButton}
+                                            /* eslint-disable react/jsx-no-bind */
+                                            onClick={() => {
+                                                this.handleClickSeeCommunity(waitForUpdate);
+                                            }}
+                                            /* eslint-enable react/jsx-no-bind */
+                                        />
+                                    )
+                                }
+                            </ProjectWatcher>
+                        </div>
+                    )}
                 </div>
 
                 <div className={styles.accountInfoGroup}>
-                    <TWSaveStatus
-                        showSaveFilePicker={this.props.showSaveFilePicker}
-                    />
+                    {this.props.canSave ? (
+                        <SaveStatus />
+                    ) : (
+                        <TWSaveStatus
+                            showSaveFilePicker={this.props.showSaveFilePicker}
+                        />
+                    )}
+                    {this.props.sessionExists && (this.props.username ? (
+                        <React.Fragment>
+                            <a href="/mystuff/">
+                                <div
+                                    className={classNames(
+                                        styles.menuBarItem,
+                                        styles.hoverable,
+                                        styles.mystuffButton
+                                    )}
+                                >
+                                    <img
+                                        className={styles.mystuffIcon}
+                                        src={mystuffIcon}
+                                        draggable={false}
+                                    />
+                                </div>
+                            </a>
+                            <AccountNav
+                                className={classNames(
+                                    styles.menuBarItem,
+                                    styles.hoverable,
+                                    {[styles.active]: this.props.accountMenuOpen}
+                                )}
+                                isOpen={this.props.accountMenuOpen}
+                                isRtl={this.props.isRtl}
+                                menuBarMenuClassName={classNames(styles.menuBarMenu)}
+                                profileUrl={`/users/${this.props.username}`}
+                                thumbnailUrl={this.props.userAvatar}
+                                username={this.props.username}
+                                onClick={this.props.onClickAccount}
+                                onClose={this.props.onRequestCloseAccount}
+                                onLogOut={this.props.onLogOut}
+                            />
+                        </React.Fragment>
+                    ) : (
+                        <React.Fragment>
+                            <div
+                                className={classNames(styles.menuBarItem, styles.hoverable)}
+                                key="join"
+                                onMouseUp={this.props.onOpenRegistration}
+                            >
+                                <FormattedMessage
+                                    defaultMessage="Join Ninja"
+                                    description="Link for creating a Ninja account"
+                                    id="ninja.menuBar.join"
+                                />
+                            </div>
+                            <div
+                                className={classNames(styles.menuBarItem, styles.hoverable)}
+                                key="login"
+                                onMouseUp={this.props.onClickLogin}
+                            >
+                                <FormattedMessage
+                                    defaultMessage="Sign in"
+                                    description="Link for signing in to Ninja"
+                                    id="gui.menuBar.signIn"
+                                />
+                            </div>
+                        </React.Fragment>
+                    ))}
                 </div>
 
                 {aboutButton}
@@ -1013,6 +1110,7 @@ MenuBar.propTypes = {
     shouldSaveBeforeTransition: PropTypes.func,
     showSaveFilePicker: PropTypes.func,
     showComingSoon: PropTypes.bool,
+    userAvatar: PropTypes.string,
     username: PropTypes.string,
     userOwnsProject: PropTypes.bool,
     vm: PropTypes.instanceOf(VM).isRequired,
@@ -1049,6 +1147,7 @@ const mapStateToProps = (state, ownProps) => {
         sessionExists: state.session && typeof state.session.session !== 'undefined',
         settingsMenuOpen: settingsMenuOpen(state),
         username: user ? user.username : null,
+        userAvatar: user ? user.avatar : null,
         userOwnsProject: ownProps.authorUsername && user &&
             (ownProps.authorUsername === user.username),
         vm: state.scratchGui.vm,
@@ -1061,7 +1160,7 @@ const mapStateToProps = (state, ownProps) => {
     };
 };
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
     onClickExport: () => dispatch(openNinjaExportModal()),
     autoUpdateProject: () => dispatch(autoUpdateProject()),
     onOpenTipLibrary: () => dispatch(openTipsLibrary()),
@@ -1073,7 +1172,7 @@ const mapDispatchToProps = dispatch => ({
     onRequestCloseEdit: () => dispatch(closeEditMenu()),
     onClickErrors: () => dispatch(openErrorsMenu()),
     onRequestCloseErrors: () => dispatch(closeErrorsMenu()),
-    onClickLogin: () => dispatch(openLoginMenu()),
+    onClickLogin: ownProps.onClickLogin || (() => dispatch(openLoginMenu())),
     onRequestCloseLogin: () => dispatch(closeLoginMenu()),
     onClickMode: () => dispatch(openModeMenu()),
     onRequestCloseMode: () => dispatch(closeModeMenu()),
@@ -1089,7 +1188,7 @@ const mapDispatchToProps = dispatch => ({
     onClickRemix: () => dispatch(remixProject()),
     onClickSave: () => dispatch(manualUpdateProject()),
     onClickSaveAsCopy: () => dispatch(saveProjectAsCopy()),
-    onSeeCommunity: () => dispatch(setPlayer(true)),
+    onSeeCommunity: ownProps.onSeeCommunity || (() => dispatch(setPlayer(true))),
     onSetTimeTravelMode: mode => dispatch(setTimeTravel(mode))
 });
 

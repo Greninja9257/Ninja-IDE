@@ -47,6 +47,7 @@ import TWFullScreenResizerHOC from '../lib/tw-fullscreen-resizer-hoc.jsx';
 import TWThemeManagerHOC from './tw-theme-manager-hoc.jsx';
 import NeuralNetworks from '../lib/ninja-neural-networks';
 import {installHiddenExtensionStorage} from '../lib/ninja-hidden-extensions';
+import {captureMultiplayerStartState} from '../lib/multiplayer-start-state';
 
 const {RequestMetadata, setMetadata, unsetMetadata} = storage.scratchFetch;
 
@@ -79,6 +80,7 @@ class GUI extends React.Component {
             setProjectIdMetadata(this.props.projectId);
         }
         if (this.props.isShowingProject && !prevProps.isShowingProject) {
+            captureMultiplayerStartState(this.props.vm);
             // this only notifies container when a project changes from not yet loaded to loaded
             // At this time the project view in www doesn't need to know when a project is unloaded
             this.props.onProjectLoaded();

@@ -1,0 +1,9 @@
+/**!
+ * Since 2000
+ * @author 0znzw (@link https://scratch.mit.edu/users/0znzw/)
+ * @author Ammunimium (@link https://scratch.mit.edu/users/ionslayer/)
+ * @version 2.0
+ * @license MIT AND LGPL-3.0
+ */
+
+/**!@see https://surv-is-a-dev.github.io/static/0001tt.txt*/

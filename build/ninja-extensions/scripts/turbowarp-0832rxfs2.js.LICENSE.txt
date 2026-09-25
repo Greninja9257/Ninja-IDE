@@ -1,0 +1,8 @@
+/*!
+ * Made by 0832
+ * This file was originally under the rxLI Version 2.1 license:
+ * https://0832k12.github.io/rxLi/2.1/
+ *
+ * However they have since claimed it to be "directly compatible with MIT license",
+ * which is the license we use this file under.
+ */

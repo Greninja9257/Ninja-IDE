@@ -12,7 +12,6 @@ import _hide_flyout from "../addons/hide-flyout/_manifest_entry.js";
 import _mediarecorder from "../addons/mediarecorder/_manifest_entry.js";
 import _drag_drop from "../addons/drag-drop/_manifest_entry.js";
 import _debugger from "../addons/debugger/_manifest_entry.js";
-import _pause from "../addons/pause/_manifest_entry.js";
 import _mute_project from "../addons/mute-project/_manifest_entry.js";
 import _vol_slider from "../addons/vol-slider/_manifest_entry.js";
 import _clones from "../addons/clones/_manifest_entry.js";
@@ -94,7 +93,6 @@ export default {
   "mediarecorder": _mediarecorder,
   "drag-drop": _drag_drop,
   "debugger": _debugger,
-  "pause": _pause,
   "mute-project": _mute_project,
   "vol-slider": _vol_slider,
   "clones": _clones,

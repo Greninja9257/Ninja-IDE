@@ -136,6 +136,22 @@ class FileHashRouter extends HashRouter {
     }
 }
 
+// Ninja server URLs: the editor is /editor#id and fullscreen is
+// /fullscreen#id. The page type comes from the server route, so only the
+// project id in the hash (and the editor/fullscreen switch) is written back.
+class NinjaRouter extends HashRouter {
+    onpathchange () {
+        if (location.pathname === '/fullscreen') this.onSetIsFullScreen(true);
+    }
+
+    generateURL ({projectId, isFullScreen}) {
+        let hash = projectId && projectId !== '0' ? projectId : '';
+        const hashQuery = location.hash.split('?')[1];
+        if (hashQuery) hash += `?${hashQuery}`;
+        return `${isFullScreen ? '/fullscreen' : '/editor'}${location.search}${hash ? `#${hash}` : ''}`;
+    }
+}
+
 const getCanonicalLinkElement = () => {
     let el = document.querySelector('link[rel=canonical]');
     if (!el) {
@@ -258,6 +274,11 @@ const createRouter = (style, callbacks) => {
         style = 'hash';
     }
 
+    // Served by the Ninja server at /editor or /fullscreen rather than *.html.
+    if (style === 'filehash' && (location.pathname === '/editor' || location.pathname === '/fullscreen')) {
+        return new NinjaRouter(callbacks);
+    }
+
     if (Object.prototype.hasOwnProperty.call(routers, style)) {
         return new routers[style](callbacks);
     }
@@ -313,7 +334,9 @@ const TWStateManager = function (WrappedComponent) {
                 }
             }
 
-            this.props.vm.renderer.setUseHighQualityRender(true);
+            if (this.props.vm.renderer) {
+                this.props.vm.renderer.setUseHighQualityRender(true);
+            }
 
             if (urlParams.has('turbo')) {
                 this.props.vm.setTurboMode(true);
@@ -371,8 +394,10 @@ const TWStateManager = function (WrappedComponent) {
                     isFullScreen: this.props.isFullScreen
                 };
                 const newPath = this.router.generateURL(routerState);
+                // Replace rather than push: a project getting its id, or the
+                // editor switching mode, shouldn't cost an extra Back press.
                 if (newPath && newPath !== oldPath) {
-                    history.pushState(null, null, newPath);
+                    history.replaceState(null, null, newPath);
                 }
             }
 
