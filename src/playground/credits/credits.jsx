@@ -64,6 +64,13 @@ const Credits = () => (
                 The {APP_NAME} project is made possible by the work of many volunteers.
             </p>
         </section>
+        <section>
+            <h2>Creator</h2>
+            <p>
+                {APP_NAME} was created by Greninja9257.
+            </p>
+            <UserList users={UserData.creator} />
+        </section>
         {APP_NAME !== 'TurboWarp' && (
             // Be kind and considerate. Don't remove this :)
             <section>
