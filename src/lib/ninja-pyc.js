@@ -3634,7 +3634,9 @@ function emitVariables(em, vars, depth, prefix) {
   for (const v of vars) {
     const value = v.kind === "list" ? `List(${JSON.stringify(v.value)})` : emitLiteral(v.value);
     const cloudNote = v.scope === "cloud" ? "  # cloud variable" : "";
-    em.line(depth, `${prefix}${identifier(v.name)} = ${value}${cloudNote}`, v.id);
+    // Ninja: shared (stage) variables are declared as world.x, not self.x.
+    const scoped = v.scope === "global" ? "world." : v.scope === "cloud" ? "cloud." : prefix;
+    em.line(depth, `${scoped}${identifier(v.name)} = ${value}${cloudNote}`, v.id);
   }
 }
 function generateScript(script, _index = 0, opts = {}) {

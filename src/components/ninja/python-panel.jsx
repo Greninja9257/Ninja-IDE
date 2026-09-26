@@ -486,6 +486,22 @@ class PythonPanel extends React.Component {
         };
     }
 
+    // "For all sprites" variables and lists live on the stage; show them in
+    // every sprite's code as world.x (cloud variables aside).
+    sharedVariables () {
+        const stage = this.props.vm.runtime.getTargetForStage();
+        if (!stage) return [];
+        return Object.values(stage.variables)
+            .filter(v => (v.type === '' || v.type === 'list') && !v.isCloud)
+            .map(v => ({
+                id: v.id,
+                name: v.name,
+                scope: 'global',
+                kind: v.type === 'list' ? 'list' : 'scalar',
+                value: v.value
+            }));
+    }
+
     nodeForTarget () {
         const target = this.props.vm.editingTarget;
         if (!target) return null;
@@ -505,7 +521,7 @@ class PythonPanel extends React.Component {
                 scope: 'sprite',
                 kind: v.type === 'list' ? 'list' : 'scalar',
                 value: v.value
-            })),
+            })).concat(target.isStage ? [] : this.sharedVariables()),
             costumes: [],
             sounds: [],
             currentCostume: 0,
@@ -571,6 +587,8 @@ class PythonPanel extends React.Component {
         this.view.dispatch(setDiagnostics(this.view.state, []));
         this.dirty = false;
 
+        this.createDeclaredVariables(report.node.variables || [], target);
+
         const variableIds = new Map();
         const listIds = new Map();
         const stage = this.props.vm.runtime.getTargetForStage();
@@ -589,6 +607,34 @@ class PythonPanel extends React.Component {
 
         this.writeBlocks(blocks);
         return true;
+    }
+
+    // `self.scores = []` or `world.best = 0` at the top of the code declares a
+    // list or variable. Create any that don't exist yet (on the sprite for
+    // self., the stage for world.) so they show in the palette and on the
+    // stage. Existing ones are left alone: re-applying while typing must not
+    // reset their values.
+    createDeclaredVariables (declarations, target) {
+        const stage = this.props.vm.runtime.getTargetForStage();
+        let created = false;
+        for (const decl of declarations) {
+            const owner = decl.scope === 'global' ? stage : decl.scope === 'sprite' ? target : null;
+            if (!owner || !decl.name) continue;
+            const type = decl.kind === 'list' ? 'list' : '';
+            const exists = [owner, stage].some(t => t && Object.values(t.variables)
+                .some(v => v.name === decl.name && v.type === type));
+            if (exists) continue;
+            const id = `py-${Math.random().toString(36)
+                .slice(2)}-${Date.now().toString(36)}`;
+            owner.createVariable(id, decl.name, type);
+            if (decl.kind === 'list') {
+                owner.variables[id].value = Array.isArray(decl.value) ? decl.value.slice() : [];
+            } else if (decl.value !== null && typeof decl.value !== 'undefined') {
+                owner.variables[id].value = decl.value;
+            }
+            created = true;
+        }
+        if (created) this.props.vm.runtime.emitProjectChanged();
     }
 
     // Make the sprite's blocks equal `blocks`, touching only stacks that
