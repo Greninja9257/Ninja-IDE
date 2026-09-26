@@ -55,6 +55,30 @@
     bottom: 1rem;
 }
 
+.feed {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sender {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.sender-avatar {
+    width: 16px;
+    height: 16px;
+    border: 1px solid;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
 .message {
     display: grid;
     grid-template-rows: 1fr;
@@ -74,7 +98,7 @@
 
 .message-inner {
     min-height: 0;
-    padding-top: 0.375rem;
+    padding-top: 6px;
 }
 
 @keyframes chat-in {
@@ -90,41 +114,26 @@
 
 .bubble {
     position: relative;
-    min-width: 3rem;
-    max-width: 14rem;
-    border: 2px solid rgba(0, 0, 0, 0.15);
-    border-radius: 1rem;
-    background: #fff;
-    background-clip: padding-box;
-    padding: 0.5rem 0.625rem;
+    min-width: 70px;
+    max-width: 190px;
+    padding: 10px;
     color: #575e75;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 0.875rem;
-    font-weight: bold;
-    line-height: 1.2;
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 16px;
     overflow-wrap: anywhere;
 }
 
-.tail::before,
-.tail::after {
-    content: "";
+.bubble-shape {
     position: absolute;
-    top: 100%;
-    left: 0.75rem;
-    border-style: solid;
-    border-color: transparent;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    pointer-events: none;
 }
 
-.tail::before {
-    margin-top: 2px;
-    margin-left: -2px;
-    border-width: 0.5rem 0.75rem 0 0;
-    border-top-color: rgba(0, 0, 0, 0.15);
-}
-
-.tail::after {
-    border-width: 0.4375rem 0.625rem 0 0;
-    border-top-color: #fff;
+.bubble-text {
+    position: relative;
 }
 
 .bubble-name {
@@ -137,7 +146,7 @@
 }
 
 .input {
-    width: 12rem;
+    width: 170px;
     border: none;
     background: transparent;
     padding: 0;

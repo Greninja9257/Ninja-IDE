@@ -225,6 +225,13 @@ class Stage extends React.Component {
             // Non-editor drag style just updates the sprite continuously.
             if (this.props.useEditorDragStyle) {
                 this.positionDragCanvas(mousePosition[0], mousePosition[1]);
+                // Ninja: collaborators see the sprite move as it's dragged.
+                const collab = this.props.vm.ninjaCollab;
+                if (collab) {
+                    const spritePosition = this.getScratchCoords(mousePosition[0], mousePosition[1]);
+                    collab.moveSprite(this.state.dragId, spritePosition[0] + this.state.dragOffset[0],
+                        -(spritePosition[1] + this.state.dragOffset[1]));
+                }
             } else {
                 const spritePosition = this.getScratchCoords(mousePosition[0], mousePosition[1]);
                 this.props.vm.postSpriteInfo({

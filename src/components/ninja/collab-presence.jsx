@@ -33,10 +33,14 @@ const CollabOnline = ({peers, vm, onActivateTab}) => {
         }, 50);
     };
     return (
-        <div className={styles.panel}>
+        <div
+            className={styles.panel}
+            data-collab-panel
+        >
             {peers.map(peer => (
                 <img
                     className={styles.user}
+                    data-collab-peer={peer.id}
                     key={peer.id}
                     src={peer.avatar}
                     style={{borderColor: peer.color}}

@@ -36,6 +36,94 @@ const isTyping = () => {
     return el.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(el.tagName);
 };
 
+// Scratch's say bubble (scratch-render's TextBubbleSkin): a rounded box and
+// a swoopy tail drawn as one outline, 4px stroke half hidden under the fill.
+const RADIUS = 16;
+const TAIL_HEIGHT = 12;
+// Where the tail's tip sits from the bubble's left edge (it points left).
+const TAIL_X = 13;
+
+const bubblePath = (w, h, tail) => {
+    const r = RADIUS;
+    let d = `M ${r} ${h} A ${r} ${r} 0 0 1 0 ${h - r} L 0 ${r} A ${r} ${r} 0 0 1 ${r} 0 ` +
+        `L ${w - r} 0 A ${r} ${r} 0 0 1 ${w} ${r} L ${w} ${h - r} A ${r} ${r} 0 0 1 ${w - r} ${h} `;
+    if (tail) {
+        const x = w - r;
+        d += `C ${x} ${h + 4} ${x + 4} ${h + 8} ${x + 4} ${h + 10} ` +
+            `A 2 2 0 0 1 ${x + 2} ${h + 12} ` +
+            `C ${x - 1} ${h + 12} ${x - 11} ${h + 8} ${x - 16} ${h} `;
+    }
+    return `${d}Z`;
+};
+
+class ChatBubble extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {w: 0, h: 0};
+        this.setRef = this.setRef.bind(this);
+    }
+    componentDidMount () {
+        this.measure();
+    }
+    componentDidUpdate () {
+        this.measure();
+    }
+    setRef (el) {
+        this.el = el;
+    }
+    measure () {
+        if (!this.el) return;
+        const w = this.el.offsetWidth;
+        const h = this.el.offsetHeight;
+        if (w !== this.state.w || h !== this.state.h) this.setState({w, h});
+    }
+    render () {
+        const {w, h} = this.state;
+        const {tail} = this.props;
+        // Drawn with the tail at the bottom right, then flipped so it's at
+        // the left (and to the top, for "up").
+        const flip = tail === 'up' ? `translate(${w} ${h}) scale(-1 -1)` : `translate(${w} 0) scale(-1 1)`;
+        const d = w ? bubblePath(w, h, Boolean(tail)) : '';
+        return (
+            <div
+                className={classNames(styles.bubble, this.props.className)}
+                ref={this.setRef}
+            >
+                {w ? (
+                    <svg
+                        className={styles.bubbleShape}
+                        height={h}
+                        // Inline: the editor's normalize rule clips SVGs, which
+                        // cut off the outline and the tail.
+                        style={{overflow: 'visible'}}
+                        width={w}
+                    >
+                        <g transform={flip}>
+                            <path
+                                d={d}
+                                fill="none"
+                                stroke="rgba(0, 0, 0, 0.15)"
+                                strokeWidth="4"
+                            />
+                            <path
+                                d={d}
+                                fill="#fff"
+                            />
+                        </g>
+                    </svg>
+                ) : null}
+                <div className={styles.bubbleText}>{this.props.children}</div>
+            </div>
+        );
+    }
+}
+
+ChatBubble.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    tail: PropTypes.oneOf(['down', 'up', null])
+};
+
 /**
  * Live collaboration on top of the editor: where everyone's mouse is in the
  * code area, and chat. Who's online is shown in the menu bar. Press Enter to open a message box at your
@@ -324,7 +412,7 @@ class CollabOverlay extends React.Component {
         );
     }
 
-    renderMessage (chat, last, named) {
+    renderMessage (chat, tail, named, sender) {
         return (
             <div
                 className={classNames(styles.message, {
@@ -334,7 +422,17 @@ class CollabOverlay extends React.Component {
                 key={chat.id}
             >
                 <div className={styles.messageInner}>
-                    <div className={classNames(styles.bubble, {[styles.tail]: last})}>
+                    <ChatBubble tail={tail}>
+                        {sender ? (
+                            <span className={styles.sender}>
+                                <img
+                                    className={styles.senderAvatar}
+                                    src={chat.person.avatar}
+                                    style={{borderColor: chat.person.color}}
+                                />
+                                <span style={{color: chat.person.color}}>{chat.person.username}</span>
+                            </span>
+                        ) : null}
                         {named ? (
                             <span
                                 className={styles.bubbleName}
@@ -342,7 +440,7 @@ class CollabOverlay extends React.Component {
                             >{chat.person.username}</span>
                         ) : null}
                         {chat.text}
-                    </div>
+                    </ChatBubble>
                 </div>
             </div>
         );
@@ -355,7 +453,10 @@ class CollabOverlay extends React.Component {
                 key="compose"
             >
                 <div className={styles.messageInner}>
-                    <div className={classNames(styles.bubble, styles.tail, styles.compose)}>
+                    <ChatBubble
+                        className={styles.compose}
+                        tail="down"
+                    >
                         <input
                             className={styles.input}
                             maxLength={200}
@@ -366,24 +467,42 @@ class CollabOverlay extends React.Component {
                             onChange={this.handleChange}
                             onKeyDown={this.handleInputKeyDown}
                         />
-                    </div>
+                    </ChatBubble>
                 </div>
             </div>
         );
     }
 
     // One person's messages, stacked above and to the right of their cursor
-    // (clear of the name label under it), moving with it.
+    // (clear of the name label under it), moving with it. The bottom one's
+    // tail points at the cursor.
     renderStack (id, at, chats, composing) {
-        const items = chats.map((c, i) => this.renderMessage(c, !composing && i === chats.length - 1, false));
+        const items = chats.map((c, i) => this.renderMessage(c, !composing && i === chats.length - 1 ? 'down' : null));
         if (composing) items.push(this.renderCompose());
         return (
             <div
                 className={styles.stack}
                 key={`stack-${id}`}
-                style={{transform: `translate(${at.x + 4}px, ${at.y - 12}px) translateY(-100%)`}}
+                style={{transform: `translate(${at.x - TAIL_X + 2}px, ${at.y - TAIL_HEIGHT - 6}px) translateY(-100%)`}}
             >
                 {items}
+            </div>
+        );
+    }
+
+    // Messages from people whose cursor isn't on this screen (another
+    // sprite or tab): one list under the menu bar's online pictures, newest
+    // at the top, each with who sent it.
+    renderFeed (panel, chats) {
+        const rect = panel.getBoundingClientRect();
+        return (
+            <div
+                className={styles.feed}
+                key="feed"
+                style={{top: `${rect.bottom + 6}px`, right: `${Math.max(8, window.innerWidth - rect.right)}px`}}
+            >
+                {chats.slice().sort((x, y) => y.id - x.id)
+                    .map(c => this.renderMessage(c, null, false, true))}
             </div>
         );
     }
@@ -406,13 +525,18 @@ class CollabOverlay extends React.Component {
             else cornered.push(...list);
         }
         cornered.sort((a, b) => a.id - b.id);
+        const panel = cornered.length ? document.querySelector('[data-collab-panel]') : null;
+        if (panel) {
+            stacks.push(this.renderFeed(panel, cornered));
+            cornered.length = 0;
+        }
         return (
             <div className={styles.overlay}>
                 {peers.map(peer => this.renderCursor(peer))}
                 {stacks}
                 {cornered.length ? (
                     <div className={styles.cornerStack}>
-                        {cornered.map(c => this.renderMessage(c, false, true))}
+                        {cornered.map(c => this.renderMessage(c, null, true))}
                     </div>
                 ) : null}
             </div>

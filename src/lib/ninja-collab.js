@@ -28,6 +28,37 @@ const REMOTE_GROUP = 'ninja-collab-remote';
 // and recreates every block on screen. Those events reach the VM too, but
 // aren't edits: they carry this group and are never sent.
 const RELOAD_GROUP = 'ninja-collab-reload';
+// How often the longest-connected editor sends round a fingerprint of every
+// sprite, and how many checks in a row a sprite must differ on before it's
+// copied over again (edits still on their way make brief differences).
+const DIGEST_INTERVAL = 3000;
+const MISMATCHES_BEFORE_RESYNC = 2;
+
+// A short fingerprint of a string (FNV-1a).
+const hash = text => {
+    let h = 0x811c9dc5;
+    for (let i = 0; i < text.length; i++) {
+        h ^= text.charCodeAt(i);
+        h = Math.imul(h, 0x01000193);
+    }
+    return (h >>> 0).toString(36);
+};
+
+// What makes a sprite's code the same as someone else's: its blocks (not
+// where exactly they sit, to a few pixels), its variables' names and its
+// comments. Variable values change as the project runs, so they're left out.
+const fingerprint = target => {
+    const blocks = Object.values(target.blocks._blocks).map(b => [
+        b.id, b.opcode, b.parent, b.next, b.shadow ? 1 : 0, b.topLevel ? 1 : 0,
+        b.topLevel ? Math.round(b.x / 10) : '', b.topLevel ? Math.round(b.y / 10) : '',
+        Object.values(b.fields || {}).map(f => `${f.name}=${f.value}@${f.id || ''}`).sort().join(','),
+        Object.values(b.inputs || {}).map(i => `${i.name}:${i.block}:${i.shadow}`).sort().join(','),
+        b.mutation ? JSON.stringify(b.mutation) : ''
+    ].join('|')).sort();
+    const variables = Object.values(target.variables).map(v => `${v.id}:${v.name}:${v.type}:${v.isCloud ? 1 : 0}`).sort();
+    const comments = Object.values(target.comments || {}).map(c => `${c.id}:${c.blockId}:${c.text}`).sort();
+    return hash(`${blocks.join('\n')}#${variables.join(',')}#${comments.join(',')}`);
+};
 const BLOCK_EVENTS = new Set([
     'create', 'delete', 'move', 'change',
     'var_create', 'var_rename', 'var_delete',
@@ -102,9 +133,16 @@ class CollabSession {
         };
         document.addEventListener('mousemove', this.handleMouseMove, true);
         this.previews = new Map(); // "block:field" -> text before someone started typing
+        this.outbox = []; // edits made while disconnected, sent on reconnecting
+        this.spriteDrag = null; // a sprite this person is dragging on the stage
+        this.spriteGlides = new Map(); // sprite -> where someone is dragging it
+        this.pendingOps = 0;
+        this.applying = 0;
+        this.mismatches = new Map();
         this.install();
         this.connect();
         this.liveTimer = setInterval(() => this.sendLive(), LIVE_INTERVAL);
+        this.digestTimer = setInterval(() => this.sendDigest(), DIGEST_INTERVAL);
         this.dragFrame = requestAnimationFrame(t => this.animateDrags(t));
     }
 
@@ -144,13 +182,20 @@ class CollabSession {
     // asset it refers to has reached the server.
     sendOp (makeOp, {upload = false} = {}) {
         if (this.remote || this.closed) return;
+        this.pendingOps++;
         this.sendQueue = this.sendQueue
             .then(async () => {
                 if (upload) await storeProjectAssets(storage, this.vm.assets);
                 const op = await makeOp();
-                if (op) this.rawSend({t: 'op', op});
+                if (!op) return;
+                // Not connected right now: keep it for when we are again.
+                if (this.ws && this.ws.readyState === 1 && !this.catchingUp) this.rawSend({t: 'op', op});
+                else this.outbox.push(op);
             })
-            .catch(err => console.warn('collab: could not send a change', err)); // eslint-disable-line no-console
+            .catch(err => console.warn('collab: could not send a change', err)) // eslint-disable-line no-console
+            .then(() => {
+                this.pendingOps--;
+            });
     }
 
     sendCursor (cursor) {
@@ -170,6 +215,9 @@ class CollabSession {
             this.cursors = new Map();
             this.catchingUp = message.catchUp;
             this.buffered = [];
+            this.mismatches.clear();
+            // Alone in the room: this copy is the project, nothing to resend.
+            if (!this.catchingUp) this.outbox = [];
             this.handlers.onStatus(this.catchingUp ? 'catching-up' : 'live');
             this.handlers.onPeers([...this.peers.values()], this.me);
             break;
@@ -208,13 +256,28 @@ class CollabSession {
             if (this.catchingUp) this.buffered.push(message.op);
             else this.enqueue(message.op);
             break;
+        case 'digest':
+            this.checkDigest(message.from, message.digest);
+            break;
+        case 'resync-request':
+            this.sendResync(message.from, message.targets);
+            break;
+        case 'resync':
+            this.applyQueue = this.applyQueue
+                .then(() => this.applyResync(message.targets))
+                .catch(err => console.warn('collab: could not resync', err)); // eslint-disable-line no-console
+            break;
         }
     }
 
     enqueue (op) {
+        this.applying++;
         this.applyQueue = this.applyQueue
             .then(() => this.apply(op))
-            .catch(err => console.warn('collab: could not apply a change', op && op.kind, err)); // eslint-disable-line no-console
+            .catch(err => console.warn('collab: could not apply a change', op && op.kind, err)) // eslint-disable-line no-console
+            .then(() => {
+                this.applying--;
+            });
     }
 
     async loadSnapshot (project) {
@@ -227,11 +290,128 @@ class CollabSession {
         const pending = this.buffered;
         this.buffered = [];
         pending.forEach(op => this.enqueue(op));
+        // Edits made while disconnected: redo them on top of the live
+        // project, and send them to everyone else.
+        const mine = this.outbox;
+        this.outbox = [];
+        for (const op of mine) {
+            this.enqueue(op);
+            this.rawSend({t: 'op', op});
+        }
+    }
+
+    /* ------------------------------------------------ staying the same */
+
+    // The editor that has been connected longest is the reference copy.
+    leaderId () {
+        if (!this.me) return null;
+        return Math.min(this.me.id, ...this.peers.keys());
+    }
+
+    // Mid-edit (a drag, typing, changes still going out or coming in): not a
+    // fair moment to compare.
+    busy () {
+        return this.catchingUp || this.pendingOps > 0 || this.applying > 0 || Boolean(this.currentLive());
+    }
+
+    digest () {
+        const out = {};
+        for (const target of this.vm.runtime.targets) {
+            if (target.isOriginal) out[targetKey(target)] = fingerprint(target);
+        }
+        return out;
+    }
+
+    sendDigest () {
+        if (!this.me || !this.peers.size || this.leaderId() !== this.me.id || this.busy()) return;
+        this.rawSend({t: 'digest', digest: this.digest()});
+    }
+
+    checkDigest (from, theirs) {
+        if (from !== this.leaderId() || !theirs || typeof theirs !== 'object' || this.busy()) return;
+        const mine = this.digest();
+        const sameSprites = Object.keys(mine).sort().join('\n') === Object.keys(theirs).sort().join('\n');
+        const differing = sameSprites ? Object.keys(mine).filter(key => mine[key] !== theirs[key]) : ['*'];
+        for (const key of [...this.mismatches.keys()]) {
+            if (!differing.includes(key)) this.mismatches.delete(key);
+        }
+        const ready = [];
+        for (const key of differing) {
+            const count = (this.mismatches.get(key) || 0) + 1;
+            this.mismatches.set(key, count);
+            if (count >= MISMATCHES_BEFORE_RESYNC) ready.push(key);
+        }
+        if (!ready.length) return;
+        ready.forEach(key => this.mismatches.delete(key));
+        this.rawSend({t: 'resync-request', to: from, targets: ready});
+    }
+
+    // Someone's copy of these sprites differs from this one: send them ours.
+    sendResync (to, keys) {
+        if (!Array.isArray(keys)) return;
+        this.sendQueue = this.sendQueue.then(async () => {
+            await storeProjectAssets(storage, this.vm.assets);
+            if (keys.includes('*')) {
+                this.rawSend({t: 'resync', to, targets: {'*': JSON.parse(this.vm.toJSON())}});
+                return;
+            }
+            const targets = {};
+            for (const key of keys) {
+                const target = this.find(String(key));
+                if (!target) continue;
+                targets[key] = {
+                    blocks: JSON.parse(JSON.stringify(target.blocks._blocks)),
+                    variables: Object.values(target.variables).map(v => ({id: v.id, name: v.name, type: v.type,
+                        isCloud: Boolean(v.isCloud)})),
+                    comments: JSON.parse(JSON.stringify(target.comments || {}))
+                };
+            }
+            this.rawSend({t: 'resync', to, targets});
+        }).catch(err => console.warn('collab: could not send a resync', err)); // eslint-disable-line no-console
+    }
+
+    async applyResync (targets) {
+        if (!targets || typeof targets !== 'object') return;
+        if (targets['*']) {
+            await this.loadSnapshot(targets['*']);
+            return;
+        }
+        const vm = this.vm;
+        let redraw = false;
+        for (const [key, data] of Object.entries(targets)) {
+            const target = this.find(key);
+            if (!target || !data || typeof data.blocks !== 'object') continue;
+            this.quiet(() => {
+                const blocks = target.blocks;
+                blocks._blocks = {};
+                blocks._scripts = [];
+                for (const block of Object.values(data.blocks)) blocks.createBlock(block);
+                blocks.resetCache();
+                // Variables: same ids and names as theirs; values stay.
+                const wanted = new Map((data.variables || []).map(v => [v.id, v]));
+                for (const id of Object.keys(target.variables)) {
+                    if (!wanted.has(id)) delete target.variables[id];
+                }
+                for (const v of wanted.values()) {
+                    const have = target.variables[v.id];
+                    if (!have) target.createVariable(v.id, v.name, v.type, v.isCloud);
+                    else if (have.name !== v.name) have.name = v.name;
+                }
+                target.comments = {};
+                for (const c of Object.values(data.comments || {})) {
+                    target.createComment(c.id, c.blockId, c.text, c.x, c.y, c.width, c.height, c.minimized);
+                }
+                blocks.updateTargetSpecificBlocks(target.isStage);
+            });
+            if (target === vm.editingTarget || target.isStage) redraw = true;
+        }
+        if (redraw) this.quiet(() => vm.emitWorkspaceUpdate());
     }
 
     close () {
         this.closed = true;
         clearInterval(this.liveTimer);
+        clearInterval(this.digestTimer);
         document.removeEventListener('mousemove', this.handleMouseMove, true);
         cancelAnimationFrame(this.dragFrame);
         if (this.ws) this.ws.close();
@@ -308,11 +488,18 @@ class CollabSession {
             const target = before.targets[from];
             if (target) this.sendOp(() => ({kind: 'reorderTarget', target: targetKey(target), to}));
         });
-        // Dragging a sprite on the stage reports every frame: send its latest
-        // state at most ten times a second.
+        // Sprites dragged on the stage: sent live while dragging (see
+        // moveSprite), then the exact spot once dropped. The sprite is
+        // hidden locally while it's dragged; that isn't shared.
         this.spriteInfo = new Map();
         wrap('postSpriteInfo', ([data], before) => {
-            const target = vm._dragTarget || before.editing;
+            if (vm._dragTarget) {
+                if (typeof data.x === 'number' && typeof data.y === 'number') {
+                    this.moveSprite(vm._dragTarget.id, data.x, data.y);
+                }
+                return;
+            }
+            const target = before.editing;
             if (!target) return;
             const key = targetKey(target);
             const pending = this.spriteInfo.get(key);
@@ -326,6 +513,13 @@ class CollabSession {
                 this.spriteInfo.delete(key);
                 this.sendOp(() => ({kind: 'spriteInfo', target: key, data: entry.data}));
             }, 100);
+        });
+        wrap('stopDrag', ([id]) => {
+            const target = byId(id);
+            this.spriteDrag = null;
+            if (target && !target.isStage) {
+                this.sendOp(() => ({kind: 'spriteInfo', target: targetKey(target), data: {x: target.x, y: target.y}}));
+            }
         });
 
         // Costumes.
@@ -566,6 +760,7 @@ class CollabSession {
                 if (target) q(() => vm.reorderTarget(vm.runtime.targets.indexOf(target), op.to));
                 break;
             case 'spriteInfo':
+                if (target) this.spriteGlides.delete(op.target);
                 if (target) {
                     q(() => {
                         target.postSpriteInfo(op.data);
@@ -643,15 +838,23 @@ class CollabSession {
             // Someone else's edit isn't this person's to undo.
             const recordUndo = Blockly.Events.recordUndo;
             const group = Blockly.Events.getGroup();
+            // Someone else's edit never asks this person anything (deleting a
+            // variable in use, say, would otherwise pop up a confirmation).
+            const confirm = Blockly.confirm;
+            const windowConfirm = window.confirm;
             try {
                 Blockly.Events.recordUndo = false;
                 Blockly.Events.setGroup(REMOTE_GROUP);
+                Blockly.confirm = (message, callback) => callback(true);
+                window.confirm = () => true;
                 const event = Blockly.Events.fromJson(op.json, ws);
                 event.run(true);
                 return;
             } catch (e) {
                 // Fall back to updating the VM and redrawing.
             } finally {
+                Blockly.confirm = confirm;
+                window.confirm = windowConfirm;
                 Blockly.Events.setGroup(group);
                 Blockly.Events.recordUndo = recordUndo;
             }
@@ -725,9 +928,23 @@ class CollabSession {
         return null;
     }
 
+    // Called by the stage while this person drags a sprite.
+    moveSprite (targetId, x, y) {
+        const target = this.vm.runtime.getTargetById(targetId);
+        if (!target || target.isStage || this.remote) return;
+        this.spriteDrag = {kind: 'sprite', target: targetKey(target), x: Math.round(x * 10) / 10, y: Math.round(y * 10) / 10};
+    }
+
     sendLive () {
         this.patchReload();
         if (this.remote) return;
+        if (this.spriteDrag) {
+            const key = JSON.stringify(this.spriteDrag);
+            if (key !== this.lastSpriteDrag) {
+                this.lastSpriteDrag = key;
+                this.rawSend({t: 'live', live: this.spriteDrag});
+            }
+        }
         const live = this.currentLive();
         const key = JSON.stringify(live);
         if (key === this.lastLive) return;
@@ -739,6 +956,13 @@ class CollabSession {
     }
 
     receiveLive (live, from) {
+        if (live && live.kind === 'sprite') {
+            const target = this.find(String(live.target));
+            if (target && typeof live.x === 'number' && typeof live.y === 'number') {
+                this.spriteGlides.set(targetKey(target), {x: live.x, y: live.y});
+            }
+            return;
+        }
         if (!live || !this.vm.editingTarget || live.target !== targetKey(this.vm.editingTarget)) return;
         const ws = this.workspace();
         const block = ws && ws.getBlockById(String(live.block));
@@ -778,6 +1002,7 @@ class CollabSession {
         const dt = Math.min(100, time - (this.lastDragFrame || time));
         this.lastDragFrame = time;
         this.dragFrame = requestAnimationFrame(t => this.animateDrags(t));
+        this.animateSprites(dt);
         if (!this.drags.size) return;
         const ws = this.workspace();
         const Blockly = window.ScratchBlocks || window.Blockly;
@@ -804,6 +1029,23 @@ class CollabSession {
             } finally {
                 Blockly.Events.enable();
             }
+        }
+    }
+
+    // Glide sprites others are dragging on the stage towards where they are.
+    animateSprites (dt) {
+        if (!this.spriteGlides.size) return;
+        const k = 1 - Math.exp(-dt / DRAG_EASE);
+        for (const [key, to] of this.spriteGlides) {
+            const target = this.find(key);
+            if (!target || this.vm._dragTarget === target) {
+                this.spriteGlides.delete(key);
+                continue;
+            }
+            const dx = to.x - target.x;
+            const dy = to.y - target.y;
+            if (Math.abs(dx) < 0.05 && Math.abs(dy) < 0.05) continue;
+            target.setXY(target.x + (dx * k), target.y + (dy * k), true);
         }
     }
 
