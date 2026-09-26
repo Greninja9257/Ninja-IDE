@@ -134,6 +134,7 @@ class CollabSession {
         document.addEventListener('mousemove', this.handleMouseMove, true);
         this.previews = new Map(); // "block:field" -> text before someone started typing
         this.outbox = []; // edits made while disconnected, sent on reconnecting
+        this.wasLive = false;
         this.spriteDrag = null; // a sprite this person is dragging on the stage
         this.spriteGlides = new Map(); // sprite -> where someone is dragging it
         this.pendingOps = 0;
@@ -181,7 +182,10 @@ class CollabSession {
     // Operations go out strictly in the order they happened, each after any
     // asset it refers to has reached the server.
     sendOp (makeOp, {upload = false} = {}) {
-        if (this.remote || this.closed) return;
+        // Until this editor has been live once, whatever it sees is the
+        // project loading (or being replaced by everyone else's copy), not
+        // edits; sending that would add a second copy of every script.
+        if (this.remote || this.closed || !this.wasLive) return;
         this.pendingOps++;
         this.sendQueue = this.sendQueue
             .then(async () => {
@@ -217,7 +221,10 @@ class CollabSession {
             this.buffered = [];
             this.mismatches.clear();
             // Alone in the room: this copy is the project, nothing to resend.
-            if (!this.catchingUp) this.outbox = [];
+            if (!this.catchingUp) {
+                this.outbox = [];
+                this.wasLive = true;
+            }
             this.handlers.onStatus(this.catchingUp ? 'catching-up' : 'live');
             this.handlers.onPeers([...this.peers.values()], this.me);
             break;
@@ -286,6 +293,7 @@ class CollabSession {
         const again = editing && this.find(editing);
         if (again) this.quiet(() => this.vm.setEditingTarget(again.id));
         this.catchingUp = false;
+        this.wasLive = true;
         this.handlers.onStatus('live');
         const pending = this.buffered;
         this.buffered = [];
@@ -474,7 +482,10 @@ class CollabSession {
         const originalRename = vm.renameSprite;
         wrap('renameSprite', ([id]) => {
             const target = byId(id);
-            if (target) this.sendOp(() => ({kind: 'renameSprite', from: this.lastName, to: target.sprite.name}));
+            // Loading a project "renames" every sprite to its own name.
+            if (target && this.lastName !== target.sprite.name) {
+                this.sendOp(() => ({kind: 'renameSprite', from: this.lastName, to: target.sprite.name}));
+            }
         });
         // renameSprite needs the old name, which is gone once it runs.
         const renameWrapper = vm.renameSprite;
