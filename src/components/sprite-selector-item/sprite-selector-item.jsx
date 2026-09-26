@@ -48,6 +48,7 @@ const SpriteSelectorItem = props => (
                 <div className={styles.spriteDetails}>{props.details}</div>
             ) : null}
         </div>
+        {props.badges}
         {(props.selected && props.onDeleteButtonClick) ? (
             <DeleteButton
                 className={styles.deleteButton}
@@ -98,6 +99,7 @@ const SpriteSelectorItem = props => (
 );
 
 SpriteSelectorItem.propTypes = {
+    badges: PropTypes.node,
     className: PropTypes.string,
     componentRef: PropTypes.func,
     costumeURL: PropTypes.string,

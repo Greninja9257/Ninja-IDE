@@ -1,0 +1,61 @@
+@import "../../css/colors.css";
+
+.invite-row input {
+    margin-bottom: 0.75rem;
+}
+
+.error {
+    margin-bottom: 0.75rem;
+    color: $error-primary;
+    font-size: 0.875rem;
+}
+
+.list {
+    margin: 0 0 1.5rem;
+    padding: 0;
+    max-height: 15rem;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-top: 1px solid $ui-black-transparent;
+}
+
+.avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+    object-fit: cover;
+}
+
+.name {
+    color: $looks-secondary;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.name:hover {
+    text-decoration: underline;
+}
+
+.pending {
+    color: $text-primary-transparent;
+    font-size: 0.75rem;
+}
+
+.remove {
+    margin-left: auto;
+    border: 1px solid $ui-black-transparent;
+    border-radius: 0.25rem;
+    background: white;
+    padding: 0.25rem 0.5rem;
+    color: black;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+}

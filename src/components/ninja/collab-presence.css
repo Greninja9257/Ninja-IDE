@@ -1,0 +1,38 @@
+/* Who's online, in the menu bar, and who's on each sprite tile. */
+
+.panel {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0 0.5rem;
+}
+
+.user {
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid;
+    border-radius: 0.25rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.badges {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.125rem;
+    width: 70%;
+    pointer-events: none;
+}
+
+.badge {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid;
+    border-radius: 0.25rem;
+    background-color: white;
+    background-position: center;
+    background-size: cover;
+}

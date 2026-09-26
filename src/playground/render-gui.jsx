@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import GUI from '../containers/gui.jsx';
 import {loadSession, setProjectShared} from '../reducers/ninja-session';
+import CollabOverlay from '../components/ninja/collab-overlay.jsx';
 
 // The IDE is served by the Ninja server, which stores projects and assets and
 // runs cloud variables on the same origin.
@@ -80,6 +81,9 @@ class RenderGUI extends React.Component {
     render () {
         const {
             authorUsername,
+            collaborators,
+            isCollaborator,
+            isPlayerOnly,
             isShared,
             reduxProjectId,
             username,
@@ -90,7 +94,12 @@ class RenderGUI extends React.Component {
         } = this.props;
         const hasId = Boolean(reduxProjectId) && reduxProjectId !== '0';
         const owns = Boolean(username && authorUsername && username === authorUsername);
-        return (
+        // Collaborators edit and save; renaming, sharing and copying stay
+        // with the owner.
+        const canEdit = owns || Boolean(username && isCollaborator);
+        const team = hasId && canEdit && !isMultiplayerClient && !isPlayerOnly &&
+            (isCollaborator || collaborators.length > 0);
+        return (<React.Fragment>
             <GUI
                 projectHost="/api/projects"
                 assetHost="/api/assets"
@@ -98,13 +107,13 @@ class RenderGUI extends React.Component {
                 canUseCloud
                 hasCloudPermission
                 canCreateNew={!isMultiplayerClient && Boolean(username)}
-                canSave={owns}
+                canSave={canEdit}
                 canCreateCopy={owns && hasId}
-                canRemix={Boolean(username) && !owns && hasId && Boolean(authorUsername)}
+                canRemix={Boolean(username) && !canEdit && hasId && Boolean(authorUsername)}
                 canShare={owns && hasId}
                 isShared={isShared}
                 basePath={process.env.ROOT}
-                canEditTitle
+                canEditTitle={owns || !hasId}
                 enableCommunity
                 onShare={this.handleShare}
                 onSeeCommunity={hasId ? this.handleSeeCommunity : null}
@@ -116,12 +125,16 @@ class RenderGUI extends React.Component {
                 onClickLogo={this.handleClickLogo}
                 {...props}
             />
-        );
+            {team ? <CollabOverlay projectId={reduxProjectId} /> : null}
+        </React.Fragment>);
     }
 }
 
 RenderGUI.propTypes = {
     authorUsername: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+    collaborators: PropTypes.arrayOf(PropTypes.object),
+    isCollaborator: PropTypes.bool,
+    isPlayerOnly: PropTypes.bool,
     isShared: PropTypes.bool,
     reduxProjectId: PropTypes.string,
     username: PropTypes.string,
@@ -134,6 +147,9 @@ const mapStateToProps = state => {
     const session = state.session && state.session.session;
     return {
         authorUsername: state.scratchGui.tw.author.username,
+        collaborators: (state.session && state.session.collaborators) || [],
+        isCollaborator: Boolean(state.session && state.session.isCollaborator),
+        isPlayerOnly: state.scratchGui.mode.isPlayerOnly,
         isShared: Boolean(state.session && state.session.isShared),
         reduxProjectId: state.scratchGui.projectState.projectId,
         username: session && session.user ? session.user.username : null

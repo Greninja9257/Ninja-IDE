@@ -687,6 +687,8 @@ class PythonPanel extends React.Component {
             store.resetCache();
             this.props.vm.emitWorkspaceUpdate();
             this.props.vm.emitTargetsUpdate();
+            // Live collaborators get the sprite's new blocks whole.
+            if (this.props.vm.ninjaCollab) this.props.vm.ninjaCollab.replaceBlocks(this.props.vm.editingTarget);
         } finally {
             // Loading the regenerated XML into Blockly emits follow-up change
             // events after emitWorkspaceUpdate returns. Keep those internal

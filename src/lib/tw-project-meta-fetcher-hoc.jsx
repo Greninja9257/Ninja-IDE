@@ -5,7 +5,7 @@ import log from './log';
 
 import {setProjectTitle} from '../reducers/project-title';
 import {setAuthor, setDescription, setStats} from '../reducers/tw';
-import {setProjectShared} from '../reducers/ninja-session';
+import {setProjectShared, setProjectTeam} from '../reducers/ninja-session';
 import {ProjectUnavailableLegalReasons} from './tw-load-project-error';
 
 export const fetchProjectMeta = async projectId => {
@@ -67,6 +67,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                 this.props.onSetDescription('', '');
                 this.props.onSetStats({views: null, loves: null, favorites: null, remixes: null});
                 this.props.onSetShared(false);
+                this.props.onSetTeam([], false, false);
                 const projectId = this.props.reduxProjectId;
 
                 if (projectId === '0') {
@@ -101,6 +102,8 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                             });
                         }
                         this.props.onSetShared(Boolean(data.is_published));
+                        this.props.onSetTeam(data.collaborators || [], Boolean(data.viewer && data.viewer.collaborator),
+                            Boolean(data.viewer && data.viewer.invited));
                         setIndexable(true);
                     })
                         .catch(err => {
@@ -119,6 +122,7 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
                 onSetStats,
                 onSetProjectTitle,
                 onSetShared,
+                onSetTeam,
                 /* eslint-enable no-unused-vars */
                 ...props
             } = this.props;
@@ -135,7 +139,8 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
         onSetDescription: PropTypes.func,
     onSetStats: PropTypes.func,
         onSetProjectTitle: PropTypes.func,
-        onSetShared: PropTypes.func
+        onSetShared: PropTypes.func,
+        onSetTeam: PropTypes.func
     };
     const mapStateToProps = state => ({
         reduxProjectId: state.scratchGui.projectState.projectId
@@ -151,7 +156,9 @@ const TWProjectMetaFetcherHOC = function (WrappedComponent) {
             credits
         })),
         onSetProjectTitle: title => dispatch(setProjectTitle(title)),
-        onSetShared: isShared => dispatch(setProjectShared(isShared))
+        onSetShared: isShared => dispatch(setProjectShared(isShared)),
+        onSetTeam: (collaborators, isCollaborator, isInvited) =>
+            dispatch(setProjectTeam(collaborators, isCollaborator, isInvited))
     });
     return connect(
         mapStateToProps,

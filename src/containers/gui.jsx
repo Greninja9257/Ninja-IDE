@@ -27,7 +27,8 @@ import {
     closeTelemetryModal,
     openExtensionLibrary
 ,
-    closeNinjaExportModal
+    closeNinjaExportModal,
+    closeNinjaCollabModal
 } from '../reducers/modals';
 
 import FontLoaderHOC from '../lib/font-loader-hoc.jsx';
@@ -199,12 +200,14 @@ const mapStateToProps = state => {
         unknownPlatformModalVisible: state.scratchGui.modals.unknownPlatformModal,
         invalidProjectModalVisible: state.scratchGui.modals.invalidProjectModal,
         ninjaExportModalVisible: state.scratchGui.modals.ninjaExportModal,
+        ninjaCollabModalVisible: state.scratchGui.modals.ninjaCollabModal,
         vm: state.scratchGui.vm
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     onCloseNinjaExportModal: () => dispatch(closeNinjaExportModal()),
+    onCloseNinjaCollabModal: () => dispatch(closeNinjaCollabModal()),
     onExtensionButtonClick: () => dispatch(openExtensionLibrary()),
     onActivateTab: tab => dispatch(activateTab(tab)),
     onActivateCostumesTab: () => dispatch(activateTab(COSTUMES_TAB_INDEX)),

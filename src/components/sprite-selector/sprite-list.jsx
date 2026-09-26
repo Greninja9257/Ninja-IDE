@@ -9,6 +9,7 @@ import SpriteSelectorItem from '../../containers/sprite-selector-item.jsx';
 import SortableHOC from '../../lib/sortable-hoc.jsx';
 import SortableAsset from '../asset-panel/sortable-asset.jsx';
 import ThrottledPropertyHOC from '../../lib/throttled-property-hoc.jsx';
+import {CollabBadges} from '../ninja/collab-presence.jsx';
 
 import styles from './sprite-selector.css';
 
@@ -79,6 +80,7 @@ const SpriteList = function (props) {
                         >
                             <ThrottledSpriteSelectorItem
                                 asset={sprite.costume && sprite.costume.asset}
+                                badges={<CollabBadges target={sprite.name} />}
                                 className={classNames(styles.sprite, {
                                     [styles.raised]: isRaised,
                                     [styles.receivedBlocks]: receivedBlocks

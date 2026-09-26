@@ -133,4 +133,50 @@ AccountNavComponent.propTypes = {
     username: PropTypes.string
 };
 
-export default AccountNavComponent;
+// Like the File and Edit menus: clicking the name toggles the menu, and
+// clicking anywhere else closes it.
+class AccountNav extends React.Component {
+    constructor (props) {
+        super(props);
+        this.handleToggle = this.handleToggle.bind(this);
+        this.handleMouseUp = this.handleMouseUp.bind(this);
+        this.setRef = this.setRef.bind(this);
+    }
+    componentDidMount () {
+        if (this.props.isOpen) document.addEventListener('mouseup', this.handleMouseUp);
+    }
+    componentDidUpdate (prevProps) {
+        if (this.props.isOpen && !prevProps.isOpen) document.addEventListener('mouseup', this.handleMouseUp);
+        if (!this.props.isOpen && prevProps.isOpen) document.removeEventListener('mouseup', this.handleMouseUp);
+    }
+    componentWillUnmount () {
+        document.removeEventListener('mouseup', this.handleMouseUp);
+    }
+    setRef (el) {
+        this.el = el;
+    }
+    handleToggle () {
+        if (this.props.isOpen) this.props.onClose();
+        else this.props.onClick();
+    }
+    handleMouseUp (e) {
+        if (this.props.isOpen && this.el && !this.el.contains(e.target)) this.props.onClose();
+    }
+    render () {
+        return (
+            <div
+                ref={this.setRef}
+                style={{display: 'contents'}}
+            >
+                <AccountNavComponent
+                    {...this.props}
+                    onClick={this.handleToggle}
+                />
+            </div>
+        );
+    }
+}
+
+AccountNav.propTypes = AccountNavComponent.propTypes;
+
+export default AccountNav;

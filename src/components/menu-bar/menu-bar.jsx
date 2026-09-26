@@ -14,6 +14,8 @@ import Button from '../button/button.jsx';
 import AccountNav from './account-nav.jsx';
 import CommunityButton from './community-button.jsx';
 import ShareButton from './share-button.jsx';
+import CollabShareMenu from '../ninja/collab-share-menu.jsx';
+import {CollabOnline} from '../ninja/collab-presence.jsx';
 import {ComingSoonTooltip} from '../coming-soon/coming-soon.jsx';
 import Divider from '../divider/divider.jsx';
 import SaveStatus from './save-status.jsx';
@@ -884,7 +886,10 @@ class MenuBar extends React.Component {
                     ) : null)}
                     {this.props.canShare ? (
                         (this.props.isShowingProject || this.props.isUpdating) && (
-                            <div className={classNames(styles.menuBarItem)}>
+                            <CollabShareMenu
+                                className={classNames(styles.menuBarItem)}
+                                buttonClassName={styles.menuBarButton}
+                            >
                                 <ProjectWatcher onDoneUpdating={this.props.onSeeCommunity}>
                                     {
                                         waitForUpdate => (
@@ -900,7 +905,7 @@ class MenuBar extends React.Component {
                                         )
                                     }
                                 </ProjectWatcher>
-                            </div>
+                            </CollabShareMenu>
                         )
                     ) : this.props.showComingSoon ? (
                         <div className={classNames(styles.menuBarItem)}>
@@ -930,6 +935,7 @@ class MenuBar extends React.Component {
                     )}
                 </div>
 
+                <CollabOnline />
                 <div className={styles.accountInfoGroup}>
                     {this.props.canSave ? (
                         <SaveStatus />

@@ -1,0 +1,22 @@
+@import "../../css/colors.css";
+
+.wrapper {
+    position: relative;
+}
+
+/* Hangs just under Share, touching it, so the hover isn't lost on the way. */
+.popout {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    margin-top: -0.5rem;
+    padding-top: 0.25rem;
+}
+
+.popout .collab-button {
+    background: $pen-primary;
+}

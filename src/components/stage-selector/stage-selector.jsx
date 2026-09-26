@@ -5,6 +5,7 @@ import {defineMessages, intlShape, injectIntl, FormattedMessage} from 'react-int
 
 import Box from '../box/box.jsx';
 import ActionMenu from '../action-menu/action-menu.jsx';
+import {CollabBadges} from '../ninja/collab-presence.jsx';
 import styles from './stage-selector.css';
 import {isRtl} from '@turbowarp/scratch-l10n';
 
@@ -95,6 +96,7 @@ const StageSelector = props => {
                 />
             </div>
             <div className={styles.count}>{backdropCount}</div>
+            <CollabBadges target="__stage__" />
             <ActionMenu
                 className={styles.addButton}
                 img={backdropIcon}

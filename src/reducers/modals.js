@@ -14,6 +14,7 @@ const MODAL_TIPS_LIBRARY = 'tipsLibrary';
 const MODAL_USERNAME = 'usernameModal';
 const MODAL_SETTINGS = 'settingsModal';
 const MODAL_NINJA_EXPORT = 'ninjaExportModal';
+const MODAL_NINJA_COLLAB = 'ninjaCollabModal';
 const MODAL_CUSTOM_EXTENSION = 'customExtensionModal';
 const MODAL_RESTORE_POINTS = 'restorePointModal';
 const MODAL_FONTS = 'fontsModal';
@@ -34,6 +35,7 @@ const initialState = {
     [MODAL_USERNAME]: false,
     [MODAL_SETTINGS]: false,
     [MODAL_NINJA_EXPORT]: false,
+    [MODAL_NINJA_COLLAB]: false,
     [MODAL_CUSTOM_EXTENSION]: false,
     [MODAL_RESTORE_POINTS]: false,
     [MODAL_FONTS]: false,
@@ -107,6 +109,9 @@ const openSettingsModal = function () {
 const openNinjaExportModal = function () {
     return openModal(MODAL_NINJA_EXPORT);
 };
+const openNinjaCollabModal = function () {
+    return openModal(MODAL_NINJA_COLLAB);
+};
 const openCustomExtensionModal = function () {
     return openModal(MODAL_CUSTOM_EXTENSION);
 };
@@ -161,6 +166,9 @@ const closeSettingsModal = function () {
 const closeNinjaExportModal = function () {
     return closeModal(MODAL_NINJA_EXPORT);
 };
+const closeNinjaCollabModal = function () {
+    return closeModal(MODAL_NINJA_COLLAB);
+};
 const closeCustomExtensionModal = function () {
     return closeModal(MODAL_CUSTOM_EXTENSION);
 };
@@ -210,6 +218,8 @@ export {
     closeSettingsModal,
     openNinjaExportModal,
     closeNinjaExportModal,
+    openNinjaCollabModal,
+    closeNinjaCollabModal,
     closeCustomExtensionModal,
     closeRestorePointModal,
     closeFontsModal,

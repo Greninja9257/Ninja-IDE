@@ -11,6 +11,7 @@ import VM from 'scratch-vm';
 
 import CodePanel from '../ninja/code-panel.jsx';
 import ExportModal from '../ninja/export-modal.jsx';
+import CollabModal from '../ninja/collab-modal.jsx';
 import CostumeTab from '../../containers/costume-tab.jsx';
 import TargetPane from '../../containers/target-pane.jsx';
 import SoundTab from '../../containers/sound-tab.jsx';
@@ -164,6 +165,8 @@ const GUIComponent = props => {
         invalidProjectModalVisible,
         ninjaExportModalVisible,
         onCloseNinjaExportModal,
+        ninjaCollabModalVisible,
+        onCloseNinjaCollabModal,
         vm,
         ...componentProps
     } = omit(props, 'dispatch');
@@ -283,6 +286,9 @@ const GUIComponent = props => {
                 ) : null}
                 {ninjaExportModalVisible ? (
                     <ExportModal onClose={onCloseNinjaExportModal} />
+                ) : null}
+                {ninjaCollabModalVisible ? (
+                    <CollabModal onClose={onCloseNinjaCollabModal} />
                 ) : null}
                 {costumeLibraryVisible ? (
                     <CostumeLibrary
@@ -552,6 +558,8 @@ GUIComponent.propTypes = {
     invalidProjectModalVisible: PropTypes.bool,
     ninjaExportModalVisible: PropTypes.bool,
     onCloseNinjaExportModal: PropTypes.func,
+    ninjaCollabModalVisible: PropTypes.bool,
+    onCloseNinjaCollabModal: PropTypes.func,
     vm: PropTypes.instanceOf(VM).isRequired
 };
 GUIComponent.defaultProps = {
