@@ -7,6 +7,7 @@ import {connect} from 'react-redux';
 
 import {updateTargets} from '../reducers/targets';
 import {updateBlockDrag} from '../reducers/block-drag';
+import {clearHoveredSprite} from '../reducers/hovered-target';
 import {updateMonitors} from '../reducers/monitors';
 import {setProjectChanged, setProjectUnchanged} from '../reducers/project-changed';
 import {setRunningState, setTurboState, setStartedState} from '../reducers/vm-status';
@@ -326,6 +327,15 @@ const vmListenerHOC = function (WrappedComponent) {
         },
         onBlockDragUpdate: areBlocksOverGui => {
             dispatch(updateBlockDrag(areBlocksOverGui));
+            if (!areBlocksOverGui) {
+                // Blocks are back over the code area, or the drag ended. Apply
+                // that right away (the throttled update above can arrive late),
+                // and once any drop onto a sprite has been handled (the VM fires
+                // BLOCK_DRAG_END straight after this), forget the hovered sprite
+                // so the editor doesn't stay stuck mid-drag.
+                dispatch({...updateBlockDrag(false), meta: {}});
+                setTimeout(() => dispatch(clearHoveredSprite()), 0);
+            }
         },
         onProjectRunStart: () => dispatch(setRunningState(true)),
         onProjectRunStop: () => dispatch(setRunningState(false)),

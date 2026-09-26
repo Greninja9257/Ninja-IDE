@@ -46,11 +46,16 @@ class RenderGUI extends React.Component {
     // Renaming in the editor saves the title right away, as scratch-www does,
     // so it sticks even when nothing else in the project changed.
     handleUpdateProjectTitle (title, isDefault) {
+        // The page around the editor also listens (it sets the tab title).
+        if (this.props.onUpdateProjectTitle) this.props.onUpdateProjectTitle(title, isDefault);
         const {authorUsername, reduxProjectId, username} = this.props;
         const saved = Boolean(reduxProjectId) && reduxProjectId !== '0';
         if (isDefault || !saved || !username || username !== authorUsername) return;
+        // keepalive: "See Project Page" right after renaming leaves the page
+        // at once, and the browser would otherwise cancel this request.
         fetch(`/api/projects/${reduxProjectId}`, {
             method: 'PATCH',
+            keepalive: true,
             credentials: 'same-origin',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({title})
@@ -80,6 +85,7 @@ class RenderGUI extends React.Component {
             username,
             onLoadSession, // eslint-disable-line no-unused-vars
             onSetShared, // eslint-disable-line no-unused-vars
+            onUpdateProjectTitle, // eslint-disable-line no-unused-vars
             ...props
         } = this.props;
         const hasId = Boolean(reduxProjectId) && reduxProjectId !== '0';
@@ -120,7 +126,8 @@ RenderGUI.propTypes = {
     reduxProjectId: PropTypes.string,
     username: PropTypes.string,
     onLoadSession: PropTypes.func,
-    onSetShared: PropTypes.func
+    onSetShared: PropTypes.func,
+    onUpdateProjectTitle: PropTypes.func
 };
 
 const mapStateToProps = state => {

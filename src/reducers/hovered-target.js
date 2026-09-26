@@ -34,6 +34,15 @@ const setHoveredSprite = function (spriteId) {
     };
 };
 
+// Not throttled: used when a drag ends, so a dropped throttled update can't
+// leave a stale sprite that later drops would copy blocks to.
+const clearHoveredSprite = function () {
+    return {
+        type: SET_HOVERED_SPRITE,
+        spriteId: null
+    };
+};
+
 const setReceivedBlocks = function (receivedBlocks) {
     return {
         type: SET_RECEIVED_BLOCKS,
@@ -45,5 +54,6 @@ export {
     reducer as default,
     initialState as hoveredTargetInitialState,
     setHoveredSprite,
+    clearHoveredSprite,
     setReceivedBlocks
 };
