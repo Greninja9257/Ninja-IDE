@@ -24,6 +24,7 @@ class RenderGUI extends React.Component {
         this.handleShare = this.handleShare.bind(this);
         this.handleSeeCommunity = this.handleSeeCommunity.bind(this);
         this.handleUpdateProjectThumbnail = this.handleUpdateProjectThumbnail.bind(this);
+        this.handleUpdateProjectTitle = this.handleUpdateProjectTitle.bind(this);
         this.handleLogOut = this.handleLogOut.bind(this);
         this.handleOpenRegistration = this.handleOpenRegistration.bind(this);
         this.handleClickLogin = this.handleClickLogin.bind(this);
@@ -41,6 +42,19 @@ class RenderGUI extends React.Component {
     }
     handleSeeCommunity () {
         location.href = `/projects/${this.props.reduxProjectId}`;
+    }
+    // Renaming in the editor saves the title right away, as scratch-www does,
+    // so it sticks even when nothing else in the project changed.
+    handleUpdateProjectTitle (title, isDefault) {
+        const {authorUsername, reduxProjectId, username} = this.props;
+        const saved = Boolean(reduxProjectId) && reduxProjectId !== '0';
+        if (isDefault || !saved || !username || username !== authorUsername) return;
+        fetch(`/api/projects/${reduxProjectId}`, {
+            method: 'PATCH',
+            credentials: 'same-origin',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({title})
+        }).catch(() => {});
     }
     handleUpdateProjectThumbnail (projectId, blob) {
         postBlob(`/api/projects/${projectId}/thumbnail`, blob).catch(() => {});
@@ -89,6 +103,7 @@ class RenderGUI extends React.Component {
                 onShare={this.handleShare}
                 onSeeCommunity={hasId ? this.handleSeeCommunity : null}
                 onUpdateProjectThumbnail={this.handleUpdateProjectThumbnail}
+                onUpdateProjectTitle={this.handleUpdateProjectTitle}
                 onLogOut={this.handleLogOut}
                 onOpenRegistration={this.handleOpenRegistration}
                 onClickLogin={this.handleClickLogin}

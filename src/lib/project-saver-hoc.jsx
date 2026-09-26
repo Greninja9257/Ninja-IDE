@@ -155,7 +155,7 @@ const ProjectSaverHOC = function (WrappedComponent) {
         }
         updateProjectToStorage () {
             this.props.onShowSavingAlert();
-            return this.storeProject(this.props.reduxProjectId)
+            return this.storeProject(this.props.reduxProjectId, {title: this.props.reduxProjectTitle})
                 .then(() => {
                     // there's an http response object available here, but we don't need to examine
                     // it, because there are no values contained in it that we care about
@@ -170,7 +170,7 @@ const ProjectSaverHOC = function (WrappedComponent) {
                 });
         }
         createNewProjectToStorage () {
-            return this.storeProject(null)
+            return this.storeProject(null, {title: this.props.reduxProjectTitle})
                 .then(response => {
                     this.props.onCreatedProject(response.id.toString(), this.props.loadingState);
                 })
