@@ -72,7 +72,7 @@
                         opcode: 'userExists',
                         blockType: Scratch.BlockType.BOOLEAN,
                         text: 'user [USER] exists?',
-                        arguments: {USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja9257'}}
+                        arguments: {USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja'}}
                     },
                     {
                         opcode: 'userInfo',
@@ -80,7 +80,7 @@
                         text: '[INFO] of user [USER]',
                         arguments: {
                             INFO: {type: Scratch.ArgumentType.STRING, menu: 'userInfo', defaultValue: 'about me'},
-                            USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja9257'}
+                            USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja'}
                         }
                     },
                     {
@@ -89,7 +89,7 @@
                         text: '[LIST] of user [USER] page [PAGE]',
                         arguments: {
                             LIST: {type: Scratch.ArgumentType.STRING, menu: 'userLists', defaultValue: 'projects'},
-                            USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja9257'},
+                            USER: {type: Scratch.ArgumentType.STRING, defaultValue: 'Greninja'},
                             PAGE: {type: Scratch.ArgumentType.NUMBER, defaultValue: 1}
                         }
                     },

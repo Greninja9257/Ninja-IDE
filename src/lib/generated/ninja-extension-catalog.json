@@ -4116,8 +4116,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/ninja-ninja-api.js",
-      "extensionSha256": "8d5d6c3dd78b67d6a7881e1f86d92c25dd98de105b8437d6ec5c1e8f45aa874d",
-      "extensionBytes": 13785,
+      "extensionSha256": "9675283ffa043c7a1248a1c3109daed4cc2d592b052f72f4a25132074dc8f6c4",
+      "extensionBytes": 13773,
       "iconURL": "ninja-extensions/icons/ninja-ninja-api.svg",
       "iconSha256": "d396f05b108c2ee146ae9ba283015ecd75c19143cc1f5fa4800ac47505bb3aea",
       "tags": [
