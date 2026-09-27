@@ -254,6 +254,10 @@ class CollabSession {
             this.handlers.onChat(message.from === (this.me && this.me.id) ? this.me : this.peers.get(message.from),
                 message.text, message.cursor);
             break;
+        case 'chat-rejected':
+            // The comment filter turned our message away (and maybe muted us).
+            if (this.handlers.onChatRejected) this.handlers.onChatRejected(message.rejected, message.mute_status);
+            break;
         case 'snapshot-request':
             // Someone joined: send them the project as it is right now.
             this.sendQueue = this.sendQueue.then(async () => {

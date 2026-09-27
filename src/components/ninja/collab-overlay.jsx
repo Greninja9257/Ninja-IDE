@@ -13,6 +13,22 @@ const CHAT_SECONDS = 6;
 // How many of one person's messages stay up at once, and how long one
 // takes to fade out (matches the CSS).
 const CHAT_STACK = 5;
+// Why the filter turned a chat message away (after Scratch's mute reasons).
+const CHAT_PROBLEMS = {
+    pii: 'That looked like sharing or asking for private information, which isn\u2019t safe to share.',
+    unconstructive: 'That might have been hurtful. Try saying what you like and how it could be better.',
+    vulgarity: 'That included a bad word. Please use language that\u2019s okay for all ages.',
+    spam: 'That looked like advertising, text art or a chain message.',
+    general: 'That didn\u2019t follow the Community Guidelines.'
+};
+const inDuration = ms => {
+    const seconds = Math.max(1, Math.round((ms - Date.now()) / 1000));
+    const rtf = new Intl.RelativeTimeFormat('en', {numeric: 'auto'});
+    if (seconds < 60) return rtf.format(seconds, 'second');
+    if (seconds < 3600) return rtf.format(Math.ceil(seconds / 60), 'minute');
+    if (seconds < 86400) return rtf.format(Math.ceil(seconds / 3600), 'hour');
+    return rtf.format(Math.ceil(seconds / 86400), 'day');
+};
 const CHAT_FADE = 250;
 let chatSeq = 0;
 const CURSOR_INTERVAL = 50;
@@ -195,7 +211,8 @@ class CollabOverlay extends React.Component {
             // This person's own messages are shown as they send them.
             onChat: (person, text, cursor) => {
                 if (person && !(this.state.me && person.id === this.state.me.id)) this.addChat(person, text, cursor);
-            }
+            },
+            onChatRejected: (rejected, muteStatus) => this.chatRejected(rejected, muteStatus)
         });
         vm.ninjaCollab = this.session;
         this.chatSweep = setInterval(() => {
@@ -320,7 +337,33 @@ class CollabOverlay extends React.Component {
         if (e.key !== 'Enter' || e.shiftKey || e.ctrlKey || e.metaKey || e.altKey || isTyping()) return;
         e.preventDefault();
         e.stopPropagation();
+        // Chat paused by the filter: say until when instead of opening the box.
+        if (this.chatMutedUntil > Date.now()) {
+            this.addNotice(`Chat is paused. You can chat again ${inDuration(this.chatMutedUntil)}.`);
+            return;
+        }
         this.setState({composing: {x: this.mouse.x, y: this.mouse.y}, text: ''});
+    }
+
+    // The filter turned a message away: take down the copy shown as it was
+    // sent, and say why in its place.
+    chatRejected (rejected, muteStatus) {
+        const me = this.state.me;
+        if (muteStatus && muteStatus.muteExpiresAt) this.chatMutedUntil = muteStatus.muteExpiresAt * 1000;
+        const mine = me && this.state.chats.filter(c => c.person.id === me.id && !c.notice && !c.leaving);
+        const last = mine && mine[mine.length - 1];
+        if (last) this.setState(state => ({chats: state.chats.filter(c => c.id !== last.id)}));
+        const until = this.chatMutedUntil > Date.now() ? ` You can chat again ${inDuration(this.chatMutedUntil)}.` : '';
+        const type = muteStatus && muteStatus.currentMessageType;
+        const text = rejected === 'hasChatSite' ?
+            'Please don\u2019t link to websites with unmoderated chat.' :
+            rejected === 'isMuted' ? `Chat is paused.${until}` :
+                `${CHAT_PROBLEMS[type] || CHAT_PROBLEMS.general}${until}`;
+        this.addNotice(text);
+    }
+
+    addNotice (text) {
+        if (this.state.me) this.addChat(this.state.me, text, null, true, true);
     }
 
     setInput (input) {
@@ -364,7 +407,7 @@ class CollabOverlay extends React.Component {
 
     // Messages stack above the sender's cursor, newest at the bottom; past a
     // few, the oldest fade out.
-    addChat (person, text, cursor, instant) {
+    addChat (person, text, cursor, instant, notice) {
         if (!person) return;
         const mine = this.state.me && person.id === this.state.me.id;
         const now = Date.now();
@@ -374,7 +417,7 @@ class CollabOverlay extends React.Component {
             return {
                 chats: state.chats
                     .map(c => (tooMany.includes(c.id) ? {...c, leaving: now} : c))
-                    .concat({id: ++chatSeq, person, text, cursor, mine, instant, until: now + (CHAT_SECONDS * 1000)})
+                    .concat({id: ++chatSeq, person, text, cursor, mine, instant, notice, until: now + (CHAT_SECONDS * 1000)})
             };
         });
     }
@@ -433,13 +476,14 @@ class CollabOverlay extends React.Component {
                                 <span style={{color: chat.person.color}}>{chat.person.username}</span>
                             </span>
                         ) : null}
-                        {named ? (
+                        {chat.notice ? <span className={styles.notice}>{chat.text}</span> : null}
+                        {!chat.notice && named ? (
                             <span
                                 className={styles.bubbleName}
                                 style={{color: chat.person.color}}
                             >{chat.person.username}</span>
                         ) : null}
-                        {chat.text}
+                        {chat.notice ? null : chat.text}
                     </ChatBubble>
                 </div>
             </div>

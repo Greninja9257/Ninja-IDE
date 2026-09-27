@@ -154,3 +154,9 @@
     font: inherit;
     outline: none;
 }
+
+/* A message the filter turned away, in its place. */
+.notice {
+    color: #855cd6;
+    font-style: italic;
+}
