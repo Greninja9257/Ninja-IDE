@@ -141,6 +141,18 @@
         "rate": 44100
     },
     {
+        "name": "Alarm",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "81a30fb57b95ca252f588ec2e8b7da35",
+        "dataFormat": "mp3",
+        "md5ext": "81a30fb57b95ca252f588ec2e8b7da35.mp3",
+        "sampleCount": 87264,
+        "rate": 44100
+    },
+    {
         "name": "Alert",
         "tags": [
             "effects",
@@ -153,6 +165,18 @@
         "md5ext": "f62e3bfccab9c23eee781473c94a009c.wav",
         "sampleCount": 22353,
         "rate": 22050
+    },
+    {
+        "name": "Alien",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "2b67faa3e2b8c331558ccab858d6d987",
+        "dataFormat": "mp3",
+        "md5ext": "2b67faa3e2b8c331558ccab858d6d987.mp3",
+        "sampleCount": 30658,
+        "rate": 44100
     },
     {
         "name": "Alien Creak1",
@@ -176,6 +200,64 @@
         "dataFormat": "",
         "md5ext": "21f82b7f1a83c501539c5031aea4fa8c.wav",
         "sampleCount": 33200,
+        "rate": 44100
+    },
+    {
+        "name": "Ambient",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "76107b23f8d39c3ef6d4faf3e2ad79b4",
+        "dataFormat": "mp3",
+        "md5ext": "76107b23f8d39c3ef6d4faf3e2ad79b4.mp3",
+        "sampleCount": 363117,
+        "rate": 44100
+    },
+    {
+        "name": "Ambient Loop",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "5a6135b01a725e35bad6e15a21050a6b",
+        "dataFormat": "mp3",
+        "md5ext": "5a6135b01a725e35bad6e15a21050a6b.mp3",
+        "sampleCount": 132230,
+        "rate": 44100
+    },
+    {
+        "name": "Ambient Weird Loop",
+        "tags": [
+            "space"
+        ],
+        "assetId": "a24b54b50773a51559970a7f33f07c7e",
+        "dataFormat": "mp3",
+        "md5ext": "a24b54b50773a51559970a7f33f07c7e.mp3",
+        "sampleCount": 141223,
+        "rate": 44100
+    },
+    {
+        "name": "Arcade Mode",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "fdc5d2222794de3433242facda767a8c",
+        "dataFormat": "mp3",
+        "md5ext": "fdc5d2222794de3433242facda767a8c.mp3",
+        "sampleCount": 71899,
+        "rate": 44100
+    },
+    {
+        "name": "Attack",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "d8fd1a6e0aa6649572340fd292afc83a",
+        "dataFormat": "mp3",
+        "md5ext": "d8fd1a6e0aa6649572340fd292afc83a.mp3",
+        "sampleCount": 24139,
         "rate": 44100
     },
     {
@@ -309,12 +391,47 @@
         "rate": 22050
     },
     {
+        "name": "Back",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "e7a8f40d8593bae488e703b626d41e3b",
+        "dataFormat": "mp3",
+        "md5ext": "e7a8f40d8593bae488e703b626d41e3b.mp3",
+        "sampleCount": 2688,
+        "rate": 44100
+    },
+    {
+        "name": "Bang",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "623034a7803d96e627343e98feb0ff2c",
+        "dataFormat": "mp3",
+        "md5ext": "623034a7803d96e627343e98feb0ff2c.mp3",
+        "sampleCount": 45612,
+        "rate": 44100
+    },
+    {
         "name": "Bark",
         "tags": [],
         "assetId": "cd8fa8390b0efdd281882533fbfcfcfb",
         "dataFormat": "",
         "md5ext": "cd8fa8390b0efdd281882533fbfcfcfb.wav",
         "sampleCount": 6336,
+        "rate": 44100
+    },
+    {
+        "name": "Barking",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "55fc45fddddd7226066e81b49be983c0",
+        "dataFormat": "mp3",
+        "md5ext": "55fc45fddddd7226066e81b49be983c0.mp3",
+        "sampleCount": 17567,
         "rate": 44100
     },
     {
@@ -367,6 +484,40 @@
         "rate": 44100
     },
     {
+        "name": "Beep",
+        "tags": [
+            "space"
+        ],
+        "assetId": "7b9f3106691d1fb45821a4d783de9b1b",
+        "dataFormat": "mp3",
+        "md5ext": "7b9f3106691d1fb45821a4d783de9b1b.mp3",
+        "sampleCount": 14292,
+        "rate": 44100
+    },
+    {
+        "name": "Begin",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "4386ee12ee38119482d3951d5cffd114",
+        "dataFormat": "mp3",
+        "md5ext": "4386ee12ee38119482d3951d5cffd114.mp3",
+        "sampleCount": 53923,
+        "rate": 44100
+    },
+    {
+        "name": "Bell",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "2276f669c76c02dd2c8345a9ee0fd91e",
+        "dataFormat": "mp3",
+        "md5ext": "2276f669c76c02dd2c8345a9ee0fd91e.mp3",
+        "sampleCount": 57312,
+        "rate": 44100
+    },
+    {
         "name": "Bell Cymbal",
         "tags": [],
         "assetId": "efddec047de95492f775a1b5b2e8d19e",
@@ -385,6 +536,18 @@
         "dataFormat": "",
         "md5ext": "25d61e79cbeba4041eebeaebd7bf9598.wav",
         "sampleCount": 180672,
+        "rate": 44100
+    },
+    {
+        "name": "Belt Handle",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "892c017ca2af3ccdcc728cf658fcf4d1",
+        "dataFormat": "mp3",
+        "md5ext": "892c017ca2af3ccdcc728cf658fcf4d1.mp3",
+        "sampleCount": 12202,
         "rate": 44100
     },
     {
@@ -432,6 +595,18 @@
         "rate": 22050
     },
     {
+        "name": "Blade",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "d62c8da5bfe723e7f1aa175f7779a7aa",
+        "dataFormat": "mp3",
+        "md5ext": "d62c8da5bfe723e7f1aa175f7779a7aa.mp3",
+        "sampleCount": 12830,
+        "rate": 44100
+    },
+    {
         "name": "Boing",
         "tags": [
             "effects"
@@ -441,6 +616,30 @@
         "md5ext": "53a3c2e27d1fb5fdb14aaf0cb41e7889.wav",
         "sampleCount": 7113,
         "rate": 22050
+    },
+    {
+        "name": "Bomb",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "f8c4cfe6cf08f6dd129107684e9500b7",
+        "dataFormat": "mp3",
+        "md5ext": "f8c4cfe6cf08f6dd129107684e9500b7.mp3",
+        "sampleCount": 74808,
+        "rate": 44100
+    },
+    {
+        "name": "Bong",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "4b823b81f57f38218a5b02e1003a4fe6",
+        "dataFormat": "mp3",
+        "md5ext": "4b823b81f57f38218a5b02e1003a4fe6.mp3",
+        "sampleCount": 5289,
+        "rate": 44100
     },
     {
         "name": "Bonk",
@@ -454,6 +653,42 @@
         "md5ext": "dd93f7835a407d4de5b2512ec4a6a806.wav",
         "sampleCount": 14225,
         "rate": 22050
+    },
+    {
+        "name": "Bonus",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "95116943ab0962c1b3241b1e20ffd576",
+        "dataFormat": "mp3",
+        "md5ext": "95116943ab0962c1b3241b1e20ffd576.mp3",
+        "sampleCount": 31667,
+        "rate": 44100
+    },
+    {
+        "name": "Book",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "67f9e4aacdd0ae13d2f965bbc8923458",
+        "dataFormat": "mp3",
+        "md5ext": "67f9e4aacdd0ae13d2f965bbc8923458.mp3",
+        "sampleCount": 31874,
+        "rate": 44100
+    },
+    {
+        "name": "Book Flip",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "65652f35e9e07078cd67051347dad95c",
+        "dataFormat": "mp3",
+        "md5ext": "65652f35e9e07078cd67051347dad95c.mp3",
+        "sampleCount": 33897,
+        "rate": 44100
     },
     {
         "name": "Boom Cloud",
@@ -496,6 +731,17 @@
         "rate": 22050
     },
     {
+        "name": "Bottle Shake",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "8f69b53e85b50726e20acad2cb5dfd97",
+        "dataFormat": "mp3",
+        "md5ext": "8f69b53e85b50726e20acad2cb5dfd97.mp3",
+        "sampleCount": 130420,
+        "rate": 44100
+    },
+    {
         "name": "Bowling Strike",
         "tags": [
             "sports",
@@ -508,12 +754,71 @@
         "rate": 22050
     },
     {
+        "name": "Breaking",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "8e2f1cac03379c5f2a03496db7bdf538",
+        "dataFormat": "mp3",
+        "md5ext": "8e2f1cac03379c5f2a03496db7bdf538.mp3",
+        "sampleCount": 46893,
+        "rate": 44100
+    },
+    {
+        "name": "Breath",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "244af2cb80e79bc8a5c76d41075fba6a",
+        "dataFormat": "mp3",
+        "md5ext": "244af2cb80e79bc8a5c76d41075fba6a.mp3",
+        "sampleCount": 29566,
+        "rate": 44100
+    },
+    {
+        "name": "Bubble",
+        "tags": [
+            "effects",
+            "water"
+        ],
+        "assetId": "b3bbff400feb558d3751753153ff04ce",
+        "dataFormat": "mp3",
+        "md5ext": "b3bbff400feb558d3751753153ff04ce.mp3",
+        "sampleCount": 30714,
+        "rate": 44100
+    },
+    {
         "name": "Bubbles",
         "tags": [],
         "assetId": "78b0be9c9c2f664158b886bc7e794095",
         "dataFormat": "",
         "md5ext": "78b0be9c9c2f664158b886bc7e794095.wav",
         "sampleCount": 180224,
+        "rate": 44100
+    },
+    {
+        "name": "Burble",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "f0fdd572d38b473d76c24dba150b63ff",
+        "dataFormat": "mp3",
+        "md5ext": "f0fdd572d38b473d76c24dba150b63ff.mp3",
+        "sampleCount": 43728,
+        "rate": 44100
+    },
+    {
+        "name": "Burp",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "45ec28b53d524712637fb2341f5bcf96",
+        "dataFormat": "mp3",
+        "md5ext": "45ec28b53d524712637fb2341f5bcf96.mp3",
+        "sampleCount": 30362,
         "rate": 44100
     },
     {
@@ -772,6 +1077,17 @@
         "rate": 44100
     },
     {
+        "name": "Cannon",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "a1d4cd578d2f358d2651df90e1ee4c0d",
+        "dataFormat": "mp3",
+        "md5ext": "a1d4cd578d2f358d2651df90e1ee4c0d.mp3",
+        "sampleCount": 54608,
+        "rate": 44100
+    },
+    {
         "name": "Car Horn",
         "tags": [
             "effects",
@@ -807,6 +1123,75 @@
         "md5ext": "ead1da4a87ff6cb53441142f7ac37b8f.wav",
         "sampleCount": 43689,
         "rate": 22050
+    },
+    {
+        "name": "Card Fan",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "ccd43d1bc72fd0686935439b9491a0e3",
+        "dataFormat": "mp3",
+        "md5ext": "ccd43d1bc72fd0686935439b9491a0e3.mp3",
+        "sampleCount": 31787,
+        "rate": 44100
+    },
+    {
+        "name": "Card Shove",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "550a3163f8dc8921fd58e11d4830b6dc",
+        "dataFormat": "mp3",
+        "md5ext": "550a3163f8dc8921fd58e11d4830b6dc.mp3",
+        "sampleCount": 33774,
+        "rate": 44100
+    },
+    {
+        "name": "Cards Pack Open",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "af9dc8d2bd691c42dfd9809bd302bd58",
+        "dataFormat": "mp3",
+        "md5ext": "af9dc8d2bd691c42dfd9809bd302bd58.mp3",
+        "sampleCount": 41338,
+        "rate": 44100
+    },
+    {
+        "name": "Cat Meow 1",
+        "tags": [
+            "animals"
+        ],
+        "assetId": "1b4b9ca7c2f8be1c38f5ee6bba8e28a9",
+        "dataFormat": "mp3",
+        "md5ext": "1b4b9ca7c2f8be1c38f5ee6bba8e28a9.mp3",
+        "sampleCount": 73686,
+        "rate": 44100
+    },
+    {
+        "name": "Cat Meow 2",
+        "tags": [
+            "animals"
+        ],
+        "assetId": "bb2aba2f7ca86bbbe98e14fae07c950e",
+        "dataFormat": "mp3",
+        "md5ext": "bb2aba2f7ca86bbbe98e14fae07c950e.mp3",
+        "sampleCount": 25697,
+        "rate": 44100
+    },
+    {
+        "name": "Cat Meow 3",
+        "tags": [
+            "animals"
+        ],
+        "assetId": "5df5adb155d4ee4fda3ad3e253863ab0",
+        "dataFormat": "mp3",
+        "md5ext": "5df5adb155d4ee4fda3ad3e253863ab0.mp3",
+        "sampleCount": 46305,
+        "rate": 44100
     },
     {
         "name": "Cave",
@@ -873,6 +1258,30 @@
         "rate": 44100
     },
     {
+        "name": "Chips Collide",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "4ca02eb4da83280f71e4e97e25d9eabf",
+        "dataFormat": "mp3",
+        "md5ext": "4ca02eb4da83280f71e4e97e25d9eabf.mp3",
+        "sampleCount": 11282,
+        "rate": 44100
+    },
+    {
+        "name": "Chips Stack",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "0f4c6f799586178aa3dbf9f8e7ac4282",
+        "dataFormat": "mp3",
+        "md5ext": "0f4c6f799586178aa3dbf9f8e7ac4282.mp3",
+        "sampleCount": 12549,
+        "rate": 44100
+    },
+    {
         "name": "Chirp",
         "tags": [
             "animals",
@@ -894,6 +1303,30 @@
         "dataFormat": "",
         "md5ext": "0b1e3033140d094563248e61de4039e5.wav",
         "sampleCount": 11648,
+        "rate": 44100
+    },
+    {
+        "name": "Choose Your Character",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "a5d3a88e31132bbaead17bfa61f828f6",
+        "dataFormat": "mp3",
+        "md5ext": "a5d3a88e31132bbaead17bfa61f828f6.mp3",
+        "sampleCount": 91569,
+        "rate": 44100
+    },
+    {
+        "name": "Chop",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "ce17f01bc0370c8c323f3200068d650e",
+        "dataFormat": "mp3",
+        "md5ext": "ce17f01bc0370c8c323f3200068d650e.mp3",
+        "sampleCount": 10595,
         "rate": 44100
     },
     {
@@ -941,6 +1374,18 @@
         "rate": 44100
     },
     {
+        "name": "Classic Swish",
+        "tags": [
+            "effects",
+            "sports"
+        ],
+        "assetId": "94881d57d4f2641a7bea1dbebb676d94",
+        "dataFormat": "mp3",
+        "md5ext": "94881d57d4f2641a7bea1dbebb676d94.mp3",
+        "sampleCount": 16278,
+        "rate": 44100
+    },
+    {
         "name": "Classical Piano",
         "tags": [
             "loops",
@@ -955,6 +1400,18 @@
         "rate": 44100
     },
     {
+        "name": "Click",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "d4c31c2125c033c69b78cc9d8dd32a61",
+        "dataFormat": "mp3",
+        "md5ext": "d4c31c2125c033c69b78cc9d8dd32a61.mp3",
+        "sampleCount": 4282,
+        "rate": 44100
+    },
+    {
         "name": "Clock Ticking",
         "tags": [
             "effects",
@@ -965,6 +1422,18 @@
         "md5ext": "a634fcb87894520edbd7a534d1479ec4.wav",
         "sampleCount": 109729,
         "rate": 22050
+    },
+    {
+        "name": "Cloth Belt",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "72a752d3740792970953c7152ac01e59",
+        "dataFormat": "mp3",
+        "md5ext": "72a752d3740792970953c7152ac01e59.mp3",
+        "sampleCount": 31864,
+        "rate": 44100
     },
     {
         "name": "Clown Honk",
@@ -1005,6 +1474,30 @@
         "rate": 22050
     },
     {
+        "name": "Combo",
+        "tags": [
+            "effects",
+            "sports"
+        ],
+        "assetId": "be2c3f4f1d6b5af7980383a3494a1d7c",
+        "dataFormat": "mp3",
+        "md5ext": "be2c3f4f1d6b5af7980383a3494a1d7c.mp3",
+        "sampleCount": 26945,
+        "rate": 44100
+    },
+    {
+        "name": "Combo Breaker",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "be811f1e887e3a37fd517ece66c7c964",
+        "dataFormat": "mp3",
+        "md5ext": "be811f1e887e3a37fd517ece66c7c964.mp3",
+        "sampleCount": 70203,
+        "rate": 44100
+    },
+    {
         "name": "Computer Beep",
         "tags": [],
         "assetId": "28c76b6bebd04be1383fe9ba4933d263",
@@ -1026,6 +1519,30 @@
         "rate": 44100
     },
     {
+        "name": "Confirmation",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "1730944b043177f95c6ecc959c070a24",
+        "dataFormat": "mp3",
+        "md5ext": "1730944b043177f95c6ecc959c070a24.mp3",
+        "sampleCount": 12781,
+        "rate": 44100
+    },
+    {
+        "name": "Congratulations",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "904d50becadd715c521e093899050113",
+        "dataFormat": "mp3",
+        "md5ext": "904d50becadd715c521e093899050113.mp3",
+        "sampleCount": 57174,
+        "rate": 44100
+    },
+    {
         "name": "Connect",
         "tags": [
             "effects",
@@ -1037,6 +1554,18 @@
         "md5ext": "9aad12085708ccd279297d4bea9c5ae0.wav",
         "sampleCount": 23369,
         "rate": 22050
+    },
+    {
+        "name": "Correct",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "bad4ff11d9b9a5d9c07b9550babba728",
+        "dataFormat": "mp3",
+        "md5ext": "bad4ff11d9b9a5d9c07b9550babba728.mp3",
+        "sampleCount": 27608,
+        "rate": 44100
     },
     {
         "name": "Cough1",
@@ -1101,6 +1630,54 @@
         "md5ext": "2293a751b71a2df8cdce1bec5558cc1e.wav",
         "sampleCount": 37593,
         "rate": 22050
+    },
+    {
+        "name": "Creature Die",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "d8202214697fe283191d292b9b389108",
+        "dataFormat": "mp3",
+        "md5ext": "d8202214697fe283191d292b9b389108.mp3",
+        "sampleCount": 46738,
+        "rate": 44100
+    },
+    {
+        "name": "Creature Hurt",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "def3e5ec867c7c40ae25021c68a15d46",
+        "dataFormat": "mp3",
+        "md5ext": "def3e5ec867c7c40ae25021c68a15d46.mp3",
+        "sampleCount": 27399,
+        "rate": 44100
+    },
+    {
+        "name": "Creature Roar",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "ab13e1eda59420baf4fe7e268001abe2",
+        "dataFormat": "mp3",
+        "md5ext": "ab13e1eda59420baf4fe7e268001abe2.mp3",
+        "sampleCount": 28216,
+        "rate": 44100
+    },
+    {
+        "name": "Creature Slime",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "7364e9cefb93d9a9a1b8049a03f6846f",
+        "dataFormat": "mp3",
+        "md5ext": "7364e9cefb93d9a9a1b8049a03f6846f.mp3",
+        "sampleCount": 29653,
+        "rate": 44100
     },
     {
         "name": "Cricket",
@@ -1482,6 +2059,30 @@
         "rate": 22050
     },
     {
+        "name": "Death",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "c671a2b38d00b532850ed376be8abfea",
+        "dataFormat": "mp3",
+        "md5ext": "c671a2b38d00b532850ed376be8abfea.mp3",
+        "sampleCount": 55748,
+        "rate": 44100
+    },
+    {
+        "name": "Dice Shake",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "964985c1993821097d796fc9fca98dad",
+        "dataFormat": "mp3",
+        "md5ext": "964985c1993821097d796fc9fca98dad.mp3",
+        "sampleCount": 65293,
+        "rate": 44100
+    },
+    {
         "name": "Disconnect",
         "tags": [
             "effects",
@@ -1493,6 +2094,17 @@
         "md5ext": "56df0714ed1ed455a2befd787a077214.wav",
         "sampleCount": 28449,
         "rate": 22050
+    },
+    {
+        "name": "Dishes",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "8ac3e956f3dc17b6548fe93fcf9e4ac6",
+        "dataFormat": "mp3",
+        "md5ext": "8ac3e956f3dc17b6548fe93fcf9e4ac6.mp3",
+        "sampleCount": 35000,
+        "rate": 44100
     },
     {
         "name": "Dog1",
@@ -1517,6 +2129,29 @@
         "rate": 44100
     },
     {
+        "name": "Door",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "69d80f2451b9de91cad0acfd90fc8409",
+        "dataFormat": "mp3",
+        "md5ext": "69d80f2451b9de91cad0acfd90fc8409.mp3",
+        "sampleCount": 18298,
+        "rate": 44100
+    },
+    {
+        "name": "Door Close",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "82b7142cd7e1173a76e31683073864be",
+        "dataFormat": "mp3",
+        "md5ext": "82b7142cd7e1173a76e31683073864be.mp3",
+        "sampleCount": 23444,
+        "rate": 44100
+    },
+    {
         "name": "Door Closing",
         "tags": [
             "effects",
@@ -1538,6 +2173,18 @@
         "dataFormat": "",
         "md5ext": "56985da9c052a5e26007c99aa5a958f7.wav",
         "sampleCount": 217088,
+        "rate": 44100
+    },
+    {
+        "name": "Door Open",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "673b8b7af3c2841d2c394b0b4ef87212",
+        "dataFormat": "mp3",
+        "md5ext": "673b8b7af3c2841d2c394b0b4ef87212.mp3",
+        "sampleCount": 40527,
         "rate": 44100
     },
     {
@@ -1576,6 +2223,30 @@
         "dataFormat": "",
         "md5ext": "a3a85fb8564b0266f50a9c091087b7aa.wav",
         "sampleCount": 88192,
+        "rate": 44100
+    },
+    {
+        "name": "Drop",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "ea37fc6ca4e39f48beb927b5f1e02207",
+        "dataFormat": "mp3",
+        "md5ext": "ea37fc6ca4e39f48beb927b5f1e02207.mp3",
+        "sampleCount": 5823,
+        "rate": 44100
+    },
+    {
+        "name": "Drop Leather",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "ba843185fa2d32ce354aa59eda327fa2",
+        "dataFormat": "mp3",
+        "md5ext": "ba843185fa2d32ce354aa59eda327fa2.mp3",
+        "sampleCount": 18305,
         "rate": 44100
     },
     {
@@ -1897,6 +2568,18 @@
         "rate": 22050
     },
     {
+        "name": "Eat",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "7cce954a7634e67e4ea9e04408bc0227",
+        "dataFormat": "mp3",
+        "md5ext": "7cce954a7634e67e4ea9e04408bc0227.mp3",
+        "sampleCount": 25653,
+        "rate": 44100
+    },
+    {
         "name": "Eggs",
         "tags": [
             "music",
@@ -1975,6 +2658,18 @@
         "rate": 44100
     },
     {
+        "name": "Electric Loop",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "5b593b3cb70774b3df9ebe54385e2d01",
+        "dataFormat": "mp3",
+        "md5ext": "5b593b3cb70774b3df9ebe54385e2d01.mp3",
+        "sampleCount": 60159,
+        "rate": 44100
+    },
+    {
         "name": "Emotional Piano",
         "tags": [
             "loops",
@@ -1999,6 +2694,41 @@
         "md5ext": "f5c4e2311024f18c989e53f9b3448db8.wav",
         "sampleCount": 172721,
         "rate": 22050
+    },
+    {
+        "name": "Engine Loop",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "f51683da904f9d2202a4bfe406aa72e3",
+        "dataFormat": "mp3",
+        "md5ext": "f51683da904f9d2202a4bfe406aa72e3.mp3",
+        "sampleCount": 32814,
+        "rate": 44100
+    },
+    {
+        "name": "Explosion",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "468b21f18122be2890a38c4f6bafc171",
+        "dataFormat": "mp3",
+        "md5ext": "468b21f18122be2890a38c4f6bafc171.mp3",
+        "sampleCount": 24772,
+        "rate": 44100
+    },
+    {
+        "name": "Explosion Crunch",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "10f825c1fe6be5df678d2b5214e27776",
+        "dataFormat": "mp3",
+        "md5ext": "10f825c1fe6be5df678d2b5214e27776.mp3",
+        "sampleCount": 34285,
+        "rate": 44100
     },
     {
         "name": "F Bass",
@@ -2142,6 +2872,53 @@
         "rate": 44100
     },
     {
+        "name": "Falling",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "e586a132b6ee61baa8b665d182cb6a9b",
+        "dataFormat": "mp3",
+        "md5ext": "e586a132b6ee61baa8b665d182cb6a9b.mp3",
+        "sampleCount": 47129,
+        "rate": 44100
+    },
+    {
+        "name": "Fast Drop",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "31cde340e2322d6026bbbb3ed4d03aec",
+        "dataFormat": "mp3",
+        "md5ext": "31cde340e2322d6026bbbb3ed4d03aec.mp3",
+        "sampleCount": 31753,
+        "rate": 44100
+    },
+    {
+        "name": "Fast Rise",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "224f6b3da8f89a6dada1bf2b767fd403",
+        "dataFormat": "mp3",
+        "md5ext": "224f6b3da8f89a6dada1bf2b767fd403.mp3",
+        "sampleCount": 38269,
+        "rate": 44100
+    },
+    {
+        "name": "Final Round",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "6610c916d3233e7eb9d10ef271c851b6",
+        "dataFormat": "mp3",
+        "md5ext": "6610c916d3233e7eb9d10ef271c851b6.mp3",
+        "sampleCount": 74611,
+        "rate": 44100
+    },
+    {
         "name": "Finger Snap",
         "tags": [
             "effects",
@@ -2155,12 +2932,67 @@
         "rate": 44100
     },
     {
+        "name": "Firework",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "be96de0a9f4aa6ab59668893fc61ffa3",
+        "dataFormat": "mp3",
+        "md5ext": "be96de0a9f4aa6ab59668893fc61ffa3.mp3",
+        "sampleCount": 53062,
+        "rate": 44100
+    },
+    {
         "name": "Flam Snare",
         "tags": [],
         "assetId": "3b6cce9f8c56c0537ca61eee3945cd1d",
         "dataFormat": "",
         "md5ext": "3b6cce9f8c56c0537ca61eee3945cd1d.wav",
         "sampleCount": 8832,
+        "rate": 44100
+    },
+    {
+        "name": "Footstep",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "a3681d704a1c6af45fe7a2b53a1d21f5",
+        "dataFormat": "mp3",
+        "md5ext": "a3681d704a1c6af45fe7a2b53a1d21f5.mp3",
+        "sampleCount": 18288,
+        "rate": 44100
+    },
+    {
+        "name": "Footstep Carpet",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "a836bab1ebfb4e167af27d5ce32525f6",
+        "dataFormat": "mp3",
+        "md5ext": "a836bab1ebfb4e167af27d5ce32525f6.mp3",
+        "sampleCount": 7359,
+        "rate": 44100
+    },
+    {
+        "name": "Footstep Grass",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "8d8a688fa909514a08cfc6a88cf49c5e",
+        "dataFormat": "mp3",
+        "md5ext": "8d8a688fa909514a08cfc6a88cf49c5e.mp3",
+        "sampleCount": 34162,
+        "rate": 44100
+    },
+    {
+        "name": "Footstep Wood",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "734ebce2ab2d4eb11dd13f5bfee2c3b2",
+        "dataFormat": "mp3",
+        "md5ext": "734ebce2ab2d4eb11dd13f5bfee2c3b2.mp3",
+        "sampleCount": 11967,
         "rate": 44100
     },
     {
@@ -2173,6 +3005,18 @@
         "dataFormat": "",
         "md5ext": "c893b0a9b3e2e0594f1f921a12aa66be.wav",
         "sampleCount": 235520,
+        "rate": 44100
+    },
+    {
+        "name": "Force Field",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "4a5c1f6ee840e86669789bf4d5659086",
+        "dataFormat": "mp3",
+        "md5ext": "4a5c1f6ee840e86669789bf4d5659086.mp3",
+        "sampleCount": 42072,
         "rate": 44100
     },
     {
@@ -2320,6 +3164,18 @@
         "rate": 22050
     },
     {
+        "name": "Game Over",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "f7ba92668c830772e1ded9d1f5675cf3",
+        "dataFormat": "mp3",
+        "md5ext": "f7ba92668c830772e1ded9d1f5675cf3.mp3",
+        "sampleCount": 56322,
+        "rate": 44100
+    },
+    {
         "name": "Garden",
         "tags": [
             "music",
@@ -2332,6 +3188,30 @@
         "rate": 22050
     },
     {
+        "name": "Get Ready",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "98cf0b182993122e02b81da836695d30",
+        "dataFormat": "mp3",
+        "md5ext": "98cf0b182993122e02b81da836695d30.mp3",
+        "sampleCount": 36657,
+        "rate": 44100
+    },
+    {
+        "name": "Glass",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "e595ed65d5863f77723cd37d93787814",
+        "dataFormat": "mp3",
+        "md5ext": "e595ed65d5863f77723cd37d93787814.mp3",
+        "sampleCount": 12151,
+        "rate": 44100
+    },
+    {
         "name": "Glass Breaking",
         "tags": [
             "effects"
@@ -2341,6 +3221,17 @@
         "md5ext": "4b33c58ba14e4555373fa2478b3f891f.wav",
         "sampleCount": 52833,
         "rate": 22050
+    },
+    {
+        "name": "Glass Hit",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "9a53b00163cc099577b2a7b3a88e9ff1",
+        "dataFormat": "mp3",
+        "md5ext": "9a53b00163cc099577b2a7b3a88e9ff1.mp3",
+        "sampleCount": 13323,
+        "rate": 44100
     },
     {
         "name": "Glug",
@@ -2457,6 +3348,17 @@
         "rate": 44100
     },
     {
+        "name": "Hammer",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "a4fa3f31c8ed10992ad853430a911774",
+        "dataFormat": "mp3",
+        "md5ext": "a4fa3f31c8ed10992ad853430a911774.mp3",
+        "sampleCount": 22218,
+        "rate": 44100
+    },
+    {
         "name": "Hand Clap",
         "tags": [
             "human",
@@ -2466,6 +3368,18 @@
         "dataFormat": "",
         "md5ext": "9502142875e67f7b0292a117a27e9563.wav",
         "sampleCount": 4928,
+        "rate": 44100
+    },
+    {
+        "name": "Handle Small Leather",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "9e232e1a11e521cc9609bfa383ad5d13",
+        "dataFormat": "mp3",
+        "md5ext": "9e232e1a11e521cc9609bfa383ad5d13.mp3",
+        "sampleCount": 14915,
         "rate": 44100
     },
     {
@@ -2480,6 +3394,18 @@
         "md5ext": "e56fdc9f76d035ff01f4e7b39e9e9989.wav",
         "sampleCount": 20321,
         "rate": 22050
+    },
+    {
+        "name": "Helicopter Loop",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "31e8affb105869040ffa59bccf7a4d94",
+        "dataFormat": "mp3",
+        "md5ext": "31e8affb105869040ffa59bccf7a4d94.mp3",
+        "sampleCount": 60619,
+        "rate": 44100
     },
     {
         "name": "Hey",
@@ -2542,6 +3468,19 @@
         "rate": 44100
     },
     {
+        "name": "High Down",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "5f3f3727ad0ccfab3640dd9f368ca061",
+        "dataFormat": "mp3",
+        "md5ext": "5f3f3727ad0ccfab3640dd9f368ca061.mp3",
+        "sampleCount": 22911,
+        "rate": 44100
+    },
+    {
         "name": "High Hat",
         "tags": [
             "music",
@@ -2561,6 +3500,19 @@
         "dataFormat": "",
         "md5ext": "d623f99b3c8d33932eb2c6c9cfd817c5.wav",
         "sampleCount": 24640,
+        "rate": 44100
+    },
+    {
+        "name": "High Up",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "666388f4ddacba5676c32047dba8ad9f",
+        "dataFormat": "mp3",
+        "md5ext": "666388f4ddacba5676c32047dba8ad9f.mp3",
+        "sampleCount": 24064,
         "rate": 44100
     },
     {
@@ -2612,6 +3564,41 @@
         "rate": 22050
     },
     {
+        "name": "Hiss",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "6c96efc0e45311780d48943ef72d3aad",
+        "dataFormat": "mp3",
+        "md5ext": "6c96efc0e45311780d48943ef72d3aad.mp3",
+        "sampleCount": 37453,
+        "rate": 44100
+    },
+    {
+        "name": "Hit",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "9d099fc9620c80851845485379d636d3",
+        "dataFormat": "mp3",
+        "md5ext": "9d099fc9620c80851845485379d636d3.mp3",
+        "sampleCount": 21088,
+        "rate": 44100
+    },
+    {
+        "name": "Hold",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "0960a90503eaaa67638a5e2b0d1fa34a",
+        "dataFormat": "mp3",
+        "md5ext": "0960a90503eaaa67638a5e2b0d1fa34a.mp3",
+        "sampleCount": 30630,
+        "rate": 44100
+    },
+    {
         "name": "Horse",
         "tags": [
             "animals",
@@ -2630,6 +3617,18 @@
         "dataFormat": "",
         "md5ext": "058a34b5fb8b57178b5322d994b6b8c8.wav",
         "sampleCount": 153344,
+        "rate": 44100
+    },
+    {
+        "name": "Howl",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "e4e119d8358cb9be54e621ffb761a225",
+        "dataFormat": "mp3",
+        "md5ext": "e4e119d8358cb9be54e621ffb761a225.mp3",
+        "sampleCount": 31617,
         "rate": 44100
     },
     {
@@ -2661,6 +3660,380 @@
         "md5ext": "f62e9f7deeb0e06268df6edffa14f5de.wav",
         "sampleCount": 62993,
         "rate": 22050
+    },
+    {
+        "name": "Hurt",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "9286835254714c5588a94cab3797ddc5",
+        "dataFormat": "mp3",
+        "md5ext": "9286835254714c5588a94cab3797ddc5.mp3",
+        "sampleCount": 21829,
+        "rate": 44100
+    },
+    {
+        "name": "Hydraulic",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "2aa29cc01d7db1c729fb8c2135ac940b",
+        "dataFormat": "mp3",
+        "md5ext": "2aa29cc01d7db1c729fb8c2135ac940b.mp3",
+        "sampleCount": 66977,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Generic Light",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "55eb0c270959eb6865ffc1a45ce638eb",
+        "dataFormat": "mp3",
+        "md5ext": "55eb0c270959eb6865ffc1a45ce638eb.mp3",
+        "sampleCount": 7103,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Glass Light",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "dbb23ca1c6c77f45cf16a431f9f170d3",
+        "dataFormat": "mp3",
+        "md5ext": "dbb23ca1c6c77f45cf16a431f9f170d3.mp3",
+        "sampleCount": 10175,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Metal",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "ec9441d40024bd3bb9e9dc69ed1c9805",
+        "dataFormat": "mp3",
+        "md5ext": "ec9441d40024bd3bb9e9dc69ed1c9805.mp3",
+        "sampleCount": 27999,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Metal Heavy",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "0a53aa1739922e9f0eb00379b9c63f1f",
+        "dataFormat": "mp3",
+        "md5ext": "0a53aa1739922e9f0eb00379b9c63f1f.mp3",
+        "sampleCount": 7266,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Mining",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "5099cb6a06414cc39ca6e9736ab2135e",
+        "dataFormat": "mp3",
+        "md5ext": "5099cb6a06414cc39ca6e9736ab2135e.mp3",
+        "sampleCount": 41341,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Plate Heavy",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "d31d10faf2264839bb75ebe25eb5ce9a",
+        "dataFormat": "mp3",
+        "md5ext": "d31d10faf2264839bb75ebe25eb5ce9a.mp3",
+        "sampleCount": 21549,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Plate Medium",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "7cd79279525af9fbd39bed8e8c730b68",
+        "dataFormat": "mp3",
+        "md5ext": "7cd79279525af9fbd39bed8e8c730b68.mp3",
+        "sampleCount": 26868,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Punch Medium",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "ad9629f5ef1ce16fc71aa36cc8978f45",
+        "dataFormat": "mp3",
+        "md5ext": "ad9629f5ef1ce16fc71aa36cc8978f45.mp3",
+        "sampleCount": 18986,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Soft Medium",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "cf72710ed322cbf7a6d569fd979943ee",
+        "dataFormat": "mp3",
+        "md5ext": "cf72710ed322cbf7a6d569fd979943ee.mp3",
+        "sampleCount": 5075,
+        "rate": 44100
+    },
+    {
+        "name": "Impact Wood Heavy",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "77d9c2b04b82eed1ba68b9302b208174",
+        "dataFormat": "mp3",
+        "md5ext": "77d9c2b04b82eed1ba68b9302b208174.mp3",
+        "sampleCount": 13676,
+        "rate": 44100
+    },
+    {
+        "name": "Inhuman Attack",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "c7816c610b4c714b46556cf17161638d",
+        "dataFormat": "mp3",
+        "md5ext": "c7816c610b4c714b46556cf17161638d.mp3",
+        "sampleCount": 92319,
+        "rate": 44100
+    },
+    {
+        "name": "Inhuman Death",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "05e37f2544975b3e9bf534f9e003ad8f",
+        "dataFormat": "mp3",
+        "md5ext": "05e37f2544975b3e9bf534f9e003ad8f.mp3",
+        "sampleCount": 46509,
+        "rate": 44100
+    },
+    {
+        "name": "Inhuman Growl",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "b4dcc9b7dead1f3b3313fb09ea5131fa",
+        "dataFormat": "mp3",
+        "md5ext": "b4dcc9b7dead1f3b3313fb09ea5131fa.mp3",
+        "sampleCount": 43218,
+        "rate": 44100
+    },
+    {
+        "name": "Inhuman Hit",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "20d937346fb911ea3f9db78e04bb7aaf",
+        "dataFormat": "mp3",
+        "md5ext": "20d937346fb911ea3f9db78e04bb7aaf.mp3",
+        "sampleCount": 47885,
+        "rate": 44100
+    },
+    {
+        "name": "It's A Tie",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "b458d315d09c9f786121536a7df893f2",
+        "dataFormat": "mp3",
+        "md5ext": "b458d315d09c9f786121536a7df893f2.mp3",
+        "sampleCount": 39214,
+        "rate": 44100
+    },
+    {
+        "name": "Item Gem",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "c074aee81bb88791e05a223697bea074",
+        "dataFormat": "mp3",
+        "md5ext": "c074aee81bb88791e05a223697bea074.mp3",
+        "sampleCount": 10887,
+        "rate": 44100
+    },
+    {
+        "name": "Item Stone",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "7ad09382928ea0639bb39a0889fad9a7",
+        "dataFormat": "mp3",
+        "md5ext": "7ad09382928ea0639bb39a0889fad9a7.mp3",
+        "sampleCount": 32398,
+        "rate": 44100
+    },
+    {
+        "name": "Items",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "c3dd59f05603d30debb8f4459886d8a0",
+        "dataFormat": "mp3",
+        "md5ext": "c3dd59f05603d30debb8f4459886d8a0.mp3",
+        "sampleCount": 25150,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Hit 1",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "d9c69d219c07ce33edba6371fdc557f5",
+        "dataFormat": "mp3",
+        "md5ext": "d9c69d219c07ce33edba6371fdc557f5.mp3",
+        "sampleCount": 12528,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Hit 2",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "0753a1297e6d2324794eeeb1194e2cd6",
+        "dataFormat": "mp3",
+        "md5ext": "0753a1297e6d2324794eeeb1194e2cd6.mp3",
+        "sampleCount": 22316,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Hit 3",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "fd9077c509c10781e75ea3eb3e32821f",
+        "dataFormat": "mp3",
+        "md5ext": "fd9077c509c10781e75ea3eb3e32821f.mp3",
+        "sampleCount": 23099,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Pizzicato 1",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "d07435ee9768ae3c53260d7f91792011",
+        "dataFormat": "mp3",
+        "md5ext": "d07435ee9768ae3c53260d7f91792011.mp3",
+        "sampleCount": 21792,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Pizzicato 2",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "40b72e8cd8a1ff2a727e5d531efeb6fd",
+        "dataFormat": "mp3",
+        "md5ext": "40b72e8cd8a1ff2a727e5d531efeb6fd.mp3",
+        "sampleCount": 44203,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Pizzicato 3",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "d9b4ec1e2698c9224dc0396a1b17104f",
+        "dataFormat": "mp3",
+        "md5ext": "d9b4ec1e2698c9224dc0396a1b17104f.mp3",
+        "sampleCount": 42148,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Retro 1",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "194400b0419390f8ce78ce5fab20fe28",
+        "dataFormat": "mp3",
+        "md5ext": "194400b0419390f8ce78ce5fab20fe28.mp3",
+        "sampleCount": 77521,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Retro 2",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "d5cf45317ebef72d9c5c11e5658466c8",
+        "dataFormat": "mp3",
+        "md5ext": "d5cf45317ebef72d9c5c11e5658466c8.mp3",
+        "sampleCount": 17227,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Sax 1",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "3ead8fb1c677f8b60361c688fd2dd746",
+        "dataFormat": "mp3",
+        "md5ext": "3ead8fb1c677f8b60361c688fd2dd746.mp3",
+        "sampleCount": 39151,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Sax 2",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "5ec1ca8ae75565149e3ebf41306a5d1e",
+        "dataFormat": "mp3",
+        "md5ext": "5ec1ca8ae75565149e3ebf41306a5d1e.mp3",
+        "sampleCount": 38368,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Steel Drum 1",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "c7a47973ba000d5c9333e3811a1a52c9",
+        "dataFormat": "mp3",
+        "md5ext": "c7a47973ba000d5c9333e3811a1a52c9.mp3",
+        "sampleCount": 41137,
+        "rate": 44100
+    },
+    {
+        "name": "Jingle Steel Drum 2",
+        "tags": [
+            "music",
+            "games"
+        ],
+        "assetId": "91b778b8e260e4f7051b4d03a3a6d65a",
+        "dataFormat": "mp3",
+        "md5ext": "91b778b8e260e4f7051b4d03a3a6d65a.mp3",
+        "sampleCount": 60650,
+        "rate": 44100
     },
     {
         "name": "Jump",
@@ -2703,6 +4076,29 @@
         "rate": 22050
     },
     {
+        "name": "Ker Ching",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "b307e3dad58fff3233528579165026c6",
+        "dataFormat": "mp3",
+        "md5ext": "b307e3dad58fff3233528579165026c6.mp3",
+        "sampleCount": 55265,
+        "rate": 44100
+    },
+    {
+        "name": "Key Open",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "aa1fb29c9df2d83d7ffee50b4d153fb5",
+        "dataFormat": "mp3",
+        "md5ext": "aa1fb29c9df2d83d7ffee50b4d153fb5.mp3",
+        "sampleCount": 19035,
+        "rate": 44100
+    },
+    {
         "name": "Kick Back",
         "tags": [
             "music",
@@ -2729,6 +4125,30 @@
         "rate": 22050
     },
     {
+        "name": "Kill Her",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "aa7afe2dbc882476f241231c0d3dde7a",
+        "dataFormat": "mp3",
+        "md5ext": "aa7afe2dbc882476f241231c0d3dde7a.mp3",
+        "sampleCount": 52228,
+        "rate": 44100
+    },
+    {
+        "name": "Kill It",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "b0ae84bb006f9071694e9ff8cb7d0e08",
+        "dataFormat": "mp3",
+        "md5ext": "b0ae84bb006f9071694e9ff8cb7d0e08.mp3",
+        "sampleCount": 42393,
+        "rate": 44100
+    },
+    {
         "name": "Large Cowbell",
         "tags": [
             "music",
@@ -2740,6 +4160,42 @@
         "md5ext": "006316650ffc673dc02d36aa55881327.wav",
         "sampleCount": 21337,
         "rate": 22050
+    },
+    {
+        "name": "Laser Large",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "37fc2d1051345faa7c42bd7734d68265",
+        "dataFormat": "mp3",
+        "md5ext": "37fc2d1051345faa7c42bd7734d68265.mp3",
+        "sampleCount": 29840,
+        "rate": 44100
+    },
+    {
+        "name": "Laser Retro",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "3d82e38a991e523827b3645536261be1",
+        "dataFormat": "mp3",
+        "md5ext": "3d82e38a991e523827b3645536261be1.mp3",
+        "sampleCount": 10415,
+        "rate": 44100
+    },
+    {
+        "name": "Laser Small",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "8698c64e502cc3af9e089f2839348702",
+        "dataFormat": "mp3",
+        "md5ext": "8698c64e502cc3af9e089f2839348702.mp3",
+        "sampleCount": 10421,
+        "rate": 44100
     },
     {
         "name": "Laser1",
@@ -2796,6 +4252,18 @@
         "rate": 44100
     },
     {
+        "name": "Level Up",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "5b84b45d247d300b5ece8fa7b76d49f0",
+        "dataFormat": "mp3",
+        "md5ext": "5b84b45d247d300b5ece8fa7b76d49f0.mp3",
+        "sampleCount": 34606,
+        "rate": 44100
+    },
+    {
         "name": "Lo Geh Tabla",
         "tags": [
             "drums",
@@ -2819,6 +4287,18 @@
         "dataFormat": "",
         "md5ext": "d7cd24689737569c93e7ea7344ba6b0e.wav",
         "sampleCount": 14016,
+        "rate": 44100
+    },
+    {
+        "name": "Lock",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "e05717ba810fbfccac597bc1e04248de",
+        "dataFormat": "mp3",
+        "md5ext": "e05717ba810fbfccac597bc1e04248de.mp3",
+        "sampleCount": 18129,
         "rate": 44100
     },
     {
@@ -2859,6 +4339,31 @@
         "rate": 44100
     },
     {
+        "name": "Low Frequency Explosion",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "a23be84c717288ae5cbfc7ff037dac2c",
+        "dataFormat": "mp3",
+        "md5ext": "a23be84c717288ae5cbfc7ff037dac2c.mp3",
+        "sampleCount": 88201,
+        "rate": 44100
+    },
+    {
+        "name": "Low Random",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "5087ea52481b375dd496c03abf429801",
+        "dataFormat": "mp3",
+        "md5ext": "5087ea52481b375dd496c03abf429801.mp3",
+        "sampleCount": 24064,
+        "rate": 44100
+    },
+    {
         "name": "Low Squeak",
         "tags": [
             "effects"
@@ -2868,6 +4373,19 @@
         "md5ext": "0aae06b65c875a6ba1fd51f4251b16b3.wav",
         "sampleCount": 17273,
         "rate": 22050
+    },
+    {
+        "name": "Low Three Tone",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "b3a61e183b634b3bb53bfa4ff6b56a06",
+        "dataFormat": "mp3",
+        "md5ext": "b3a61e183b634b3bb53bfa4ff6b56a06.mp3",
+        "sampleCount": 45887,
+        "rate": 44100
     },
     {
         "name": "Low Tom",
@@ -2902,6 +4420,17 @@
         "rate": 22050
     },
     {
+        "name": "Machine Loop",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "38bbdb01dfe75961dce30410389bbd00",
+        "dataFormat": "mp3",
+        "md5ext": "38bbdb01dfe75961dce30410389bbd00.mp3",
+        "sampleCount": 81084,
+        "rate": 44100
+    },
+    {
         "name": "Magic Spell",
         "tags": [
             "effects",
@@ -2912,6 +4441,18 @@
         "md5ext": "1cb60ecdb1075c8769cb346d5c2a22c7.wav",
         "sampleCount": 43689,
         "rate": 22050
+    },
+    {
+        "name": "Maximize",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "a04628cae565e5254c0969986878bc30",
+        "dataFormat": "mp3",
+        "md5ext": "a04628cae565e5254c0969986878bc30.mp3",
+        "sampleCount": 11394,
+        "rate": 44100
     },
     {
         "name": "Medieval1",
@@ -2964,6 +4505,97 @@
         "rate": 44100
     },
     {
+        "name": "Metal Click",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "0c3f7fa648c2ec6e3b7db1d24c766a40",
+        "dataFormat": "mp3",
+        "md5ext": "0c3f7fa648c2ec6e3b7db1d24c766a40.mp3",
+        "sampleCount": 19661,
+        "rate": 44100
+    },
+    {
+        "name": "Metal Close",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "35d2894b78fdc01c7956c53283aa2024",
+        "dataFormat": "mp3",
+        "md5ext": "35d2894b78fdc01c7956c53283aa2024.mp3",
+        "sampleCount": 38334,
+        "rate": 44100
+    },
+    {
+        "name": "Metal Falling",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "b3b73e99e2c2f0086c6f94b1f04c9f1d",
+        "dataFormat": "mp3",
+        "md5ext": "b3b73e99e2c2f0086c6f94b1f04c9f1d.mp3",
+        "sampleCount": 51169,
+        "rate": 44100
+    },
+    {
+        "name": "Metal Open",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "009f89d59b569bc95957b84e3c5ecd99",
+        "dataFormat": "mp3",
+        "md5ext": "009f89d59b569bc95957b84e3c5ecd99.mp3",
+        "sampleCount": 50735,
+        "rate": 44100
+    },
+    {
+        "name": "Metal Spring",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "04322c33adabade7c9a19091d3f25ca7",
+        "dataFormat": "mp3",
+        "md5ext": "04322c33adabade7c9a19091d3f25ca7.mp3",
+        "sampleCount": 25817,
+        "rate": 44100
+    },
+    {
+        "name": "Microwave Door Open",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "076120739ead0f648fc7716acf213382",
+        "dataFormat": "mp3",
+        "md5ext": "076120739ead0f648fc7716acf213382.mp3",
+        "sampleCount": 32955,
+        "rate": 44100
+    },
+    {
+        "name": "Minimize",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "b9538a7f89318cef9922b1b4bed1e99b",
+        "dataFormat": "mp3",
+        "md5ext": "b9538a7f89318cef9922b1b4bed1e99b.mp3",
+        "sampleCount": 11394,
+        "rate": 44100
+    },
+    {
+        "name": "Mission Failed",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "6b5292780f14f47eb076770c5d38e71c",
+        "dataFormat": "mp3",
+        "md5ext": "6b5292780f14f47eb076770c5d38e71c.mp3",
+        "sampleCount": 54023,
+        "rate": 44100
+    },
+    {
         "name": "Moo",
         "tags": [
             "animals",
@@ -2986,6 +4618,28 @@
         "dataFormat": "",
         "md5ext": "b49ab3a926da46578396d1faffd24d3b.wav",
         "sampleCount": 344064,
+        "rate": 44100
+    },
+    {
+        "name": "Mouse Click",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "70a208c2a3ee4cf1ad208912de1ecd72",
+        "dataFormat": "mp3",
+        "md5ext": "70a208c2a3ee4cf1ad208912de1ecd72.mp3",
+        "sampleCount": 2490,
+        "rate": 44100
+    },
+    {
+        "name": "Mouse Release",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "dfbe3b6082703f391c8965994b74a844",
+        "dataFormat": "mp3",
+        "md5ext": "dfbe3b6082703f391c8965994b74a844.mp3",
+        "sampleCount": 2916,
         "rate": 44100
     },
     {
@@ -3015,6 +4669,18 @@
         "rate": 22050
     },
     {
+        "name": "Multi Kill",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "48f2eebb48fc9a447cea1782f7567011",
+        "dataFormat": "mp3",
+        "md5ext": "48f2eebb48fc9a447cea1782f7567011.mp3",
+        "sampleCount": 62741,
+        "rate": 44100
+    },
+    {
         "name": "Muted Conga",
         "tags": [
             "drums",
@@ -3041,6 +4707,30 @@
         "rate": 22050
     },
     {
+        "name": "New Highscore",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "54cb326f62e2a7f85d304352f3f28b92",
+        "dataFormat": "mp3",
+        "md5ext": "54cb326f62e2a7f85d304352f3f28b92.mp3",
+        "sampleCount": 50081,
+        "rate": 44100
+    },
+    {
+        "name": "Nose",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "61395b0d3d563bd14a5e7e699d7bee83",
+        "dataFormat": "mp3",
+        "md5ext": "61395b0d3d563bd14a5e7e699d7bee83.mp3",
+        "sampleCount": 15374,
+        "rate": 44100
+    },
+    {
         "name": "Ocean Wave",
         "tags": [
             "effects",
@@ -3065,6 +4755,30 @@
         "md5ext": "2c41921491b1da2bfa1ebcaba34265ca.wav",
         "sampleCount": 212345,
         "rate": 22050
+    },
+    {
+        "name": "Old School",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "ccba71b156aafc5d40614943f0cad295",
+        "dataFormat": "mp3",
+        "md5ext": "ccba71b156aafc5d40614943f0cad295.mp3",
+        "sampleCount": 20103,
+        "rate": 44100
+    },
+    {
+        "name": "Ooh",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "33a790e029bf692bf4b87cd3a23fd41b",
+        "dataFormat": "mp3",
+        "md5ext": "33a790e029bf692bf4b87cd3a23fd41b.mp3",
+        "sampleCount": 32570,
+        "rate": 44100
     },
     {
         "name": "Oops",
@@ -3103,6 +4817,17 @@
         "rate": 44100
     },
     {
+        "name": "Paper",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "1f2dc4fa9fb30f3aa569a44cfeea54f2",
+        "dataFormat": "mp3",
+        "md5ext": "1f2dc4fa9fb30f3aa569a44cfeea54f2.mp3",
+        "sampleCount": 18564,
+        "rate": 44100
+    },
+    {
         "name": "Party Noise",
         "tags": [
             "human",
@@ -3130,6 +4855,32 @@
         "rate": 22050
     },
     {
+        "name": "Phase Jump",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "48c407972057ff2a98c09eceedc881f7",
+        "dataFormat": "mp3",
+        "md5ext": "48c407972057ff2a98c09eceedc881f7.mp3",
+        "sampleCount": 20608,
+        "rate": 44100
+    },
+    {
+        "name": "Phaser Down",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "b67ca7d9c85702901ced9692ba3652fe",
+        "dataFormat": "mp3",
+        "md5ext": "b67ca7d9c85702901ced9692ba3652fe.mp3",
+        "sampleCount": 20608,
+        "rate": 44100
+    },
+    {
         "name": "Ping Pong Hit",
         "tags": [
             "sports"
@@ -3139,6 +4890,39 @@
         "md5ext": "8357b4bdf6fbe10b972be3b78167b3c8.wav",
         "sampleCount": 11177,
         "rate": 22050
+    },
+    {
+        "name": "Plop",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "3df5acf6fdc4178af31047ef65caf014",
+        "dataFormat": "mp3",
+        "md5ext": "3df5acf6fdc4178af31047ef65caf014.mp3",
+        "sampleCount": 13227,
+        "rate": 44100
+    },
+    {
+        "name": "Plop Airy",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "e44f55c01baa672fa6f977cf6f0c89e8",
+        "dataFormat": "mp3",
+        "md5ext": "e44f55c01baa672fa6f977cf6f0c89e8.mp3",
+        "sampleCount": 65796,
+        "rate": 44100
+    },
+    {
+        "name": "Plop Sputter",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "f08c5d52044adef4322ee3e43f45009f",
+        "dataFormat": "mp3",
+        "md5ext": "f08c5d52044adef4322ee3e43f45009f.mp3",
+        "sampleCount": 98276,
+        "rate": 44100
     },
     {
         "name": "Pluck",
@@ -3187,6 +4971,67 @@
         "rate": 44100
     },
     {
+        "name": "Power Up",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "d5ec040cff4ff8ff3b9958ec9d8a2974",
+        "dataFormat": "mp3",
+        "md5ext": "d5ec040cff4ff8ff3b9958ec9d8a2974.mp3",
+        "sampleCount": 52992,
+        "rate": 44100
+    },
+    {
+        "name": "Pump",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "b6e0d75f89e0dc02f1c9693fa83a9798",
+        "dataFormat": "mp3",
+        "md5ext": "b6e0d75f89e0dc02f1c9693fa83a9798.mp3",
+        "sampleCount": 136855,
+        "rate": 44100
+    },
+    {
+        "name": "Question",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "45bd9d2a7d578f13256ece86302c5eaa",
+        "dataFormat": "mp3",
+        "md5ext": "45bd9d2a7d578f13256ece86302c5eaa.mp3",
+        "sampleCount": 21638,
+        "rate": 44100
+    },
+    {
+        "name": "Quick High",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "34e6437b14c9c2b83a7adb0544882f7d",
+        "dataFormat": "mp3",
+        "md5ext": "34e6437b14c9c2b83a7adb0544882f7d.mp3",
+        "sampleCount": 40992,
+        "rate": 44100
+    },
+    {
+        "name": "Quick Rise",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "265a601ae3b0c069edd8f8b6a0e95362",
+        "dataFormat": "mp3",
+        "md5ext": "265a601ae3b0c069edd8f8b6a0e95362.mp3",
+        "sampleCount": 27568,
+        "rate": 44100
+    },
+    {
         "name": "Rain",
         "tags": [
             "ambience",
@@ -3210,6 +5055,18 @@
         "rate": 44100
     },
     {
+        "name": "Ready",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "51726b4a8216e02a132f265ee4002ec3",
+        "dataFormat": "mp3",
+        "md5ext": "51726b4a8216e02a132f265ee4002ec3.mp3",
+        "sampleCount": 21773,
+        "rate": 44100
+    },
+    {
         "name": "Referee Whistle",
         "tags": [
             "sports"
@@ -3230,6 +5087,79 @@
         "dataFormat": "",
         "md5ext": "19211d5ecd34214b6aba947790e63bb0.wav",
         "sampleCount": 346046,
+        "rate": 44100
+    },
+    {
+        "name": "Reload",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "d101d826322c78dfc4ceea4287345a5c",
+        "dataFormat": "mp3",
+        "md5ext": "d101d826322c78dfc4ceea4287345a5c.mp3",
+        "sampleCount": 14505,
+        "rate": 44100
+    },
+    {
+        "name": "Retro Beep",
+        "tags": [
+            "space"
+        ],
+        "assetId": "7d3c81e61d05193789d0e19f85e8ff56",
+        "dataFormat": "mp3",
+        "md5ext": "7d3c81e61d05193789d0e19f85e8ff56.mp3",
+        "sampleCount": 22493,
+        "rate": 44100
+    },
+    {
+        "name": "Retro Coin",
+        "tags": [
+            "effects",
+            "games",
+            "electronic"
+        ],
+        "assetId": "8b7517c8a9ba2e569bcd38d56cf29909",
+        "dataFormat": "mp3",
+        "md5ext": "8b7517c8a9ba2e569bcd38d56cf29909.mp3",
+        "sampleCount": 13287,
+        "rate": 44100
+    },
+    {
+        "name": "Retro Die",
+        "tags": [
+            "effects",
+            "games",
+            "electronic"
+        ],
+        "assetId": "6f20c1beab9656795782e27e2ec2e65e",
+        "dataFormat": "mp3",
+        "md5ext": "6f20c1beab9656795782e27e2ec2e65e.mp3",
+        "sampleCount": 19372,
+        "rate": 44100
+    },
+    {
+        "name": "Retro Explosion",
+        "tags": [
+            "effects",
+            "games",
+            "electronic"
+        ],
+        "assetId": "f2a4b4a4c6146feb66169baa281f9e7e",
+        "dataFormat": "mp3",
+        "md5ext": "f2a4b4a4c6146feb66169baa281f9e7e.mp3",
+        "sampleCount": 54947,
+        "rate": 44100
+    },
+    {
+        "name": "Retro Laser",
+        "tags": [
+            "space"
+        ],
+        "assetId": "f9afcc734dcc0c7509e6a968daf23b4d",
+        "dataFormat": "mp3",
+        "md5ext": "f9afcc734dcc0c7509e6a968daf23b4d.mp3",
+        "sampleCount": 23486,
         "rate": 44100
     },
     {
@@ -3294,6 +5224,39 @@
         "rate": 44100
     },
     {
+        "name": "Rock Breaking",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "ea92f402cf4ff83adb568e9b4f50325d",
+        "dataFormat": "mp3",
+        "md5ext": "ea92f402cf4ff83adb568e9b4f50325d.mp3",
+        "sampleCount": 50562,
+        "rate": 44100
+    },
+    {
+        "name": "Rock Falling",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "49a57b947f244b0f80ecda50924cbf4c",
+        "dataFormat": "mp3",
+        "md5ext": "49a57b947f244b0f80ecda50924cbf4c.mp3",
+        "sampleCount": 40416,
+        "rate": 44100
+    },
+    {
+        "name": "Rocket",
+        "tags": [
+            "space"
+        ],
+        "assetId": "0f9e7499a2940dc7a2d2c3eea74c7dec",
+        "dataFormat": "mp3",
+        "md5ext": "0f9e7499a2940dc7a2d2c3eea74c7dec.mp3",
+        "sampleCount": 90465,
+        "rate": 44100
+    },
+    {
         "name": "Roll Cymbal",
         "tags": [],
         "assetId": "da8355d753cd2a5ddd19cb2bb41c1547",
@@ -3303,12 +5266,71 @@
         "rate": 44100
     },
     {
+        "name": "Rolling",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "dd8bd7695f1db168e899c8ccc68d45c5",
+        "dataFormat": "mp3",
+        "md5ext": "dd8bd7695f1db168e899c8ccc68d45c5.mp3",
+        "sampleCount": 46556,
+        "rate": 44100
+    },
+    {
+        "name": "Rollover",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "a2c252f3e649133d090a41e7d83804c3",
+        "dataFormat": "mp3",
+        "md5ext": "a2c252f3e649133d090a41e7d83804c3.mp3",
+        "sampleCount": 9894,
+        "rate": 44100
+    },
+    {
         "name": "Rooster",
         "tags": [],
         "assetId": "2e375acae2c7c0d655935a9de14b12f6",
         "dataFormat": "",
         "md5ext": "2e375acae2c7c0d655935a9de14b12f6.wav",
         "sampleCount": 68440,
+        "rate": 44100
+    },
+    {
+        "name": "Round",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "6a746d3ce0a5fe5b1a58b18fb285fe29",
+        "dataFormat": "mp3",
+        "md5ext": "6a746d3ce0a5fe5b1a58b18fb285fe29.mp3",
+        "sampleCount": 59690,
+        "rate": 44100
+    },
+    {
+        "name": "Saw",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "58e1ef208360c5987aadbec191cd94e4",
+        "dataFormat": "mp3",
+        "md5ext": "58e1ef208360c5987aadbec191cd94e4.mp3",
+        "sampleCount": 103165,
+        "rate": 44100
+    },
+    {
+        "name": "Sci Fi Gun",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "c8d72cbf89a7a6bbe0d91fd76c10457d",
+        "dataFormat": "mp3",
+        "md5ext": "c8d72cbf89a7a6bbe0d91fd76c10457d.mp3",
+        "sampleCount": 41948,
         "rate": 44100
     },
     {
@@ -3323,6 +5345,18 @@
         "md5ext": "0fbca8db08d46419416c0f104345bc53.wav",
         "sampleCount": 36577,
         "rate": 22050
+    },
+    {
+        "name": "Scratch",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "0c7095f431f566092cef4eb8cb72eddc",
+        "dataFormat": "mp3",
+        "md5ext": "0c7095f431f566092cef4eb8cb72eddc.mp3",
+        "sampleCount": 6144,
+        "rate": 44100
     },
     {
         "name": "Scratch Beatbox",
@@ -3395,6 +5429,30 @@
         "rate": 22050
     },
     {
+        "name": "Select",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "01b71fc0e9cc1403223d3be80ad1b1b7",
+        "dataFormat": "mp3",
+        "md5ext": "01b71fc0e9cc1403223d3be80ad1b1b7.mp3",
+        "sampleCount": 16752,
+        "rate": 44100
+    },
+    {
+        "name": "Set",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "e0454b5cae1c56a851e73e128169db8c",
+        "dataFormat": "mp3",
+        "md5ext": "e0454b5cae1c56a851e73e128169db8c.mp3",
+        "sampleCount": 23580,
+        "rate": 44100
+    },
+    {
         "name": "Sewing Machine",
         "tags": [
             "effects",
@@ -3429,6 +5487,28 @@
         "md5ext": "4cbd4dc0c55656e7edc4b0f00a3f9738.wav",
         "sampleCount": 79249,
         "rate": 22050
+    },
+    {
+        "name": "Shoot",
+        "tags": [
+            "space"
+        ],
+        "assetId": "4c30890da9e3554421cafafd3a4a6081",
+        "dataFormat": "mp3",
+        "md5ext": "4c30890da9e3554421cafafd3a4a6081.mp3",
+        "sampleCount": 11172,
+        "rate": 44100
+    },
+    {
+        "name": "Shot",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "f9322ee97830f8158e4e60c90dd09f05",
+        "dataFormat": "mp3",
+        "md5ext": "f9322ee97830f8158e4e60c90dd09f05.mp3",
+        "sampleCount": 33153,
+        "rate": 44100
     },
     {
         "name": "Sidestick Snare",
@@ -3468,6 +5548,18 @@
         "rate": 44100
     },
     {
+        "name": "Siren Loop",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "d902f93a398fec7c0254234f550f2ce7",
+        "dataFormat": "mp3",
+        "md5ext": "d902f93a398fec7c0254234f550f2ce7.mp3",
+        "sampleCount": 17280,
+        "rate": 44100
+    },
+    {
         "name": "Siren Whistle",
         "tags": [
             "wacky",
@@ -3494,6 +5586,18 @@
         "rate": 22050
     },
     {
+        "name": "Slash",
+        "tags": [
+            "effects",
+            "sports"
+        ],
+        "assetId": "211eb10dbb06662d02ae06049b8b85b9",
+        "dataFormat": "mp3",
+        "md5ext": "211eb10dbb06662d02ae06049b8b85b9.mp3",
+        "sampleCount": 6615,
+        "rate": 44100
+    },
+    {
         "name": "Slide Whistle",
         "tags": [
             "wacky",
@@ -3505,6 +5609,18 @@
         "md5ext": "3858bab5ea1211ff3c5902a4b680f7d8.wav",
         "sampleCount": 13209,
         "rate": 22050
+    },
+    {
+        "name": "Slime",
+        "tags": [
+            "space",
+            "effects"
+        ],
+        "assetId": "325eac1be6714bebdf5d497ef0ab0478",
+        "dataFormat": "mp3",
+        "md5ext": "325eac1be6714bebdf5d497ef0ab0478.mp3",
+        "sampleCount": 22050,
+        "rate": 44100
     },
     {
         "name": "Small Cowbell",
@@ -3600,6 +5716,18 @@
         "rate": 44100
     },
     {
+        "name": "Snore",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "a53797631e7cc12edaea392ac47b4c68",
+        "dataFormat": "mp3",
+        "md5ext": "a53797631e7cc12edaea392ac47b4c68.mp3",
+        "sampleCount": 19506,
+        "rate": 44100
+    },
+    {
         "name": "Snoring",
         "tags": [
             "human",
@@ -3677,6 +5805,31 @@
         "rate": 44100
     },
     {
+        "name": "Space Trash",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "161b87ee61a2a8a375968af9185e7eaa",
+        "dataFormat": "mp3",
+        "md5ext": "161b87ee61a2a8a375968af9185e7eaa.mp3",
+        "sampleCount": 64002,
+        "rate": 44100
+    },
+    {
+        "name": "Spell",
+        "tags": [
+            "effects",
+            "games"
+        ],
+        "assetId": "815ae17bfd665de09bc185088c8d9bfa",
+        "dataFormat": "mp3",
+        "md5ext": "815ae17bfd665de09bc185088c8d9bfa.mp3",
+        "sampleCount": 27914,
+        "rate": 44100
+    },
+    {
         "name": "Spiral",
         "tags": [
             "space",
@@ -3687,6 +5840,18 @@
         "dataFormat": "",
         "md5ext": "c987c4e2c85d1a034ef047c2611aff25.wav",
         "sampleCount": 114688,
+        "rate": 44100
+    },
+    {
+        "name": "Spit",
+        "tags": [
+            "animals",
+            "wacky"
+        ],
+        "assetId": "e1ed764e29da1198ee5c2455725afda7",
+        "dataFormat": "mp3",
+        "md5ext": "e1ed764e29da1198ee5c2455725afda7.mp3",
+        "sampleCount": 21527,
         "rate": 44100
     },
     {
@@ -3720,6 +5885,17 @@
         "dataFormat": "",
         "md5ext": "6648b690e6e22c7504db7746879d51b4.wav",
         "sampleCount": 205504,
+        "rate": 44100
+    },
+    {
+        "name": "Spring",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "66b4dbf23cab3824b6aba8b6c352ef08",
+        "dataFormat": "mp3",
+        "md5ext": "66b4dbf23cab3824b6aba8b6c352ef08.mp3",
+        "sampleCount": 57353,
         "rate": 44100
     },
     {
@@ -3774,6 +5950,17 @@
         "rate": 22050
     },
     {
+        "name": "Stones",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "99df128ce5b0b9ba8468efb5ad27e2b1",
+        "dataFormat": "mp3",
+        "md5ext": "99df128ce5b0b9ba8468efb5ad27e2b1.mp3",
+        "sampleCount": 21567,
+        "rate": 44100
+    },
+    {
         "name": "String Accent",
         "tags": [
             "effects",
@@ -3810,6 +5997,18 @@
         "rate": 22050
     },
     {
+        "name": "Sudden Death",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "04737b6ad701ad600cec7f6550929552",
+        "dataFormat": "mp3",
+        "md5ext": "04737b6ad701ad600cec7f6550929552.mp3",
+        "sampleCount": 63421,
+        "rate": 44100
+    },
+    {
         "name": "Suspense",
         "tags": [
             "effects",
@@ -3820,6 +6019,56 @@
         "dataFormat": "",
         "md5ext": "12f86e0188510860970e04df45370c1d.wav",
         "sampleCount": 66636,
+        "rate": 44100
+    },
+    {
+        "name": "Sustain High",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "59687540eb2d4474becb5238a240cab6",
+        "dataFormat": "mp3",
+        "md5ext": "59687540eb2d4474becb5238a240cab6.mp3",
+        "sampleCount": 98998,
+        "rate": 44100
+    },
+    {
+        "name": "Swipe",
+        "tags": [
+            "games",
+            "electronic"
+        ],
+        "assetId": "18d8b27d3aaf07d7375a87ecc69c132e",
+        "dataFormat": "mp3",
+        "md5ext": "18d8b27d3aaf07d7375a87ecc69c132e.mp3",
+        "sampleCount": 11294,
+        "rate": 44100
+    },
+    {
+        "name": "Synth Beep",
+        "tags": [
+            "effects",
+            "games",
+            "electronic"
+        ],
+        "assetId": "3b36cb93b388349b682ceedb853d6266",
+        "dataFormat": "mp3",
+        "md5ext": "3b36cb93b388349b682ceedb853d6266.mp3",
+        "sampleCount": 9000,
+        "rate": 44100
+    },
+    {
+        "name": "Synth Laser",
+        "tags": [
+            "effects",
+            "games",
+            "electronic"
+        ],
+        "assetId": "7d464aa4d55a20ac9db52ab12ebbfbc4",
+        "dataFormat": "mp3",
+        "md5ext": "7d464aa4d55a20ac9db52ab12ebbfbc4.mp3",
+        "sampleCount": 22202,
         "rate": 44100
     },
     {
@@ -3976,6 +6225,17 @@
         "rate": 22050
     },
     {
+        "name": "Terminal",
+        "tags": [
+            "space"
+        ],
+        "assetId": "15c94c1c69950e1eccfa914738a58592",
+        "dataFormat": "mp3",
+        "md5ext": "15c94c1c69950e1eccfa914738a58592.mp3",
+        "sampleCount": 17515,
+        "rate": 44100
+    },
+    {
         "name": "Thunder Storm",
         "tags": [
             "weather",
@@ -3991,6 +6251,54 @@
         "rate": 22050
     },
     {
+        "name": "Thunk",
+        "tags": [
+            "effects",
+            "sports"
+        ],
+        "assetId": "c9d8212117c718df044f5677306a0768",
+        "dataFormat": "mp3",
+        "md5ext": "c9d8212117c718df044f5677306a0768.mp3",
+        "sampleCount": 13009,
+        "rate": 44100
+    },
+    {
+        "name": "Tick",
+        "tags": [
+            "effects",
+            "electronic"
+        ],
+        "assetId": "8190284a5509cbf15e3d91b48b27144e",
+        "dataFormat": "mp3",
+        "md5ext": "8190284a5509cbf15e3d91b48b27144e.mp3",
+        "sampleCount": 2431,
+        "rate": 44100
+    },
+    {
+        "name": "Tie",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "f980aa7869d99dbd8544a3d89cfa97f8",
+        "dataFormat": "mp3",
+        "md5ext": "f980aa7869d99dbd8544a3d89cfa97f8.mp3",
+        "sampleCount": 48838,
+        "rate": 44100
+    },
+    {
+        "name": "Time",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "3ad5291b11589bd583516d9e3494a7a5",
+        "dataFormat": "mp3",
+        "md5ext": "3ad5291b11589bd583516d9e3494a7a5.mp3",
+        "sampleCount": 51212,
+        "rate": 44100
+    },
+    {
         "name": "Tom Drum",
         "tags": [
             "percussion",
@@ -4002,6 +6310,19 @@
         "md5ext": "5a8b8678d37a860dd6c08082d5cda3c2.wav",
         "sampleCount": 36577,
         "rate": 22050
+    },
+    {
+        "name": "Tone",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "62dc34b6f9f7074a600b9f7dfae2c6c7",
+        "dataFormat": "mp3",
+        "md5ext": "62dc34b6f9f7074a600b9f7dfae2c6c7.mp3",
+        "sampleCount": 30143,
+        "rate": 44100
     },
     {
         "name": "Toy Honk",
@@ -4121,6 +6442,31 @@
         "rate": 44100
     },
     {
+        "name": "Twirl Smol",
+        "tags": [
+            "effects",
+            "sports"
+        ],
+        "assetId": "8a75c11ad034c9d33bc507cd45f7d556",
+        "dataFormat": "mp3",
+        "md5ext": "8a75c11ad034c9d33bc507cd45f7d556.mp3",
+        "sampleCount": 47058,
+        "rate": 44100
+    },
+    {
+        "name": "Two Tone",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "4d853ba5896af7241ea154b403b5c733",
+        "dataFormat": "mp3",
+        "md5ext": "4d853ba5896af7241ea154b403b5c733.mp3",
+        "sampleCount": 31791,
+        "rate": 44100
+    },
+    {
         "name": "Video Game 1",
         "tags": [
             "loops",
@@ -4171,6 +6517,126 @@
         "rate": 22050
     },
     {
+        "name": "War Call For Backup",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "c90706345e77234d030d784c8bd3458f",
+        "dataFormat": "mp3",
+        "md5ext": "c90706345e77234d030d784c8bd3458f.mp3",
+        "sampleCount": 38501,
+        "rate": 44100
+    },
+    {
+        "name": "War Fire In The Hole",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "19baf4d90f568f39b9f5c65c6b9c938c",
+        "dataFormat": "mp3",
+        "md5ext": "19baf4d90f568f39b9f5c65c6b9c938c.mp3",
+        "sampleCount": 44477,
+        "rate": 44100
+    },
+    {
+        "name": "War Go Go Go",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "07ccb0a7ce4422e9566f7476f5d8e9bc",
+        "dataFormat": "mp3",
+        "md5ext": "07ccb0a7ce4422e9566f7476f5d8e9bc.mp3",
+        "sampleCount": 54398,
+        "rate": 44100
+    },
+    {
+        "name": "War Look Out",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "18b3f122e89b4be360438d8dda088915",
+        "dataFormat": "mp3",
+        "md5ext": "18b3f122e89b4be360438d8dda088915.mp3",
+        "sampleCount": 28554,
+        "rate": 44100
+    },
+    {
+        "name": "War Medic",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "99f71725fd0f53918e14243ac8beb890",
+        "dataFormat": "mp3",
+        "md5ext": "99f71725fd0f53918e14243ac8beb890.mp3",
+        "sampleCount": 29616,
+        "rate": 44100
+    },
+    {
+        "name": "War RPG",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "832e8aee5a74640da2b691159d0483cd",
+        "dataFormat": "mp3",
+        "md5ext": "832e8aee5a74640da2b691159d0483cd.mp3",
+        "sampleCount": 34698,
+        "rate": 44100
+    },
+    {
+        "name": "War Suppressing Fire",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "53bfd992c206541ee679b7629f19ac35",
+        "dataFormat": "mp3",
+        "md5ext": "53bfd992c206541ee679b7629f19ac35.mp3",
+        "sampleCount": 54512,
+        "rate": 44100
+    },
+    {
+        "name": "War Target Destroyed",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "dc78bc8c184be6af042032e6c2f24b2e",
+        "dataFormat": "mp3",
+        "md5ext": "dc78bc8c184be6af042032e6c2f24b2e.mp3",
+        "sampleCount": 56721,
+        "rate": 44100
+    },
+    {
+        "name": "War Watch My Back",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "13ed67f75fe9a66d0659a42dd986587b",
+        "dataFormat": "mp3",
+        "md5ext": "13ed67f75fe9a66d0659a42dd986587b.mp3",
+        "sampleCount": 38612,
+        "rate": 44100
+    },
+    {
+        "name": "Water Boiling",
+        "tags": [
+            "loops",
+            "ambience"
+        ],
+        "assetId": "f54e2b1fd6115c14b1defe4dacdde6c2",
+        "dataFormat": "mp3",
+        "md5ext": "f54e2b1fd6115c14b1defe4dacdde6c2.mp3",
+        "sampleCount": 198087,
+        "rate": 44100
+    },
+    {
         "name": "Water Drop",
         "tags": [
             "effects"
@@ -4180,6 +6646,73 @@
         "md5ext": "e133e625fd367d269e76964d4b722fc2.wav",
         "sampleCount": 15241,
         "rate": 22050
+    },
+    {
+        "name": "Water Loop",
+        "tags": [
+            "effects",
+            "water"
+        ],
+        "assetId": "03d2f65d21dd9814c392be8fc3a6cacb",
+        "dataFormat": "mp3",
+        "md5ext": "03d2f65d21dd9814c392be8fc3a6cacb.mp3",
+        "sampleCount": 149080,
+        "rate": 44100
+    },
+    {
+        "name": "Weird 1",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "8b288db6f534661688c773fd861cf42b",
+        "dataFormat": "mp3",
+        "md5ext": "8b288db6f534661688c773fd861cf42b.mp3",
+        "sampleCount": 22630,
+        "rate": 44100
+    },
+    {
+        "name": "Weird 2",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "1ec8a1d6199655d182aba093099fce4a",
+        "dataFormat": "mp3",
+        "md5ext": "1ec8a1d6199655d182aba093099fce4a.mp3",
+        "sampleCount": 12858,
+        "rate": 44100
+    },
+    {
+        "name": "Weird 3",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "2b386720d32e92b2d1eb54bf4a30810b",
+        "dataFormat": "mp3",
+        "md5ext": "2b386720d32e92b2d1eb54bf4a30810b.mp3",
+        "sampleCount": 32403,
+        "rate": 44100
+    },
+    {
+        "name": "Weird 4",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "a7964b8acaaa53fd1d206770b1d63e6b",
+        "dataFormat": "mp3",
+        "md5ext": "a7964b8acaaa53fd1d206770b1d63e6b.mp3",
+        "sampleCount": 16800,
+        "rate": 44100
+    },
+    {
+        "name": "Weird 5",
+        "tags": [
+            "wacky"
+        ],
+        "assetId": "1ae68eaafbd541ce4cccb05d2ff268d3",
+        "dataFormat": "mp3",
+        "md5ext": "1ae68eaafbd541ce4cccb05d2ff268d3.mp3",
+        "sampleCount": 23137,
+        "rate": 44100
     },
     {
         "name": "Whinny",
@@ -4259,12 +6792,79 @@
         "rate": 22050
     },
     {
+        "name": "Wobble Drop",
+        "tags": [
+            "wacky",
+            "cartoon"
+        ],
+        "assetId": "fededc98075d1ed9a23182ce0274b973",
+        "dataFormat": "mp3",
+        "md5ext": "fededc98075d1ed9a23182ce0274b973.mp3",
+        "sampleCount": 100635,
+        "rate": 44100
+    },
+    {
         "name": "Wolf Howl",
         "tags": [],
         "assetId": "5e36d74bb16aa5085b901362788b0fbf",
         "dataFormat": "",
         "md5ext": "5e36d74bb16aa5085b901362788b0fbf.wav",
         "sampleCount": 172032,
+        "rate": 44100
+    },
+    {
+        "name": "Wood",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "1c2d38eba17ce16fd2ef9f2f6b548cc2",
+        "dataFormat": "mp3",
+        "md5ext": "1c2d38eba17ce16fd2ef9f2f6b548cc2.mp3",
+        "sampleCount": 23452,
+        "rate": 44100
+    },
+    {
+        "name": "Wood Breaking",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "c420c3fc9f9c37f3054dd7556bfa9c4d",
+        "dataFormat": "mp3",
+        "md5ext": "c420c3fc9f9c37f3054dd7556bfa9c4d.mp3",
+        "sampleCount": 13144,
+        "rate": 44100
+    },
+    {
+        "name": "Wood Close",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "c258284d1d3bf8974b119532a8a01fb2",
+        "dataFormat": "mp3",
+        "md5ext": "c258284d1d3bf8974b119532a8a01fb2.mp3",
+        "sampleCount": 17496,
+        "rate": 44100
+    },
+    {
+        "name": "Wood Falling",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "67f557568382e12202a7afb1fdfbc1b2",
+        "dataFormat": "mp3",
+        "md5ext": "67f557568382e12202a7afb1fdfbc1b2.mp3",
+        "sampleCount": 30738,
+        "rate": 44100
+    },
+    {
+        "name": "Wood Hammer",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "9bd9e38f173b52c53007006d58fdb6ec",
+        "dataFormat": "mp3",
+        "md5ext": "9bd9e38f173b52c53007006d58fdb6ec.mp3",
+        "sampleCount": 13811,
         "rate": 44100
     },
     {
@@ -4277,6 +6877,17 @@
         "md5ext": "de5b41c7080396986873d97e9e47acf6.wav",
         "sampleCount": 3049,
         "rate": 22050
+    },
+    {
+        "name": "Wooden Box Open",
+        "tags": [
+            "effects"
+        ],
+        "assetId": "de0a4eab4f0080140cb07f74bbc4458a",
+        "dataFormat": "mp3",
+        "md5ext": "de0a4eab4f0080140cb07f74bbc4458a.mp3",
+        "sampleCount": 16488,
+        "rate": 44100
     },
     {
         "name": "Wub Beatbox",
@@ -4345,6 +6956,44 @@
         "dataFormat": "",
         "md5ext": "30987bbe464eb8db1e4c781dc238f81c.wav",
         "sampleCount": 22764,
+        "rate": 44100
+    },
+    {
+        "name": "You Lose",
+        "tags": [
+            "voice",
+            "games"
+        ],
+        "assetId": "74c2220b82745b85c9dcd1632b72b7ac",
+        "dataFormat": "mp3",
+        "md5ext": "74c2220b82745b85c9dcd1632b72b7ac.mp3",
+        "sampleCount": 52674,
+        "rate": 44100
+    },
+    {
+        "name": "Zap Three Tone Down",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "f9ec850ea89926fbedba160305ac88df",
+        "dataFormat": "mp3",
+        "md5ext": "f9ec850ea89926fbedba160305ac88df.mp3",
+        "sampleCount": 58752,
+        "rate": 44100
+    },
+    {
+        "name": "Zap Three Tone Up",
+        "tags": [
+            "effects",
+            "electronic",
+            "games"
+        ],
+        "assetId": "67489aa5c7eda0a8bd26367a38a94bc1",
+        "dataFormat": "mp3",
+        "md5ext": "67489aa5c7eda0a8bd26367a38a94bc1.mp3",
+        "sampleCount": 52992,
         "rate": 44100
     },
     {

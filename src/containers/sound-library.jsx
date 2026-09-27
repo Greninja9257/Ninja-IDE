@@ -137,7 +137,8 @@ class SoundLibrary extends React.PureComponent {
 
         // Save the promise so code to stop the sound may queue the stop
         // instruction after the play instruction.
-        this.playingSoundPromise = vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5)
+        // Ninja: pass the file type, so library sounds that aren't WAV preview too.
+        this.playingSoundPromise = vm.runtime.storage.load(vm.runtime.storage.AssetType.Sound, md5, idParts[1])
             .then(soundAsset => {
                 if (soundAsset) {
                     const sound = {

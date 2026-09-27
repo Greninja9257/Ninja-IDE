@@ -1,9 +1,32 @@
 {
-  "count": 164,
+  "count": 195,
   "models": {
     "mobileNet": "ninja-extensions/models/mobilenet/model.json"
   },
   "extensions": [
+    {
+      "source": "PenguinMod",
+      "sourceId": "ObviousAlexC-3DMath",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/ObviousAlexC/3DMath.js",
+      "name": "3D Math",
+      "nameTranslations": {},
+      "description": "A handful of utilities for making your own sprite-based 3D engine.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pinksheep2917"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-ObviousAlexC-3DMath.js",
+      "extensionSha256": "ebc54b1d36c5b9c6e64f4a874578026fa326c548d3772f7587af3ecbcd9cc898",
+      "extensionBytes": 77397,
+      "iconURL": "ninja-extensions/icons/penguinmod-ObviousAlexC-3DMath.svg",
+      "iconSha256": "6fc8d723c95853e9c3de0603d8b454c3370d86a8703604de7b5f0071da8e81c4",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
     {
       "source": "SharkPool",
       "sourceId": "Added-Motion",
@@ -417,6 +440,55 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-beat_sync",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/beat_sync.js",
+      "name": "Beat Sync",
+      "nameTranslations": {},
+      "description": "An extension designed to let you sync anything in your project to a musical beat, with incredible precision.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1xLol"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-beat_sync.js",
+      "extensionSha256": "581c7141f621dcbfff7d3adf88b9f05497bf5dc4576c64842275f1a24aa80302",
+      "extensionBytes": 20576,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-beat_sync.avif",
+      "iconSha256": "f9fa4f9b1793ac832717d18b74ff4ffe8cd232ff288b37bd730087e886a4bc4a",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "DogeisCut-BeepBoxPlayer",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/DogeisCut/BeepBoxPlayer.js",
+      "name": "Beepbox Player",
+      "nameTranslations": {},
+      "description": "Play, edit, and read songs from any BeepBox mod directly from the URL or JSON!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "DogeisCut"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-DogeisCut-BeepBoxPlayer.js",
+      "extensionSha256": "38dafe5007a3388c97c75a27e7673d83708e770272401d5c1fcb767fa3e1d587",
+      "extensionBytes": 503281,
+      "iconURL": "ninja-extensions/icons/penguinmod-DogeisCut-BeepBoxPlayer.svg",
+      "iconSha256": "54e83f3201eb705eb903ba762b2f257107d5af590b99ab7b6ecab0d2ce9b13b4",
+      "tags": [
+        "penguinmod",
+        "api",
+        "music",
+        "sounds"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "Better-Comments",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Better-Comments.js",
@@ -437,6 +509,29 @@
       "tags": [
         "sharkpool",
         "Editor Tool"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "qxsck-big-decimal",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/qxsck/big-decimal.js",
+      "name": "Big Decimal",
+      "nameTranslations": {},
+      "description": "High precision operations. (Support decimals)",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "qxsck"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-qxsck-big-decimal.js",
+      "extensionSha256": "23831f5ae017d391a1406492611f39806190161eb3fd68104c9fe538d3e9eb9c",
+      "extensionBytes": 18912,
+      "iconURL": "ninja-extensions/icons/penguinmod-qxsck-big-decimal.svg",
+      "iconSha256": "31f9da65bbe3a933d1c36bd9e6b71dd932096e9a704fe4eab206966c342404e5",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -813,6 +908,29 @@
       "iconSha256": "ebfa876e4447ae4941774384c0fa05c04f12544261c8927b86e2961d1736c995",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-chess-ext",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/chess-ext.js",
+      "name": "Chess",
+      "nameTranslations": {},
+      "description": "A powerful extension that lets you manage a chessboard, customize it, use Stockfish 17 (via API), a local chess engine (Lozza) and much, MUCH more!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1xLol"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-chess-ext.js",
+      "extensionSha256": "81a351792bcd0c6ff6c9fddb56425b1fa70d68914596a59814ae519564ae8e6b",
+      "extensionBytes": 60401,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-chess-ext.avif",
+      "iconSha256": "5c339e7d1b4956fb264d294751694b5ef54ac6f75a36119f4f1fe72bc84a6a30",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -1251,6 +1369,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "NamelessCat-corsproxy",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/NamelessCat/corsproxy.js",
+      "name": "CORS Proxy",
+      "nameTranslations": {},
+      "description": "Accessible CORS proxies for fetching information with Ninja.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "NamelessCat"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-NamelessCat-corsproxy.js",
+      "extensionSha256": "6e73f72f0b80035efc4a95263cc404a6c0be8a408794ff5d44fac874d0d9bc7e",
+      "extensionBytes": 3002,
+      "iconURL": "ninja-extensions/icons/penguinmod-NamelessCat-corsproxy.avif",
+      "iconSha256": "3d662bc78362403ce65d95d7ed4196b978d174fc501407ef4103983ac89652c5",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "truefantomcouplers",
       "sourceURL": "https://extensions.turbowarp.org/true-fantom/couplers.js",
@@ -1291,6 +1432,29 @@
       "iconSha256": "afc105e841e277c24b123236bb665c324c5a6d0cb219ea5405c642d34733b36b",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "gaimerI17-crypto",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/gaimerI17/crypto.js",
+      "name": "Cryptography",
+      "nameTranslations": {},
+      "description": "Hash, encrypt and verify values using various algorithms. Actual security not guaranteed",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "gaimerI17"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-gaimerI17-crypto.js",
+      "extensionSha256": "b9ce8b91a6e1800f33e3c74043d49199e5a0ddd3b2aaa20cfdc7331142c70d45",
+      "extensionBytes": 17052,
+      "iconURL": "ninja-extensions/icons/penguinmod-gaimerI17-crypto.avif",
+      "iconSha256": "91c7058eef47615c0ed9700c29620f65408f1beba707cef52fadffac865a049b",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -1468,6 +1632,52 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "gaimerI17-DeviceMotion",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/gaimerI17/DeviceMotion.js",
+      "name": "Device Motion",
+      "nameTranslations": {},
+      "description": "Use Device Motion API to get rotation or movement of the device. Works best on mobile devices.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "gaimerI17"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-gaimerI17-DeviceMotion.js",
+      "extensionSha256": "cda853cd89947cccba24996f04a3b4ca3d2db7f81b3eda1837f5493ee3989353",
+      "extensionBytes": 63890,
+      "iconURL": "ninja-extensions/icons/penguinmod-gaimerI17-DeviceMotion.avif",
+      "iconSha256": "892c695c757d53d734745a978704ce4d523f694197527e94a742c84c97c927f1",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "pooiod-Dictation",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/pooiod/Dictation.js",
+      "name": "Dictation",
+      "nameTranslations": {},
+      "description": "Convert your voice into text. (not supported in all browsers)",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-pooiod-Dictation.js",
+      "extensionSha256": "ac192c2688dc9045334446792142c4df39c645c08127c58f0b4d9bd744c4bc8d",
+      "extensionBytes": 2149,
+      "iconURL": "ninja-extensions/icons/penguinmod-pooiod-Dictation.svg",
+      "iconSha256": "ab68759841fb3105042cf97d5245290f32b1feaa541eded762f1a0e5d120c16f",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "verctedictionaries",
       "sourceURL": "https://extensions.turbowarp.org/vercte/dictionaries.js",
@@ -1564,6 +1774,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "TheShovel-doodlerec",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/TheShovel/doodlerec.js",
+      "name": "Doodle Recognition",
+      "nameTranslations": {},
+      "description": "A implementation of Google's Quick Draw image vision model",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "TheShovel"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-doodlerec.js",
+      "extensionSha256": "4813ccf480547e612195bd5740621a8b6694854eeed478d124c031e81a7897bf",
+      "extensionBytes": 22269,
+      "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-doodlerec.avif",
+      "iconSha256": "9f021f9a3bcf9b1149e4534105fad6f012f19a293ec3cfac757ece1c60a4afc9",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "Dropdown-Maker",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Dropdown-Maker.js",
@@ -1587,6 +1820,29 @@
         "Data Management",
         "Editor Tool",
         "Configuration"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "MikeDev101-e2ee",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/MikeDev101/e2ee.js",
+      "name": "E2EE",
+      "nameTranslations": {},
+      "description": "A general-purpose E2EE (End-to-End Encryption) extension for Scratch.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "MikeDev101"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-MikeDev101-e2ee.js",
+      "extensionSha256": "ff7ce93fdaa5af1cf9a7676b88f8ab33ad02f475d20648917ab848e65ec2420e",
+      "extensionBytes": 17029,
+      "iconURL": "ninja-extensions/icons/penguinmod-MikeDev101-e2ee.svg",
+      "iconSha256": "a361c8599412340e0a24131df8968dd2e1b3cb46dfff155fbff3cc57d221c6db",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -1660,6 +1916,29 @@
         "Category Expansion",
         "Configuration",
         "Runtime"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "TheShovel-extexp",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/TheShovel/extexp.js",
+      "name": "Extension Exposer",
+      "nameTranslations": {},
+      "description": "Access the raw functions from other extensions.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "TheShovel"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-extexp.js",
+      "extensionSha256": "098d1fd5823ffb0a00c44c4a5a209849b8645ada0a0727c462cb8c4981e0052a",
+      "extensionBytes": 3977,
+      "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-extexp.avif",
+      "iconSha256": "6f39672ae604f3ccb62d044170bc861f073bb2adf32d39aa78a7c43c335f920a",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -2110,6 +2389,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "justablock-gitpenguin",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/justablock/gitpenguin.js",
+      "name": "GitHub Files",
+      "nameTranslations": {},
+      "description": "Make requests and control the files for your GitHub repository.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "justablock"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-justablock-gitpenguin.js",
+      "extensionSha256": "2225e57d59d4035821758bee0aac2474ccac30c94a3b23e230823289ae87e7fa",
+      "extensionBytes": 8394,
+      "iconURL": "ninja-extensions/icons/penguinmod-justablock-gitpenguin.avif",
+      "iconSha256": "97cf762c19be5852d2f3e65e7b90cd250aded4955f9796c551c952cb1fed3cd3",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "Google-Spreadsheets",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Google-Spreadsheets.js",
@@ -2483,6 +2785,30 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-iris-text",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/iris-text.js",
+      "name": "Iris Text",
+      "nameTranslations": {},
+      "description": "A heavily-expanded text engine loosely based on Animated Text! Adds support for rich text, per-character control, and more!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1xLol"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-iris-text.js",
+      "extensionSha256": "902e5aeb04a9c88aead7fd9fc30cc0a32f14891ac29e38799a0dc913699af6f2",
+      "extensionBytes": 328231,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-iris-text.avif",
+      "iconSha256": "8bd082bc1ab04705be7408f2ecc3e11cb74cfa5988acaa82e7be2310aa1fa80b",
+      "tags": [
+        "penguinmod",
+        "new"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "itch",
       "sourceURL": "https://extensions.turbowarp.org/itchio.js",
@@ -2657,6 +2983,54 @@
         "Utility",
         "Math",
         "Category Expansion"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "NishiOwO-libxmp",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/NishiOwO/libxmp.js",
+      "name": "Libxmp",
+      "nameTranslations": {},
+      "description": "Play tracker modules using Libxmp.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "NishiOwO"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-NishiOwO-libxmp.js",
+      "extensionSha256": "f47ae80227945366206ebb4c50ebac1d6a4991fdc0fb64a7ee22a9d0e0068ee8",
+      "extensionBytes": 357291,
+      "iconURL": "ninja-extensions/icons/penguinmod-NishiOwO-libxmp.svg",
+      "iconSha256": "61d528515ad20ededffd13a84c42f9aa9f1a3edf6c498a0a2f0d275bb95abc08",
+      "tags": [
+        "penguinmod",
+        "new"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-lighting",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/lighting.js",
+      "name": "Lighting",
+      "nameTranslations": {},
+      "description": "A fast, powerful and easy-to-use lighting engine powered by WebGL!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1xLol"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-lighting.js",
+      "extensionSha256": "160796ad41be53530d2e0d708fc3ebec39e6b860ee1d8a1dd79bfd0c5708528b",
+      "extensionBytes": 125478,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-lighting.avif",
+      "iconSha256": "94ec460f50d050e410cff1b09169ef3eabcec23a6a375fa87d01beaba941c138",
+      "tags": [
+        "penguinmod",
+        "new"
       ],
       "incompatibleWithScratch": true
     },
@@ -3288,6 +3662,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "Ashime-MoreFields",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Ashime/MoreFields.js",
+      "name": "More Fields",
+      "nameTranslations": {},
+      "description": "Custom Field Types",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "yuri-kiss"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Ashime-MoreFields.js",
+      "extensionSha256": "e242c3b78bbb169a4265dfc2017a6f444a136d81ce7cacaee6ca499a3a37142f",
+      "extensionBytes": 57763,
+      "iconURL": "ninja-extensions/icons/penguinmod-Ashime-MoreFields.avif",
+      "iconSha256": "15aca4d8802a87f5c900fc007be64913fff3a4fa9e169af0b10bef49a8a84fed",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "nkmoremotion",
       "sourceURL": "https://extensions.turbowarp.org/NexusKitten/moremotion.js",
@@ -3407,6 +3804,29 @@
         "Utility",
         "Category Expansion",
         "Math"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "TheShovel-qoan-renderer",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/TheShovel/qoan-renderer.js",
+      "name": "MotionSprite",
+      "nameTranslations": {},
+      "description": "An advanced math-based animation system",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "TheShovel"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-qoan-renderer.js",
+      "extensionSha256": "92c059d4001343e21cc2d35b7e1faee6091aa22757204cdffc5e945ce95b682d",
+      "extensionBytes": 755068,
+      "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-qoan-renderer.avif",
+      "iconSha256": "96da760116d3bd496757ff3db5769aa87b9949f188f3ac320e9f65d54b8768c0",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -3683,6 +4103,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Ninja",
+      "sourceId": "ninjaapi",
+      "sourceURL": "",
+      "name": "Ninja API",
+      "nameTranslations": {},
+      "description": "Get information about Ninja users, projects and studios, and who is signed in.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Ninja"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/ninja-ninja-api.js",
+      "extensionSha256": "8d5d6c3dd78b67d6a7881e1f86d92c25dd98de105b8437d6ec5c1e8f45aa874d",
+      "extensionBytes": 13785,
+      "iconURL": "ninja-extensions/icons/ninja-ninja-api.svg",
+      "iconSha256": "d396f05b108c2ee146ae9ba283015ecd75c19143cc1f5fa4800ac47505bb3aea",
+      "tags": [
+        "ninja"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "mdwaltersnotifications",
       "sourceURL": "https://extensions.turbowarp.org/mdwalters/notifications.js",
@@ -3771,6 +4214,30 @@
       "iconSha256": "3a266ce1d4f58202a740f5469892f4c5fdb88969dbbd5c1f6acba7bf2b13466c",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "NishiOwO-ode",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/NishiOwO/ode.js",
+      "name": "ODE",
+      "nameTranslations": {},
+      "description": "3D physics using ODE.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "NishiOwO"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-NishiOwO-ode.js",
+      "extensionSha256": "50654a9b87bdedde74b9c6fc5ff8ae3d8dae76ad20f7e611ad2b28c163cb5cf7",
+      "extensionBytes": 1671966,
+      "iconURL": "ninja-extensions/icons/penguinmod-NishiOwO-ode.svg",
+      "iconSha256": "14d7d7e941ac0f498121c6ec88d6201f065c2f426be955e291c0624ff782d6fa",
+      "tags": [
+        "penguinmod",
+        "new"
       ],
       "incompatibleWithScratch": true
     },
@@ -4095,6 +4562,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "LordCat0-ProjectInterfaces",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/LordCat0/ProjectInterfaces.js",
+      "name": "Project Interfaces",
+      "nameTranslations": {},
+      "description": "Effortlessly create intuitive graphical user interfaces in your projects.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Lord cat"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-LordCat0-ProjectInterfaces.js",
+      "extensionSha256": "0120d8f2fe4aecd6cdbe2de0a24b4f3838e7a920a4a322a4291d1783a69162a5",
+      "extensionBytes": 57724,
+      "iconURL": "ninja-extensions/icons/penguinmod-LordCat0-ProjectInterfaces.avif",
+      "iconSha256": "daf13981b239ff35380012f14552f262f845381b1d6363fb97f4ec3768ca8a60",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "QR-Codes",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/QR-Codes.js",
@@ -4118,6 +4608,29 @@
         "Graphics",
         "Data Management",
         "Hardware"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-random_utils",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/random_utils.js",
+      "name": "Random Utilities",
+      "nameTranslations": {},
+      "description": "Many blocks related to generating random values. Includes seed-based number generation, true number generation, UUIDs, random strings, etc.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1xLol"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-random_utils.js",
+      "extensionSha256": "294fce10d8981996e3c0e764e43ab34265eb7912b3002523fdb6a8a642f7d5d6",
+      "extensionBytes": 12148,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-random_utils.avif",
+      "iconSha256": "20aeb219f77b20e68ddb1877248278062411586a0ca3f8d8dd8fcbd19429c7fa",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -4211,6 +4724,31 @@
         "Dangerous",
         "Configuration",
         "Runtime"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "DogeisCut-Resolution",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/DogeisCut/Resolution.js",
+      "name": "Resolution",
+      "nameTranslations": {},
+      "description": "Provides utility blocks that simplify the creation of projects with dynamic resolution support.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "DogeisCut"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-DogeisCut-Resolution.js",
+      "extensionSha256": "354e4980d3cc45227d661ab71474a59f3219f20a7c0c9764de065bbaddc3cbcb",
+      "extensionBytes": 10773,
+      "iconURL": "ninja-extensions/icons/penguinmod-DogeisCut-Resolution.svg",
+      "iconSha256": "f3ef872b51b4cbb49bcfcc05c2fed2824cc5e5c20d3bc0968857164f89edb72e",
+      "tags": [
+        "penguinmod",
+        "graphics",
+        "utility"
       ],
       "incompatibleWithScratch": true
     },
@@ -4446,47 +4984,6 @@
       "incompatibleWithScratch": true
     },
     {
-      "source": "TurboWarp",
-      "sourceId": "nexuskittensgrab",
-      "sourceURL": "https://extensions.turbowarp.org/NexusKitten/sgrab.js",
-      "name": "S-Grab",
-      "nameTranslations": {
-        "fi": "Scratch-koura",
-        "ko": "S-그랩",
-        "nb": "S-Gripe",
-        "zh-cn": "S-抓取"
-      },
-      "description": "Get information about Scratch projects and Scratch users.",
-      "descriptionTranslations": {
-        "de": "Erhalte Informationen über Scratch Projekte und Scratch Benutzer.",
-        "fi": "Saa tietoja Scratch-projekteista ja Scratch-käyttäjistä.",
-        "it": "Ottieni informazioni sui progetti e sugli utenti Scratch. ",
-        "ja": "ScratchプロジェクトとScratchユーザーに関する情報を取得する。",
-        "ko": "스크래치의 프로젝트 정보 혹은 유저 정보를 얻습니다.",
-        "nb": "Få informasjon om Scratch-prosjekter og Scratch-brukere.",
-        "nl": "Krijg informatie over Scratch-projecten en gebruikers.",
-        "ru": "Получает информацию о Scratch проектах и Scratch пользователях.",
-        "tr": "Kazı kazan projeleri ve Kazı Kazan kullanıcıları hakkında bilgi edinin.",
-        "uk": "Отримайте інформацію про проєкти або користувачів на Scratch",
-        "zh-cn": "获取 Scratch 作品和 Scratch 用户的信息。"
-      },
-      "author": [
-        {
-          "name": "NamelessCat",
-          "link": "https://scratch.mit.edu/users/NamelessCat/"
-        }
-      ],
-      "extensionURL": "ninja-extensions/scripts/turbowarp-nexuskittensgrab.js",
-      "extensionSha256": "888eb0fd7cd81da3819a9b68a72f3a85b21f8f89ec8be0fda30f83ff85f3d3e4",
-      "extensionBytes": 17057,
-      "iconURL": "ninja-extensions/icons/turbowarp-nexuskittensgrab.svg",
-      "iconSha256": "928746a4dd2dbc1b49d2c9e1b110a801ab1e047ed41f13459e000564a6d3a517",
-      "tags": [
-        "tw"
-      ],
-      "incompatibleWithScratch": true
-    },
-    {
       "source": "SharkPool",
       "sourceId": "Scenes",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Scenes.js",
@@ -4513,30 +5010,25 @@
       "incompatibleWithScratch": true
     },
     {
-      "source": "SharkPool",
-      "sourceId": "Scratch-Utilities",
-      "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Scratch-Utilities.js",
-      "name": "Scratch-Utilities",
+      "source": "PenguinMod",
+      "sourceId": "pooiod-Scratchblocks",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/pooiod/Scratchblocks.js",
+      "name": "Scratchblocks",
       "nameTranslations": {},
-      "description": "Blocks for fetching Scratch statistics and assets, inspired by NexusKitten's S-Grab",
+      "description": "Generate blocks in the Scratch3, or Scratch2 format.",
       "descriptionTranslations": {},
       "author": [
         {
-          "name": "SharkPool"
+          "name": "pooiod7"
         }
       ],
-      "extensionURL": "ninja-extensions/scripts/sharkpool-Scratch-Utilities.js",
-      "extensionSha256": "a51d85bbe5d3456e43922779d616c5aa576a1b87595e6102c2bbf8bf636d81f3",
-      "extensionBytes": 19747,
-      "iconURL": "ninja-extensions/icons/sharkpool-Scratch-Utilities.svg",
-      "iconSha256": "546c2d100de5e4910491a1323e2f600425e6fb14cb0aa3467db66cc9be4874b2",
+      "extensionURL": "ninja-extensions/scripts/penguinmod-pooiod-Scratchblocks.js",
+      "extensionSha256": "77f382a99a10f5606eb8c2cc4bbc0e4d50158afc515cdb65c509c01765880e68",
+      "extensionBytes": 322751,
+      "iconURL": "ninja-extensions/icons/penguinmod-pooiod-Scratchblocks.svg",
+      "iconSha256": "b69cd21758a646e3611bff68911dc2ee67c9cbf49511025576093ea2c2610dd2",
       "tags": [
-        "sharkpool",
-        "Utility",
-        "Graphics",
-        "Data Management",
-        "Online",
-        "Dangerous"
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -4754,6 +5246,29 @@
         "Utility",
         "Dangerous",
         "Math"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "TheShovel-shoveldebugger",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/TheShovel/shoveldebugger.js",
+      "name": "Shovel Debugger",
+      "nameTranslations": {},
+      "description": "Shovel's improved and feature rich debugger!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "TheShovel"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-shoveldebugger.js",
+      "extensionSha256": "8ab1aa346bedc32c5bcc45c8b27e005c498903867ccf983a830a4de9829411c1",
+      "extensionBytes": 66774,
+      "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-shoveldebugger.avif",
+      "iconSha256": "ae4aec910c167f9ca395c0d1f8ee308b9721bc36b26b6f2da2ab8b856781350d",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -5110,8 +5625,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/sharkpool-Sprite-Panel.js",
-      "extensionSha256": "07bb0533f61d45baa1a04036568165031eb61ffbaae163f0f21ef567c2e64c5e",
-      "extensionBytes": 35196,
+      "extensionSha256": "bd5c001ebfe7a9e2db2ad764f9fb03f5c96b592f4ae289f587c3c19543b4806d",
+      "extensionBytes": 35388,
       "iconURL": "ninja-extensions/icons/sharkpool-Sprite-Panel.svg",
       "iconSha256": "0eebdd1e6d30d8671da0152b45da5fb55ed5949119901212e14ba883177e7dc0",
       "tags": [
@@ -5176,6 +5691,29 @@
       "iconSha256": "b7e00f4c3d48993d84e62c60ef6d1380ef85dc159559b5525ec1a8b2022cec3e",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "Gen1x-storage_plus",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Gen1x/storage_plus.js",
+      "name": "Storage Plus",
+      "nameTranslations": {},
+      "description": "A storage extension with many more features. Featuring server storage (with a fast server), local storage and more!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Gen1x"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-storage_plus.js",
+      "extensionSha256": "223a29ce95d0dd6c9e53c56daaa015cb2ffa74ab7620483ba9297a080a0390f6",
+      "extensionBytes": 24476,
+      "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-storage_plus.avif",
+      "iconSha256": "05313cd02959d867e453f0f7e7cecc4906138355c819091c2dd7a04d210fad2d",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -5578,6 +6116,55 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "MubiLop-toastnotifs",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/MubiLop/toastnotifs.js",
+      "name": "Toast Notifications",
+      "nameTranslations": {},
+      "description": "Did you want alerts? Notifications that are easily customizable? This is the only and best notification extension!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "MubiLop"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-MubiLop-toastnotifs.js",
+      "extensionSha256": "c2367251d754c1473f8807b5ce197f1ab68b5e4d66a0df3c66231402aece870f",
+      "extensionBytes": 40150,
+      "iconURL": "ninja-extensions/icons/penguinmod-MubiLop-toastnotifs.avif",
+      "iconSha256": "9f64827dc335cfff2899e63fb9eaa5c92dcf7ed09c70ffc6614734c4dbe96af7",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "Embin-embintranslation",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/Embin/embintranslation.js",
+      "name": "Translation Keys",
+      "nameTranslations": {},
+      "description": "Use translation keys in your projects for multi-language support",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Embin"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-Embin-embintranslation.js",
+      "extensionSha256": "a06fe93b4c77e8284de8788ab73b5426a897d2a5ffb46aab11b976dab49ff211",
+      "extensionBytes": 11223,
+      "iconURL": "ninja-extensions/icons/penguinmod-Embin-embintranslation.avif",
+      "iconSha256": "b988a9a4369eb50273d9269b552257693dc1672d6bdf663b702d5f14953ea31e",
+      "tags": [
+        "penguinmod",
+        "data",
+        "utility",
+        "text"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "SPtuneShark3",
       "sourceURL": "https://extensions.turbowarp.org/SharkPool/Tune-Shark-V3.js",
@@ -5638,6 +6225,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "RubyDevs-turboweather",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/RubyDevs/turboweather.js",
+      "name": "TurboWeather",
+      "nameTranslations": {},
+      "description": "Show weather and location data for any place in our world. Data that could be used for doxxing is deleted from results.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "RubyDevs"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-RubyDevs-turboweather.js",
+      "extensionSha256": "ab512749ff14503ae3d625dab7f50fe9766bdac028db22e6358be4ac2c4540a0",
+      "extensionBytes": 14470,
+      "iconURL": "ninja-extensions/icons/penguinmod-RubyDevs-turboweather.avif",
+      "iconSha256": "09d2dccc3581596347d6910c2543b2070395fde4f5082922063a8d26693a1659",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "jeremygamerTweening",
       "sourceURL": "https://extensions.turbowarp.org/JeremyGamer13/tween.js",
@@ -5683,6 +6293,29 @@
       "iconSha256": "21e51e250de5bc239e7f489f54537c7ea8d67c8e4d6449d23535d4063cd51335",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "bop_tw-Twitch",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/bop_tw/Twitch.js",
+      "name": "Twitch",
+      "nameTranslations": {},
+      "description": "Communicate with your Twitch chat on Ninja! Ninja is not affiliated with Twitch.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "bop_tw"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-bop_tw-Twitch.js",
+      "extensionSha256": "8c27d6ffd6cf1a9d358bfd903576cefebaa1738fdbdcc78d6557a70517e6881f",
+      "extensionBytes": 120058,
+      "iconURL": "ninja-extensions/icons/penguinmod-bop_tw-Twitch.avif",
+      "iconSha256": "db3cae826b6c53c4298aaccfee6f14cf82cd158ba17c8135ef49f62d41506a76",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },
@@ -5899,6 +6532,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "pooiod-VideoSharing",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/pooiod/VideoSharing.js",
+      "name": "Video Sharing",
+      "nameTranslations": {},
+      "description": "Share your screen or camera to your projects!",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-pooiod-VideoSharing.js",
+      "extensionSha256": "9972e0f452861c4fda499c75751c7aa2267e64cb5a7a38471d740f17fa4d0fed",
+      "extensionBytes": 17394,
+      "iconURL": "ninja-extensions/icons/penguinmod-pooiod-VideoSharing.svg",
+      "iconSha256": "3492ef2d81b9962109704abe09d2010a1ac235b94afd44b668c40cfaf2cf37aa",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "videoSprites",
       "sourceURL": "https://extensions.turbowarp.org/lab/video-sprites.js",
@@ -6019,6 +6675,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "PenguinMod",
+      "sourceId": "MikeDev101-webrtc",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/MikeDev101/webrtc.js",
+      "name": "WebRTC",
+      "nameTranslations": {},
+      "description": "A barebones WebRTC implementation.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "MikeDev101"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-MikeDev101-webrtc.js",
+      "extensionSha256": "690bbd5dfd8b4584eca5e531f5bb207216273a0064f0cbe0acf206be50622dfc",
+      "extensionBytes": 55135,
+      "iconURL": "ninja-extensions/icons/penguinmod-MikeDev101-webrtc.svg",
+      "iconSha256": "eaded645a6803f9f8fb2b7171a3b76fe4097728bd6058ec51d8dd48d278a0a4b",
+      "tags": [
+        "penguinmod"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "gsaWebsocket",
       "sourceURL": "https://extensions.turbowarp.org/godslayerakp/ws.js",
@@ -6102,6 +6781,29 @@
       "iconSha256": "f75412a6838cc00e361bd0754b4875e814ce0211d9062ebf063ab1204b4f86f0",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "PenguinMod",
+      "sourceId": "pooiod-WindowHasher",
+      "sourceURL": "https://extensions.penguinmod.com/extensions/pooiod/WindowHasher.js",
+      "name": "WindowHasher",
+      "nameTranslations": {},
+      "description": "Interact with URL hash: the part of the URL after a hashtag",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/penguinmod-pooiod-WindowHasher.js",
+      "extensionSha256": "c27335fe5da700987c1d4a05420d9d7843b3498e40991516e7ca7e378dda583a",
+      "extensionBytes": 2689,
+      "iconURL": "ninja-extensions/icons/penguinmod-pooiod-WindowHasher.avif",
+      "iconSha256": "f465b5205b9ae95abd4fb4d2088dfee3c7537d4d41948267e1235fc69216f659",
+      "tags": [
+        "penguinmod"
       ],
       "incompatibleWithScratch": true
     },

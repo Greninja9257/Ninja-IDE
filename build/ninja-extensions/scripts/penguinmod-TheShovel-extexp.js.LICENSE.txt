@@ -1,0 +1,9 @@
+/**!
+ * Extension Exposer
+ * @author TheShovel https://github.com/TheShovel/
+ * @author 0znzw https://scratch.mit.edu/users/0znzw/
+ * @author Faunksys https://github.com/faunks/
+ * @version 1.5
+ * @copyright MIT License
+ * Do not remove this comment
+ */

@@ -14,12 +14,16 @@ const CATEGORIES = {
         'SharkPool:Looks-Expanded', 'SharkPool:Particle-Engine', 'SharkPool:Particle-Tools',
         'SharkPool:Pen-Papers', 'SharkPool:QR-Codes', 'SharkPool:Renderer-Control', 'SharkPool:Speech-Bubbles',
         'SharkPool:Sprite-Effects', 'SharkPool:Sprite-Parenting', 'SharkPool:Sty-Lists',
-        'SharkPool:SVG-Spritesheets', 'SharkPool:Tile-Grids', 'SharkPool:Turbo-Skins'
+        'SharkPool:SVG-Spritesheets', 'SharkPool:Tile-Grids', 'SharkPool:Turbo-Skins',
+        'PenguinMod:Gen1x-iris-text', 'PenguinMod:Gen1x-lighting', 'PenguinMod:TheShovel-qoan-renderer',
+        'PenguinMod:ObviousAlexC-3DMath', 'PenguinMod:pooiod-Scratchblocks', 'PenguinMod:DogeisCut-Resolution',
+        'PenguinMod:NishiOwO-ode', 'PenguinMod:LordCat0-ProjectInterfaces'
     ],
     sound: [
         'music', 'text2speech',
         'TurboWarp:lmsSoundExpanded', 'TurboWarp:SPtuneShark3',
-        'SharkPool:MIDI-Tools', 'SharkPool:Recording', 'SharkPool:Sound-Waves', 'SharkPool:Text-to-Speech-V2'
+        'SharkPool:MIDI-Tools', 'SharkPool:Recording', 'SharkPool:Sound-Waves', 'SharkPool:Text-to-Speech-V2',
+        'PenguinMod:Gen1x-beat_sync', 'PenguinMod:DogeisCut-BeepBoxPlayer', 'PenguinMod:NishiOwO-libxmp'
     ],
     data: [
         'neuralnetworks',
@@ -32,20 +36,26 @@ const CATEGORIES = {
         'TurboWarp:sipctime', 'TurboWarp:qxsckvarandlist', 'TurboWarp:mbwxml', 'TurboWarp:cst1229zip',
         'SharkPool:Files-Expanded', 'SharkPool:More-Operators', 'SharkPool:Perlin-Noise', 'SharkPool:Seeds',
         'SharkPool:Since-2000', 'SharkPool:Swift-JSON', 'SharkPool:Time-Calculation', 'SharkPool:Timezones',
-        'SharkPool:Variables-Expanded'
+        'SharkPool:Variables-Expanded',
+        'PenguinMod:qxsck-big-decimal', 'PenguinMod:Gen1x-random_utils', 'PenguinMod:gaimerI17-crypto',
+        'PenguinMod:MikeDev101-e2ee', 'PenguinMod:Gen1x-storage_plus', 'PenguinMod:Embin-embintranslation',
+        'PenguinMod:Gen1x-chess-ext'
     ],
     input: [
         'videoSensing', 'faceSensing', 'makeymakey', 'microbit', 'ev3', 'boost', 'wedo2', 'gdxfor',
         'TurboWarp:AR', 'TurboWarp:shovelColorPicker', 'TurboWarp:faceSensing', 'TurboWarp:Gamepad',
         'TurboWarp:samuelloufgeolocation', 'TurboWarp:cubesterKeySimulation', 'TurboWarp:mobilekeyboard0419',
         'TurboWarp:MouseCursor', 'TurboWarp:pointerlock', 'TurboWarp:obviousalexsensing',
-        'SharkPool:Camera-Sensing-Plus', 'SharkPool:Hyper-Sense', 'SharkPool:Popup-Phoenix'
+        'SharkPool:Camera-Sensing-Plus', 'SharkPool:Hyper-Sense', 'SharkPool:Popup-Phoenix',
+        'PenguinMod:pooiod-Dictation', 'PenguinMod:TheShovel-doodlerec', 'PenguinMod:gaimerI17-DeviceMotion',
+        'PenguinMod:pooiod-VideoSharing'
     ],
     network: [
         'translate',
         'TurboWarp:fetch', 'TurboWarp:gsaHTTPRequests', 'TurboWarp:truefantomnetwork', 'TurboWarp:steamworks',
         'TurboWarp:cubesterWebhooks', 'TurboWarp:gsaWebsocket',
-        'SharkPool:Fetch-Plus'
+        'SharkPool:Fetch-Plus',
+        'Ninja:ninjaapi', 'PenguinMod:MikeDev101-webrtc', 'PenguinMod:NamelessCat-corsproxy'
     ],
     utility: [
         'procedures_enable_return', 'tw', 'custom_extension',
@@ -59,16 +69,19 @@ const CATEGORIES = {
         'SharkPool:Dropdown-Maker', 'SharkPool:Events-Plus', 'SharkPool:Extra-Controls',
         'SharkPool:Lazy-Collisions', 'SharkPool:My-Blocks-Plus', 'SharkPool:Pause', 'SharkPool:Rigidbodies',
         'SharkPool:Runtime-Events', 'SharkPool:Scenes', 'SharkPool:Script-Control', 'SharkPool:Sharktilities',
-        'SharkPool:Sprite-Panel'
+        'SharkPool:Sprite-Panel',
+        'PenguinMod:MubiLop-toastnotifs', 'PenguinMod:TheShovel-extexp', 'PenguinMod:Ashime-MoreFields',
+        'PenguinMod:pooiod-WindowHasher', 'PenguinMod:TheShovel-shoveldebugger'
     ],
     niche: [
         // One outside service
         'TurboWarp:GameJoltAPI', 'TurboWarp:NGIO', 'SharkPool:Newgrounds-Audio', 'TurboWarp:itch',
         'SharkPool:Spotify', 'SharkPool:SoundCloud-API', 'SharkPool:YouTube-Operations',
         'SharkPool:Google-Spreadsheets', 'TurboWarp:longvegdictionary', 'SharkPool:Money-Utilities',
-        'TurboWarp:cloudlink', 'SharkPool:Community-Spotlight',
+        'TurboWarp:cloudlink', 'SharkPool:Community-Spotlight', 'PenguinMod:justablock-gitpenguin',
+        'PenguinMod:RubyDevs-turboweather', 'PenguinMod:bop_tw-Twitch',
         // Only meaningful on the Scratch website
-        'TurboWarp:nexuskittensgrab', 'SharkPool:Scratch-Utilities', 'TurboWarp:clouddataping',
+        'TurboWarp:clouddataping',
         'TurboWarp:numericalencoding2',
         // One platform
         'TurboWarp:alestorenfc', 'TurboWarp:pwldevvibration', 'TurboWarp:battery',
