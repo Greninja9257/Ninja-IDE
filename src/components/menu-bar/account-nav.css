@@ -14,7 +14,8 @@
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: $ui-white;
+    /* The menu bar's text colour: $ui-white turns near-black on the dark theme. */
+    color: $menu-bar-foreground;
     font-size: .75rem;
     font-weight: normal;
 }

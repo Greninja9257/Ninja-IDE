@@ -107,10 +107,20 @@ class Theme {
         return BLOCKS_MAP[this.blocks].blocksMediaFolder;
     }
 
+    // An accent can have its own colours for the dark theme (Ninja's navy
+    // needs lightening there); they come first when the theme is dark.
+    accentFor (kind) {
+        const accent = ACCENT_MAP[this.accent];
+        const dark = GUI_MAP[this.gui].guiColors['color-scheme'] === 'dark';
+        const base = kind === 'gui' ? accent.guiColors : accent.blockColors;
+        const darkColors = kind === 'gui' ? accent.darkGuiColors : accent.darkBlockColors;
+        return dark && darkColors ? defaultsDeep({}, darkColors, base) : base;
+    }
+
     getGuiColors () {
         return defaultsDeep(
             {},
-            ACCENT_MAP[this.accent].guiColors,
+            this.accentFor('gui'),
             GUI_MAP[this.gui].guiColors,
             guiLight.guiColors
         );
@@ -119,7 +129,7 @@ class Theme {
     getBlockColors () {
         return defaultsDeep(
             {},
-            ACCENT_MAP[this.accent].blockColors,
+            this.accentFor('blocks'),
             GUI_MAP[this.gui].blockColors,
             BLOCKS_MAP[this.blocks].colors
         );

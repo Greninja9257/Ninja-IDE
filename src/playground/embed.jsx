@@ -6,7 +6,7 @@ import AppStateHOC from '../lib/app-state-hoc.jsx';
 import TWEmbedFullScreenHOC from '../lib/tw-embed-fullscreen-hoc.jsx';
 import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
 import runAddons from '../addons/entry';
-import {Theme} from '../lib/themes/index.js';
+import {detectTheme} from '../lib/themes/themePersistance';
 
 import GUI from './render-gui.jsx';
 import TWWindchimeSubmitter from '../containers/tw-windchime-submitter.jsx';
@@ -87,7 +87,9 @@ render(<WrappedGUI
     onVmInit={onVmInit}
     onProjectLoaded={onProjectLoaded}
     routingStyle="none"
-    theme={Theme.light}
+    // Ninja: the player on project pages follows the site's light/dark
+    // setting (shared with the editor) instead of always being light.
+    theme={detectTheme()}
 />);
 
 if (urlParams.has('addons')) {
