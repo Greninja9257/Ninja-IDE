@@ -443,11 +443,14 @@ class CollabSession {
         const originalListen = proto.blocklyListen;
         this.originals.set('blocklyListen', {owner: proto, value: originalListen});
         proto.blocklyListen = function (e) {
-            const result = originalListen.call(this, e);
             // Ticking a variable (or x position, ...) in the palette shows its
-            // monitor. Scripts showing monitors go through other blocks.
-            if (!session.remote && e && e.type === 'change' && e.element === 'checkbox' &&
-                this === vm.runtime.flyoutBlocks) {
+            // monitor. The palette is also re-ticked to match when a script
+            // shows or hides one; then the monitor has already changed, so
+            // only a tick that changes it is someone's doing.
+            const checkbox = e && e.type === 'change' && e.element === 'checkbox' && this === vm.runtime.flyoutBlocks;
+            const shownBefore = checkbox && session.monitorShown(e.blockId);
+            const result = originalListen.call(this, e);
+            if (checkbox && !session.remote && session.monitorShown(e.blockId) !== shownBefore) {
                 session.sendMonitor(e.blockId);
             }
             if (!session.remote && e && e.group !== REMOTE_GROUP && e.group !== RELOAD_GROUP && BLOCK_EVENTS.has(e.type) && e.element !== 'stackclick' &&
@@ -716,6 +719,11 @@ class CollabSession {
             }
             return result;
         };
+    }
+
+    monitorShown (id) {
+        const record = this.vm.runtime._monitorState.get(id);
+        return Boolean(record && record.visible);
     }
 
     // A monitor as it is now, for the others. Sprite-specific monitor ids
