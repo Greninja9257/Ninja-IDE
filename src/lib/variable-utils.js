@@ -20,6 +20,8 @@ const setVariableValue = (vm, targetId, variableId, value) => {
     if (variable.isCloud) {
         vm.runtime.ioDevices.cloud.requestUpdateVariable(variable.name, variable.value);
     }
+    // Ninja: collaborators see list items typed in and sliders moved.
+    if (vm.ninjaCollab) vm.ninjaCollab.variableEdited(targetId, variableId, value);
 };
 
 export {

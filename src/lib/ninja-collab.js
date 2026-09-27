@@ -11,6 +11,8 @@
 // operation refers to that lives in the asset store (a new costume, a painted
 // one, a recorded sound) is uploaded before the operation is sent, so the
 // others can load it by its md5.
+import MonitorRecord from 'scratch-vm/src/engine/monitor-record';
+
 import storage from './storage';
 import storeProjectAssets from './store-project-assets';
 
@@ -66,6 +68,9 @@ const BLOCK_EVENTS = new Set([
 ]);
 
 const targetKey = target => (target.isStage ? STAGE : target.sprite.name);
+
+// What about a monitor is someone's editing (not the value it shows).
+const MONITOR_LAYOUT = ['visible', 'mode', 'x', 'y', 'width', 'height', 'sliderMin', 'sliderMax', 'isDiscrete'];
 
 // The Blockly event's own fields, as plain data the VM can read again.
 const plainEvent = e => {
@@ -439,6 +444,12 @@ class CollabSession {
         this.originals.set('blocklyListen', {owner: proto, value: originalListen});
         proto.blocklyListen = function (e) {
             const result = originalListen.call(this, e);
+            // Ticking a variable (or x position, ...) in the palette shows its
+            // monitor. Scripts showing monitors go through other blocks.
+            if (!session.remote && e && e.type === 'change' && e.element === 'checkbox' &&
+                this === vm.runtime.flyoutBlocks) {
+                session.sendMonitor(e.blockId);
+            }
             if (!session.remote && e && e.group !== REMOTE_GROUP && e.group !== RELOAD_GROUP && BLOCK_EVENTS.has(e.type) && e.element !== 'stackclick' &&
                 vm.editingTarget && this === vm.editingTarget.blocks) {
                 const target = targetKey(vm.editingTarget);
@@ -450,6 +461,7 @@ class CollabSession {
         };
 
         this.patchReload();
+        this.installMonitors();
 
         const wrap = (name, after) => {
             const original = vm[name];
@@ -670,12 +682,118 @@ class CollabSession {
         };
     }
 
+    // Monitors moved, resized, switched mode or hidden from their own menu.
+    // (Scripts showing and hiding them go through requestShowMonitor and
+    // requestHideMonitor, and values are updated all the time; neither is
+    // someone editing, so neither is sent.)
+    installMonitors () {
+        const runtime = this.vm.runtime;
+        const session = this;
+        this.monitorInternal = 0;
+        for (const prop of ['requestShowMonitor', 'requestHideMonitor']) {
+            const original = runtime[prop];
+            this.originals.set(`runtime.${prop}`, {owner: runtime, value: original, prop,
+                own: Object.prototype.hasOwnProperty.call(runtime, prop)});
+            runtime[prop] = function (...args) {
+                session.monitorInternal++;
+                try {
+                    return original.apply(runtime, args);
+                } finally {
+                    session.monitorInternal--;
+                }
+            };
+        }
+        const originalUpdate = runtime.requestUpdateMonitor;
+        this.originals.set('runtime.requestUpdateMonitor', {owner: runtime, value: originalUpdate,
+            prop: 'requestUpdateMonitor', own: Object.prototype.hasOwnProperty.call(runtime, 'requestUpdateMonitor')});
+        runtime.requestUpdateMonitor = function (delta) {
+            const result = originalUpdate.call(runtime, delta);
+            if (!session.remote && !session.monitorInternal && delta) {
+                const js = MonitorRecord.externalDeltaToJS(delta);
+                if (typeof js.id === 'string' && MONITOR_LAYOUT.some(key => typeof js[key] !== 'undefined')) {
+                    session.sendMonitor(js.id);
+                }
+            }
+            return result;
+        };
+    }
+
+    // A monitor as it is now, for the others. Sprite-specific monitor ids
+    // start with the sprite's id, which differs between editors, so that part
+    // is sent as the sprite's name.
+    sendMonitor (id) {
+        this.sendOp(() => {
+            const runtime = this.vm.runtime;
+            const record = runtime._monitorState.get(id);
+            if (!record) return null;
+            const target = record.targetId ? runtime.getTargetById(record.targetId) : null;
+            const sprite = target && !target.isStage ? targetKey(target) : null;
+            const local = sprite && id.startsWith(record.targetId);
+            const block = runtime.monitorBlocks.getBlock(id);
+            const layout = {};
+            for (const key of MONITOR_LAYOUT) layout[key] = record[key];
+            return {
+                kind: 'monitor',
+                id: local ? id.slice(record.targetId.length) : id,
+                sprite,
+                local,
+                opcode: record.opcode,
+                params: record.params,
+                layout,
+                block: block ? JSON.parse(JSON.stringify(block)) : null
+            };
+        });
+    }
+
+    applyMonitor (op) {
+        const runtime = this.vm.runtime;
+        const target = op.sprite ? this.find(op.sprite) : null;
+        if (op.sprite && !target) return;
+        const id = op.local ? `${target.id}${op.id}` : op.id;
+        this.quiet(() => {
+            let block = runtime.monitorBlocks.getBlock(id);
+            if (!block && op.block) {
+                const copy = {...op.block, id};
+                if (target) copy.targetId = target.id;
+                runtime.monitorBlocks.createBlock(copy);
+                block = runtime.monitorBlocks.getBlock(id);
+            }
+            if (block) block.isMonitored = Boolean(op.layout.visible);
+            if (runtime._monitorState.has(id)) {
+                runtime.requestUpdateMonitor({id, ...op.layout});
+            } else {
+                runtime.requestAddMonitor(new MonitorRecord({
+                    id,
+                    targetId: target ? target.id : null,
+                    spriteName: target ? target.getName() : null,
+                    opcode: op.opcode,
+                    params: op.params,
+                    ...op.layout
+                }));
+            }
+            // Keep this person's palette tick in step.
+            const ws = this.workspace();
+            const flyout = ws && ws.getFlyout && ws.getFlyout();
+            if (flyout && flyout.setCheckboxState) flyout.setCheckboxState(id, Boolean(op.layout.visible));
+        });
+    }
+
+    // Someone typed into a list monitor, imported a list or moved a slider.
+    // (Called from lib/variable-utils; scripts changing values aren't sent.)
+    variableEdited (targetId, variableId, value) {
+        if (this.remote) return;
+        const target = targetId ? this.vm.runtime.getTargetById(targetId) : this.vm.runtime.getTargetForStage();
+        if (!target) return;
+        const copy = Array.isArray(value) ? value.slice() : value;
+        this.sendOp(() => ({kind: 'variableValue', target: targetKey(target), id: variableId, value: copy}));
+    }
+
     uninstall () {
-        for (const [name, {owner, value, own}] of this.originals) {
+        for (const [name, {owner, value, own, prop}] of this.originals) {
             if (name === 'blocklyListen') owner.blocklyListen = value;
             else if (name === 'reload') owner.clearWorkspaceAndLoadFromXml = value;
-            else if (own === false) delete owner[name];
-            else owner[name] = value;
+            else if (own === false) delete owner[prop || name];
+            else owner[prop || name] = value;
         }
         this.originals.clear();
     }
@@ -828,6 +946,17 @@ class CollabSession {
             case 'reorderSound':
                 if (target) q(() => vm.reorderSound(target.id, op.from, op.to));
                 break;
+            case 'monitor':
+                this.applyMonitor(op);
+                break;
+            case 'variableValue': {
+                const variable = target && target.variables[op.id];
+                if (!variable) break;
+                variable.value = Array.isArray(op.value) ? op.value.slice() : op.value;
+                // Lists redraw their monitor only when told they changed.
+                variable._monitorUpToDate = false;
+                break;
+            }
             case 'extension': {
                 const id = String(op.url);
                 if (!vm.extensionManager.isExtensionLoaded(id)) await q(() => vm.extensionManager.loadExtensionURL(op.url));
