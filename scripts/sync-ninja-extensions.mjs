@@ -78,6 +78,33 @@ const PENGUINMOD = {
     'TheShovel/shoveldebugger.js': {} // debugger
 };
 
+// Fixes to upstream code, applied after each download: [find, replace].
+const PATCHES = {
+    'SharkPool:My-Blocks-Plus': [[
+        // Its storage is only saved when its blocks are used, so loading a
+        // project without it (a collaborator's live copy, say) threw here.
+        'imgStorage = runtime.extensionStorage["SPmbpCST"].imgStorage ?? {};',
+        'imgStorage = runtime.extensionStorage["SPmbpCST"]?.imgStorage ?? {};'
+    ]]
+};
+
+const applyPatches = async (key, asset) => {
+    const patches = PATCHES[key];
+    if (!patches) return asset;
+    const file = path.join(OUTPUT, asset.path.replace(/^ninja-extensions\//, ''));
+    let source = await fs.readFile(file, 'utf8');
+    for (const [find, replace] of patches) {
+        if (!source.includes(find)) {
+            console.warn(`Patch for ${key} no longer applies: ${find}`);
+            continue;
+        }
+        source = source.replace(find, replace);
+    }
+    const bytes = Buffer.from(source);
+    await fs.writeFile(file, bytes);
+    return {...asset, sha256: hash(bytes), bytes: bytes.length};
+};
+
 // Header comments of an extension in extensions/: "// Name: ...", etc.
 const readHeader = source => Object.fromEntries([...source.matchAll(/^\/\/ *([A-Za-z]+): *(.*)$/gm)]
     .map(([, key, value]) => [key.toLowerCase(), value.trim()]));
@@ -222,10 +249,11 @@ const sync = async () => {
                 `${SP_ROOT}extension-thumbs/${extension.banner}` :
                 `${TW_ROOT}images/unknown.svg`);
         const iconExtension = path.extname(new URL(iconURL).pathname) || '.svg';
-        const [script, icon] = await Promise.all([
+        const [downloaded, icon] = await Promise.all([
             saveAsset(scriptURL, `scripts/${baseName}.js`),
             saveAsset(iconURL, `icons/${baseName}${iconExtension}`)
         ]);
+        const script = await applyPatches(`${source}:${sourceId}`, downloaded);
         return {
             source,
             sourceId,

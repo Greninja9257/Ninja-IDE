@@ -1703,7 +1703,7 @@
     } else {
       suspendRemoval = true;
 
-      imgStorage = runtime.extensionStorage["SPmbpCST"].imgStorage ?? {};
+      imgStorage = runtime.extensionStorage["SPmbpCST"]?.imgStorage ?? {};
       imgStoreSize = Object.keys(imgStorage).length;
       storage = {}; // target ID's change when saving :(
       for (let i = 0; i < runtime.targets.length; i++) {

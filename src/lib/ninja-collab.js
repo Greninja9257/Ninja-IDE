@@ -262,7 +262,9 @@ class CollabSession {
             }).catch(err => console.warn('collab: could not send the project', err)); // eslint-disable-line no-console
             break;
         case 'snapshot':
-            this.applyQueue = this.applyQueue.then(() => this.loadSnapshot(message.project));
+            this.applyQueue = this.applyQueue
+                .then(() => this.loadSnapshot(message.project))
+                .catch(err => console.warn('collab: could not load the live project', err)); // eslint-disable-line no-console
             break;
         case 'op':
             if (this.catchingUp) this.buffered.push(message.op);
@@ -294,7 +296,14 @@ class CollabSession {
 
     async loadSnapshot (project) {
         const editing = this.vm.editingTarget && targetKey(this.vm.editingTarget);
-        await this.quiet(() => this.vm.loadProject(project));
+        try {
+            await this.quiet(() => this.vm.loadProject(project));
+        } catch (err) {
+            // Usually an extension throwing as the project finishes loading;
+            // the project itself is in. Carry on rather than stay stuck
+            // catching up, with every later edit held back.
+            console.warn('collab: loading the live project reported an error', err); // eslint-disable-line no-console
+        }
         const again = editing && this.find(editing);
         if (again) this.quiet(() => this.vm.setEditingTarget(again.id));
         this.catchingUp = false;
