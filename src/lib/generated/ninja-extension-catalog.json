@@ -1,5 +1,5 @@
 {
-  "count": 195,
+  "count": 196,
   "models": {
     "mobileNet": "ninja-extensions/models/mobilenet/model.json"
   },
@@ -4858,6 +4858,29 @@
       "iconSha256": "7419e770eae984455611ceeca0f50ef8fdcd7144fa6af06c5be872207b2091eb",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Ninja",
+      "sourceId": "ninjarunspeed",
+      "sourceURL": "",
+      "name": "Run Speed",
+      "nameTranslations": {},
+      "description": "Slow motion and fast forward: run the whole project slower or faster, waits, glides, timers and sounds included.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Ninja"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/ninja-run-speed.js",
+      "extensionSha256": "6d21892d77d3ebd60da6c417e5400d6a8bc5724767454c2fdddc0899dcc9dfe5",
+      "extensionBytes": 9906,
+      "iconURL": "ninja-extensions/icons/ninja-run-speed.svg",
+      "iconSha256": "0959b601421e4cfad6cef30e0a789ebdf8015ce20bd239656381cc69a2bd9d46",
+      "tags": [
+        "ninja"
       ],
       "incompatibleWithScratch": true
     },
