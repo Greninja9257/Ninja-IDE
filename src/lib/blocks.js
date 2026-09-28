@@ -321,6 +321,15 @@ export default function (vm) {
         this.jsonInit(json);
     };
 
+    // Short list names sit in the middle of the reporter, as variables do.
+    const listContentsInit = ScratchBlocks.Blocks.data_listcontents.init;
+    ScratchBlocks.Blocks.data_listcontents.init = function () {
+        const jsonInit = this.jsonInit;
+        this.jsonInit = json => jsonInit.call(this, {...json, lastDummyAlign0: 'CENTRE'});
+        listContentsInit.call(this);
+        delete this.jsonInit;
+    };
+
     ScratchBlocks.VerticalFlyout.getCheckboxState = function (blockId) {
         const monitoredBlock = vm.runtime.monitorBlocks._blocks[blockId];
         return monitoredBlock ? monitoredBlock.isMonitored : false;
