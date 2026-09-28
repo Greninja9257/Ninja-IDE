@@ -66,10 +66,8 @@ const getFullscreenBackgroundColor = () => {
     if (params.has('fullscreen-background')) {
         return params.get('fullscreen-background');
     }
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return '#111';
-    }
-    return 'white';
+    // The theme chosen in Ninja (set on the page by the theme), not the device's.
+    return 'var(--fullscreen-background, white)';
 };
 
 const fullscreenBackgroundColor = getFullscreenBackgroundColor();
