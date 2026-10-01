@@ -10,6 +10,7 @@ import TWAccentThemeMenu from './tw-theme-accent.jsx';
 import TWGuiThemeMenu from './tw-theme-gui.jsx';
 import TWBlocksThemeMenu from './tw-theme-blocks.jsx';
 import TWCodeViewMenu from './tw-code-view.jsx';
+import NinjaAddonsMenu from './ninja-addons-menu.jsx';
 import TWDesktopSettings from './tw-desktop-settings.jsx';
 
 import menuBarStyles from './menu-bar.css';
@@ -69,6 +70,7 @@ const SettingsMenu = ({
                         <TWAccentThemeMenu />
                     </React.Fragment>
                 )}
+                <NinjaAddonsMenu />
                 {onClickDesktopSettings && <TWDesktopSettings onClick={onClickDesktopSettings} />}
             </MenuSection>
         </MenuBarMenu>

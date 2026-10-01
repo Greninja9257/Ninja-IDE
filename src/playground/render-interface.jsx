@@ -27,7 +27,6 @@ import TWProjectMetaFetcherHOC from '../lib/tw-project-meta-fetcher-hoc.jsx';
 import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
 import SBFileUploaderHOC from '../lib/sb-file-uploader-hoc.jsx';
 import TWPackagerIntegrationHOC from '../lib/tw-packager-integration-hoc.jsx';
-import SettingsStore from '../addons/settings-store-singleton';
 import '../lib/tw-fix-history-api';
 import GUI from './render-gui.jsx';
 import MenuBar from '../components/menu-bar/menu-bar.jsx';
@@ -36,7 +35,6 @@ import BrowserModal from '../components/browser-modal/browser-modal.jsx';
 import CloudVariableBadge from '../containers/tw-cloud-variable-badge.jsx';
 import TWWindchimeSubmitter from '../containers/tw-windchime-submitter.jsx';
 import {isBrowserSupported} from '../lib/tw-environment-support-prober';
-import AddonChannels from '../addons/channels';
 import {loadServiceWorker} from './load-service-worker';
 import runAddons from '../addons/entry';
 import InvalidEmbed from '../components/tw-invalid-embed/invalid-embed.jsx';
@@ -46,30 +44,12 @@ import styles from './interface.css';
 
 const isInvalidEmbed = window.parent !== window;
 
-const handleClickAddonSettings = addonId => {
-    // addonId might be a string of the addon to focus on, undefined, or an event (treat like undefined)
-    const path = process.env.ROUTING_STYLE === 'wildcard' ? 'addons' : 'addons.html';
-    const url = `${process.env.ROOT}${path}${typeof addonId === 'string' ? `#${addonId}` : ''}`;
-    window.open(url);
-};
-
 const WrappedMenuBar = compose(
     SBFileUploaderHOC,
     TWPackagerIntegrationHOC
 )(MenuBar);
 
-if (AddonChannels.reloadChannel) {
-    AddonChannels.reloadChannel.addEventListener('message', () => {
-        location.reload();
-    });
-}
-
-if (AddonChannels.changeChannel) {
-    AddonChannels.changeChannel.addEventListener('message', e => {
-        SettingsStore.setStoreWithVersionCheck(e.data);
-    });
-}
-
+// Ninja: addons are fixed; there's no addon settings page to listen to.
 runAddons();
 
 class Interface extends React.Component {
@@ -124,7 +104,6 @@ class Interface extends React.Component {
                             canChangeLanguage
                             canManageFiles
                             canChangeTheme
-                            onClickAddonSettings={handleClickAddonSettings}
                         />
                     </div>
                 ) : null}
@@ -149,8 +128,7 @@ class Interface extends React.Component {
                                     }}
                                 >
                                     <GUI
-                                        onClickAddonSettings={handleClickAddonSettings}
-                                        onUpdateProjectTitle={this.handleUpdateProjectTitle}
+                                                    onUpdateProjectTitle={this.handleUpdateProjectTitle}
                                         backpackVisible
                                         backpackHost="_local_"
                                         {...props}
@@ -161,7 +139,6 @@ class Interface extends React.Component {
                         </React.Fragment>
                     ) : (
                         <GUI
-                            onClickAddonSettings={handleClickAddonSettings}
                             onUpdateProjectTitle={this.handleUpdateProjectTitle}
                             backpackVisible
                             backpackHost="_local_"

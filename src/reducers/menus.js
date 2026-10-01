@@ -12,6 +12,7 @@ const MENU_SETTINGS = 'settingsMenu';
 const MENU_ACCENT = 'accentMenu';
 const MENU_BLOCKS_THEME = 'blocksThemeMenu';
 const MENU_CODE_VIEW = 'codeViewMenu';
+const MENU_ADDONS = 'addonsMenu';
 const MENU_ERRORS = 'errorsMenu';
 
 class Menu {
@@ -58,6 +59,7 @@ const rootMenu = new Menu('root')
             .addChild(new Menu(MENU_ACCENT))
             .addChild(new Menu(MENU_BLOCKS_THEME))
             .addChild(new Menu(MENU_CODE_VIEW))
+            .addChild(new Menu(MENU_ADDONS))
     )
     .addChild(new Menu(MENU_FILE))
     .addChild(new Menu(MENU_EDIT))
@@ -79,6 +81,7 @@ const initialState = {
     [MENU_ACCENT]: false,
     [MENU_BLOCKS_THEME]: false,
     [MENU_CODE_VIEW]: false,
+    [MENU_ADDONS]: false,
     [MENU_ERRORS]: false
 };
 
@@ -163,6 +166,9 @@ const openCodeViewMenu = () => openMenu(MENU_CODE_VIEW);
 const closeCodeViewMenu = () => closeMenu(MENU_CODE_VIEW);
 const codeViewMenuOpen = state => state.scratchGui.menus[MENU_CODE_VIEW];
 
+const openAddonsMenu = () => openMenu(MENU_ADDONS);
+const addonsMenuOpen = state => state.scratchGui.menus[MENU_ADDONS];
+
 const openErrorsMenu = () => openMenu(MENU_ERRORS);
 const closeErrorsMenu = () => closeMenu(MENU_ERRORS);
 const errorsMenuOpen = state => state.scratchGui.menus[MENU_ERRORS];
@@ -203,6 +209,8 @@ export {
     openCodeViewMenu,
     closeCodeViewMenu,
     codeViewMenuOpen,
+    openAddonsMenu,
+    addonsMenuOpen,
     openErrorsMenu,
     closeErrorsMenu,
     errorsMenuOpen

@@ -4,6 +4,7 @@ import {defineMessages, injectIntl, intlShape} from 'react-intl';
 import VM from 'scratch-vm';
 
 import {isPaused, setPaused, onPauseChanged, setup} from '../../addons/addons/debugger/module.js';
+import {CHANGED, isBuiltInOn} from '../../addons/ninja-addon-choices';
 import pauseIcon from '../../addons/addons/pause/pause.svg';
 import playIcon from '../../addons/addons/pause/play.svg';
 import styles from './controls.css';
@@ -26,7 +27,8 @@ const messages = defineMessages({
 class PauseButton extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {paused: false};
+        this.state = {paused: false, shown: isBuiltInOn('pause')};
+        this.handleChoice = this.handleChoice.bind(this);
         this.handleClick = this.handleClick.bind(this);
         this.handleKeyDown = this.handleKeyDown.bind(this);
         this.handlePauseChanged = this.handlePauseChanged.bind(this);
@@ -36,10 +38,18 @@ class PauseButton extends React.Component {
         onPauseChanged(this.handlePauseChanged);
         this.handlePauseChanged();
         document.addEventListener('keydown', this.handleKeyDown, {capture: true});
+        window.addEventListener(CHANGED, this.handleChoice);
     }
     componentWillUnmount () {
         this.unmounted = true;
         document.removeEventListener('keydown', this.handleKeyDown, {capture: true});
+        window.removeEventListener(CHANGED, this.handleChoice);
+    }
+    // Switched on or off in Settings > Addons. Switching it off resumes the project.
+    handleChoice () {
+        const shown = isBuiltInOn('pause');
+        if (!shown && isPaused()) setPaused(false);
+        this.setState({shown});
     }
     handlePauseChanged () {
         if (!this.unmounted) this.setState({paused: isPaused()});
@@ -50,6 +60,7 @@ class PauseButton extends React.Component {
     // Alt+X (Option+X on macOS), as in the addon. keyCode covers macOS,
     // where Option changes e.key.
     handleKeyDown (e) {
+        if (!this.state.shown) return;
         if (e.altKey && (e.key.toLowerCase() === 'x' || e.keyCode === 88)) {
             e.preventDefault();
             e.stopImmediatePropagation();
@@ -57,6 +68,7 @@ class PauseButton extends React.Component {
         }
     }
     render () {
+        if (!this.state.shown) return null;
         const title = this.props.intl.formatMessage(this.state.paused ? messages.resume : messages.pause);
         return (
             <img

@@ -11,7 +11,6 @@ const addons = [
     'data-category-tweaks-v2',
     'block-palette-icons',
     'hide-flyout',
-    'mediarecorder',
     'drag-drop',
     'debugger',
     'mute-project',

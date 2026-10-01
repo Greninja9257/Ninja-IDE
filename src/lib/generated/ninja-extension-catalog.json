@@ -4885,6 +4885,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Ninja",
+      "sourceId": "ninjastagerecorder",
+      "sourceURL": "",
+      "name": "Stage Recorder",
+      "nameTranslations": {},
+      "description": "Record the stage as a video, starting and stopping whenever the project says, and save it as a file.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Ninja"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/ninja-stage-recorder.js",
+      "extensionSha256": "fb1e63ca362c4666ebbd5d12330aec4ce25bd35ef697ed0c6b5f1aa3a766b6a1",
+      "extensionBytes": 8606,
+      "iconURL": "ninja-extensions/icons/ninja-stage-recorder.svg",
+      "iconSha256": "c5191cbe66d089b57d63ff08b73235391625e73eec5c483c0b33f8515e619b80",
+      "tags": [
+        "ninja"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "runtimeoptions",
       "sourceURL": "https://extensions.turbowarp.org/runtime-options.js",

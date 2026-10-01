@@ -70,7 +70,7 @@ const CATEGORIES = {
         'SharkPool:Lazy-Collisions', 'SharkPool:My-Blocks-Plus', 'SharkPool:Pause', 'SharkPool:Rigidbodies',
         'SharkPool:Runtime-Events', 'SharkPool:Scenes', 'SharkPool:Script-Control', 'SharkPool:Sharktilities',
         'SharkPool:Sprite-Panel',
-        'Ninja:ninjarunspeed',
+        'Ninja:ninjarunspeed', 'Ninja:ninjastagerecorder',
         'PenguinMod:MubiLop-toastnotifs', 'PenguinMod:TheShovel-extexp', 'PenguinMod:Ashime-MoreFields',
         'PenguinMod:pooiod-WindowHasher', 'PenguinMod:TheShovel-shoveldebugger'
     ],

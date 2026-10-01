@@ -6,6 +6,7 @@ import AppStateHOC from '../lib/app-state-hoc.jsx';
 import TWEmbedFullScreenHOC from '../lib/tw-embed-fullscreen-hoc.jsx';
 import TWStateManagerHOC from '../lib/tw-state-manager-hoc.jsx';
 import runAddons from '../addons/entry';
+import SettingsStore from '../addons/settings-store-singleton';
 import {detectTheme} from '../lib/themes/themePersistance';
 
 import GUI from './render-gui.jsx';
@@ -92,6 +93,8 @@ render(<WrappedGUI
     theme={detectTheme()}
 />);
 
-if (urlParams.has('addons')) {
-    runAddons();
+// Ninja: the project page player always has the volume slider, and no other addon.
+for (const addonId of Object.keys(SettingsStore.store)) {
+    if (addonId !== 'vol-slider') SettingsStore.setAddonEnabled(addonId, false);
 }
+runAddons();

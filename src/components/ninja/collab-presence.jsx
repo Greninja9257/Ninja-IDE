@@ -29,7 +29,12 @@ const CollabOnline = ({peers, vm, onActivateTab}) => {
             const ws = B && B.getMainWorkspace && B.getMainWorkspace();
             if (!ws) return;
             ws.setScale(view.scale);
-            ws.scroll(view.scrollX, view.scrollY);
+            // Not ws.scroll(): it uses measurements kept only during a drag,
+            // so outside one it throws or jumps somewhere stale.
+            const m = ws.getMetrics();
+            if (typeof view.scrollX === 'number' && typeof view.scrollY === 'number' && m && ws.scrollbar) {
+                ws.scrollbar.set(-view.scrollX - m.contentLeft, -view.scrollY - m.contentTop);
+            }
         }, 50);
     };
     return (

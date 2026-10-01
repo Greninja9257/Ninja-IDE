@@ -833,6 +833,14 @@ class CollabSession {
         if (target === vm.editingTarget) return fn();
         const previous = vm.editingTarget;
         const previousRuntime = vm.runtime._editingTarget;
+        // Renaming or deleting a costume or sound tells the editor which sprite is
+        // selected; held until the real one is back, or the palette and variables
+        // would be built for the other sprite ("Stage selected").
+        const emitTargetsUpdate = vm.emitTargetsUpdate;
+        let held = null;
+        vm.emitTargetsUpdate = (...args) => {
+            held = args;
+        };
         vm.editingTarget = target;
         vm.runtime._editingTarget = target;
         try {
@@ -840,6 +848,8 @@ class CollabSession {
         } finally {
             vm.editingTarget = previous;
             vm.runtime._editingTarget = previousRuntime;
+            vm.emitTargetsUpdate = emitTargetsUpdate;
+            if (held) vm.emitTargetsUpdate(...held);
         }
     }
 
