@@ -154,6 +154,43 @@
     height: 1rem;
 }
 
+/* Messages and My Stuff, sized as in the website's navigation bar. */
+.nav-icon-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 50px;
+}
+
+.account-info-group .nav-icon-button {
+    margin: 0;
+    padding: 0;
+}
+
+.nav-icon {
+    width: 1.4rem;
+    transition: width .1s;
+}
+
+.nav-icon-button:hover .nav-icon {
+    width: 1.5625rem;
+}
+
+.message-count {
+    position: absolute;
+    top: .5rem;
+    right: .125rem;
+    border-radius: 1rem;
+    background-color: hsl(38, 100%, 55%);
+    padding: 0 .25rem;
+    line-height: 1rem;
+    color: hsl(0, 100%, 100%);
+    font-size: .7rem;
+    font-weight: bold;
+}
+
 .help-icon {
     margin: 0 .25rem 0 0;
 }

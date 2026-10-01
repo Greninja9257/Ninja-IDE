@@ -27,7 +27,18 @@ const emptyCostume = name => ({
  */
 const emptySprite = (name, soundName, costumeName) => ({
     objName: name,
-    sounds: [],
+    // Ninja: a blank sound1, like the blank costume1. scratch-storage's built-in
+    // default sound: one sample of silence, so it never needs downloading.
+    sounds: [
+        {
+            soundName: soundName,
+            soundID: -1,
+            md5: 'b586745b98e94d7574f7f7b48d831e20.wav',
+            sampleCount: 1,
+            rate: 22050,
+            format: ''
+        }
+    ],
     costumes: [
         {
             costumeName: costumeName,

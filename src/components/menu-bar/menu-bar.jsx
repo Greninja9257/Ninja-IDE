@@ -30,6 +30,7 @@ import DeletionRestorer from '../../containers/deletion-restorer.jsx';
 import TurboMode from '../../containers/turbo-mode.jsx';
 import MenuBarHOC from '../../containers/menu-bar-hoc.jsx';
 import SettingsMenu from './settings-menu.jsx';
+import MessagesButton from './ninja-messages-button.jsx';
 
 import TWSaveStatus from './tw-save-status.jsx';
 import TWNews from './tw-news.jsx';
@@ -946,18 +947,23 @@ class MenuBar extends React.Component {
                     )}
                     {this.props.sessionExists && (this.props.username ? (
                         <React.Fragment>
-                            <a href="/mystuff/">
+                            <MessagesButton className={classNames(styles.menuBarItem, styles.hoverable)} />
+                            <a
+                                href="/mystuff/"
+                                title="My Stuff"
+                            >
                                 <div
                                     className={classNames(
                                         styles.menuBarItem,
                                         styles.hoverable,
-                                        styles.mystuffButton
+                                        styles.navIconButton
                                     )}
                                 >
                                     <img
-                                        className={styles.mystuffIcon}
+                                        className={styles.navIcon}
                                         src={mystuffIcon}
                                         draggable={false}
+                                        alt="My Stuff"
                                     />
                                 </div>
                             </a>

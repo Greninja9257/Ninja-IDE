@@ -11,7 +11,6 @@ import Filter from '../filter/filter.jsx';
 import TagButton from '../../containers/tag-button.jsx';
 import Spinner from '../spinner/spinner.jsx';
 import Separator from '../tw-extension-separator/separator.jsx';
-import RemovedTrademarks from '../tw-removed-trademarks/removed-trademarks.jsx';
 import {APP_NAME} from '../../lib/brand.js';
 
 import styles from './library.css';
@@ -336,14 +335,6 @@ class LibraryComponent extends React.Component {
                             />
                         )
                     ))}
-                    {filteredData && this.props.removedTrademarks && (
-                        <React.Fragment>
-                            {filteredData.length > 0 && (
-                                <Separator />
-                            )}
-                            <RemovedTrademarks />
-                        </React.Fragment>
-                    )}
                     {!filteredData && (
                         <div className={styles.spinnerWrapper}>
                             <Spinner

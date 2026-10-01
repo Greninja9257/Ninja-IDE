@@ -288,6 +288,13 @@ const sync = async () => {
         models: {mobileNet: mobileNet.path},
         extensions: manifest
     }, null, 2)}\n`);
+    // What the website needs for the extension badges on project pages.
+    await fs.writeFile(path.join(OUTPUT, 'badges.json'), `${JSON.stringify(manifest.map(extension => ({
+        id: extension.sourceId,
+        url: extension.extensionURL,
+        name: extension.name,
+        icon: extension.iconURL
+    })))}\n`);
     console.log(`Saved ${manifest.length} extensions to ${OUTPUT}`);
 };
 

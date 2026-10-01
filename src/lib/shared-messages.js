@@ -16,6 +16,11 @@ export default defineMessages({
         description: 'Default name for a new sprite, scratch will automatically adjust the number if necessary',
         id: 'gui.sharedMessages.sprite'
     },
+    sound: {
+        defaultMessage: 'sound{index}',
+        description: 'Default name for a new sound, scratch will automatically adjust the number if necessary',
+        id: 'gui.sharedMessages.sound'
+    },
     pop: {
         defaultMessage: 'pop',
         description: 'Name of the pop sound, the default sound added to a sprite',

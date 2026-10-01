@@ -46,7 +46,18 @@ const projectData = translateFunction => {
                         rotationCenterY: 180
                     }
                 ],
-                sounds: [],
+                sounds: [
+                    // A blank sound1, like the blank costume1 (one sample of silence).
+                    {
+                        assetId: 'b586745b98e94d7574f7f7b48d831e20',
+                        name: translator(messages.sound, {index: 1}),
+                        dataFormat: 'wav',
+                        format: '',
+                        rate: 22050,
+                        sampleCount: 1,
+                        md5ext: 'b586745b98e94d7574f7f7b48d831e20.wav'
+                    }
+                ],
                 volume: 100
             },
             {
@@ -69,7 +80,18 @@ const projectData = translateFunction => {
                         rotationCenterY: 96
                     }
                 ],
-                sounds: [],
+                sounds: [
+                    // A blank sound1, like the blank costume1 (one sample of silence).
+                    {
+                        assetId: 'b586745b98e94d7574f7f7b48d831e20',
+                        name: translator(messages.sound, {index: 1}),
+                        dataFormat: 'wav',
+                        format: '',
+                        rate: 22050,
+                        sampleCount: 1,
+                        md5ext: 'b586745b98e94d7574f7f7b48d831e20.wav'
+                    }
+                ],
                 volume: 100,
                 visible: true,
                 x: 0,

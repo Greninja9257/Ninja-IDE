@@ -15,6 +15,11 @@
     "defaultMessage": "Sprite{index}"
   },
   {
+    "id": "gui.sharedMessages.sound",
+    "description": "Default name for a new sound, scratch will automatically adjust the number if necessary",
+    "defaultMessage": "sound{index}"
+  },
+  {
     "id": "gui.sharedMessages.pop",
     "description": "Name of the pop sound, the default sound added to a sprite",
     "defaultMessage": "pop"

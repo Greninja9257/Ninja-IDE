@@ -15,6 +15,20 @@
     justify-content: center;
     margin-top: -0.5rem;
     padding-top: 0.25rem;
+    /* Slides down out from under Share and fades in; back up and out on leaving. */
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease-in, transform 0.15s ease-in, visibility 0s linear 0.15s;
+}
+
+.popout.open {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.18s ease-out, transform 0.18s ease-out, visibility 0s;
 }
 
 .popout .collab-button {

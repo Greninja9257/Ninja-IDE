@@ -63,14 +63,16 @@ class CollabShareMenu extends React.Component {
                 onMouseLeave={this.handleLeave}
             >
                 {this.props.children}
-                {this.state.open ? (
-                    <div className={styles.popout}>
-                        <Button
-                            className={classNames(this.props.buttonClassName, shareStyles.shareButton, styles.collabButton)}
-                            onClick={this.handleCollab}
-                        >{'Collab'}</Button>
-                    </div>
-                ) : null}
+                {/* Always there, so it can slide out and back in smoothly. */}
+                <div
+                    aria-hidden={!this.state.open}
+                    className={classNames(styles.popout, {[styles.open]: this.state.open})}
+                >
+                    <Button
+                        className={classNames(this.props.buttonClassName, shareStyles.shareButton, styles.collabButton)}
+                        onClick={this.handleCollab}
+                    >{'Collab'}</Button>
+                </div>
             </div>
         );
     }
