@@ -3,7 +3,7 @@ import projectData from './project-data';
 /* eslint-disable import/no-unresolved */
 import overrideDefaultProject from '!arraybuffer-loader!./override-default-project.sb3';
 import backdrop from '!raw-loader!./cd21514d0531fdffb22204e0ec5ed84a.svg';
-import costume1 from '!arraybuffer-loader!./ninja-costume.png';
+import mascot from '!raw-loader!./466526d69de9305d3418eed6c1fd83e7.svg';
 /* eslint-enable import/no-unresolved */
 import {TextEncoder} from '../tw-text-encoder';
 
@@ -44,11 +44,11 @@ const defaultProject = translator => {
         dataFormat: 'SVG',
         data: encoder.encode(backdrop)
     }, {
-        // The Ninja "N" (the site favicon, sized for the stage).
-        id: '6495a1854eca6ab107e4949c429d8b79',
-        assetType: 'ImageBitmap',
-        dataFormat: 'PNG',
-        data: new Uint8Array(costume1)
+        // The Ninja mascot (Sprite1's costume1).
+        id: '466526d69de9305d3418eed6c1fd83e7',
+        assetType: 'ImageVector',
+        dataFormat: 'SVG',
+        data: encoder.encode(mascot)
     }, {
         // sound1: one sample of silence (scratch-storage's default sound).
         id: 'b586745b98e94d7574f7f7b48d831e20',

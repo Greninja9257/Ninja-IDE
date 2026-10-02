@@ -7,6 +7,11 @@ import {setFullScreen} from '../reducers/mode';
 import {setIsWindowFullScreen} from '../reducers/tw';
 import FullscreenAPI from './tw-fullscreen-api';
 
+// Ninja: on Ninja's own project page (which loads the player with
+// ?project-page), enlarging fills the browser window, as on Scratch's project
+// page: the page grows the player's frame instead of the browser going fullscreen.
+const fillsProjectPage = window.parent !== window && new URLSearchParams(location.search).has('project-page');
+
 const TWFullScreenHOC = function (WrappedComponent) {
     class FullScreenComponent extends React.Component {
         constructor (props) {
@@ -23,6 +28,11 @@ const TWFullScreenHOC = function (WrappedComponent) {
             return this.props.isFullScreen !== nextProps.isFullScreen;
         }
         componentDidUpdate () {
+            if (fillsProjectPage) {
+                window.parent.postMessage({ninja: 'player-fill', on: this.props.isFullScreen}, location.origin);
+                this.props.onSetWindowIsFullScreen(this.props.isFullScreen);
+                return;
+            }
             if (FullscreenAPI.available()) {
                 if (this.props.isFullScreen) {
                     FullscreenAPI.request();
