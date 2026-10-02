@@ -77,9 +77,8 @@ const projectData = translateFunction => {
                         bitmapResolution: 1,
                         md5ext: '466526d69de9305d3418eed6c1fd83e7.svg',
                         dataFormat: 'svg',
-                        // The middle of the body (head and legs line up on x = 65.95), not
-                        // of the picture: the headband's tails stick out to the left.
-                        rotationCenterX: 65.95,
+                        // The middle of the whole drawing, headband tails included.
+                        rotationCenterX: 64.61111,
                         rotationCenterY: 100.59444
                     }
                 ],
