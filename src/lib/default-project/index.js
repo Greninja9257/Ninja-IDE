@@ -3,7 +3,7 @@ import projectData from './project-data';
 /* eslint-disable import/no-unresolved */
 import overrideDefaultProject from '!arraybuffer-loader!./override-default-project.sb3';
 import backdrop from '!raw-loader!./cd21514d0531fdffb22204e0ec5ed84a.svg';
-import mascot from '!raw-loader!./466526d69de9305d3418eed6c1fd83e7.svg';
+import mascot from '!raw-loader!./Sprite1.svg';
 /* eslint-enable import/no-unresolved */
 import {TextEncoder} from '../tw-text-encoder';
 
@@ -45,7 +45,7 @@ const defaultProject = translator => {
         data: encoder.encode(backdrop)
     }, {
         // The Ninja mascot (Sprite1's costume1).
-        id: '466526d69de9305d3418eed6c1fd83e7',
+        id: 'c2706108ca8df3c46733da80045e1beb',
         assetType: 'ImageVector',
         dataFormat: 'SVG',
         data: encoder.encode(mascot)

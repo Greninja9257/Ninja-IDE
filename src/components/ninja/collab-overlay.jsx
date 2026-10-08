@@ -1,10 +1,12 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 
 import CollabSession from '../../lib/ninja-collab';
 import {setCollabPeers} from '../../reducers/ninja-session';
+import {activateTab, CHAT_TAB_INDEX} from '../../reducers/editor-tab';
 import {getIsShowingWithId, getIsUpdating} from '../../reducers/project-state';
 import styles from './collab-overlay.css';
 
@@ -150,7 +152,10 @@ ChatBubble.propTypes = {
 class CollabOverlay extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {peers: [], me: null, cursors: {}, chats: [], composing: null, text: ''};
+        // history: every message since the editor opened (this session only),
+        // for the Chat tab. chatHost: that tab's panel, once it's on the page.
+        this.state = {peers: [], me: null, cursors: {}, chats: [], composing: null, text: '',
+            history: [], historyText: '', chatHost: null};
         this.mouse = {x: 0, y: 0};
         this.smooth = {}; // where each cursor is drawn, easing towards where it is
         this.handleMouseMove = this.handleMouseMove.bind(this);
@@ -160,6 +165,12 @@ class CollabOverlay extends React.Component {
         this.setInput = this.setInput.bind(this);
         this.sendView = this.sendView.bind(this);
         this.frame = this.frame.bind(this);
+        this.handleHistoryChange = this.handleHistoryChange.bind(this);
+        this.handleHistoryKeyDown = this.handleHistoryKeyDown.bind(this);
+        this.setHistoryList = this.setHistoryList.bind(this);
+        this.setHistoryInput = input => {
+            this.historyInput = input;
+        };
     }
 
     componentDidMount () {
@@ -168,11 +179,6 @@ class CollabOverlay extends React.Component {
         this.props.vm.on('workspaceUpdate', this.sendView);
         this.maybeStart();
         this.raf = requestAnimationFrame(this.frame);
-    }
-
-    componentDidUpdate (prevProps) {
-        if (prevProps.projectId !== this.props.projectId || prevProps.ready !== this.props.ready) this.maybeStart();
-        if (prevProps.activeTab !== this.props.activeTab) this.sendView();
     }
 
     componentWillUnmount () {
@@ -228,6 +234,8 @@ class CollabOverlay extends React.Component {
 
     stop () {
         if (!this.session) return;
+        // The Chat tab goes with the session.
+        if (this.props.activeTab === CHAT_TAB_INDEX) this.props.onActivateTab(0);
         this.session.close();
         this.props.onPeers([]);
         if (this.props.vm.ninjaCollab === this.session) delete this.props.vm.ninjaCollab;
@@ -327,6 +335,9 @@ class CollabOverlay extends React.Component {
             }
         }
         if (Object.keys(cursors).length || this.state.chats.length || this.state.composing) this.forceUpdate();
+        // The Chat tab comes and goes with the session.
+        const host = document.getElementById('ninja-chat-tab');
+        if (host !== this.state.chatHost) this.setState({chatHost: host});
         this.raf = requestAnimationFrame(this.frame);
     }
 
@@ -352,7 +363,12 @@ class CollabOverlay extends React.Component {
         if (muteStatus && muteStatus.muteExpiresAt) this.chatMutedUntil = muteStatus.muteExpiresAt * 1000;
         const mine = me && this.state.chats.filter(c => c.person.id === me.id && !c.notice && !c.leaving);
         const last = mine && mine[mine.length - 1];
-        if (last) this.setState(state => ({chats: state.chats.filter(c => c.id !== last.id)}));
+        if (last) {
+            this.setState(state => ({
+                chats: state.chats.filter(c => c.id !== last.id),
+                history: state.history.filter(h => h.id !== last.id)
+            }));
+        }
         const until = this.chatMutedUntil > Date.now() ? ` You can chat again ${inDuration(this.chatMutedUntil)}.` : '';
         const type = muteStatus && muteStatus.currentMessageType;
         const text = rejected === 'hasChatSite' ?
@@ -414,12 +430,103 @@ class CollabOverlay extends React.Component {
         this.setState(state => {
             const theirs = state.chats.filter(c => c.person.id === person.id && !c.leaving);
             const tooMany = theirs.slice(0, Math.max(0, theirs.length - CHAT_STACK + 1)).map(c => c.id);
+            const id = ++chatSeq;
             return {
                 chats: state.chats
                     .map(c => (tooMany.includes(c.id) ? {...c, leaving: now} : c))
-                    .concat({id: ++chatSeq, person, text, cursor, mine, instant, notice, until: now + (CHAT_SECONDS * 1000)})
+                    .concat({id, person, text, cursor, mine, instant, notice, until: now + (CHAT_SECONDS * 1000)}),
+                history: notice ? state.history : state.history.concat({id, person, text, at: now}).slice(-200)
             };
         });
+    }
+
+    /* ------------------------------------------------------- chat history */
+
+    handleHistoryChange (e) {
+        this.setState({historyText: e.target.value});
+    }
+
+    // Sending from the panel: the same message as Enter-to-chat on the canvas.
+    handleHistoryKeyDown (e) {
+        e.stopPropagation();
+        if (e.key !== 'Enter') return;
+        e.preventDefault();
+        const text = this.state.historyText.trim();
+        if (!text || !this.session) return;
+        if (this.chatMutedUntil > Date.now()) {
+            this.addNotice(`Chat is paused. You can chat again ${inDuration(this.chatMutedUntil)}.`);
+            return;
+        }
+        const cursor = this.cursorHere();
+        this.session.sendChat(text, cursor);
+        if (this.state.me) this.addChat(this.state.me, text.replace(/\s+/g, ' ').slice(0, 200), cursor, true);
+        this.setState({historyText: ''});
+    }
+
+    // Keep the newest message in view.
+    setHistoryList (list) {
+        this.historyList = list;
+        if (list) list.scrollTop = list.scrollHeight;
+    }
+
+    componentDidUpdate (prevProps, prevState) {
+        if (prevProps.projectId !== this.props.projectId || prevProps.ready !== this.props.ready) this.maybeStart();
+        if (prevProps.activeTab !== this.props.activeTab) this.sendView();
+        // Opening the tab: newest message in view, ready to type.
+        if ((prevProps.activeTab !== this.props.activeTab || prevState.chatHost !== this.state.chatHost) &&
+            this.props.activeTab === CHAT_TAB_INDEX && this.historyList) {
+            // The panel is shown once the tab switch has drawn.
+            requestAnimationFrame(() => {
+                if (this.historyList) this.historyList.scrollTop = this.historyList.scrollHeight;
+                if (this.historyInput) this.historyInput.focus();
+            });
+        }
+        if (this.historyList && prevState.history !== this.state.history) this.historyList.scrollTop = this.historyList.scrollHeight;
+    }
+
+    // Every message so far, in the Chat tab (gui.jsx makes the panel).
+    renderHistory () {
+        const {chatHost, history} = this.state;
+        if (!this.session || !chatHost) return null;
+        return ReactDOM.createPortal((
+            <div className={styles.history}>
+                <div
+                    className={styles.historyList}
+                    ref={this.setHistoryList}
+                >
+                    {history.length ? history.map(h => (
+                        <div
+                            className={styles.historyItem}
+                            key={h.id}
+                        >
+                            <img
+                                className={styles.senderAvatar}
+                                src={h.person.avatar}
+                                style={{borderColor: h.person.color}}
+                            />
+                            <div className={styles.historyBody}>
+                                <div className={styles.historyMeta}>
+                                    <span style={{color: h.person.color}}>{h.person.username}</span>
+                                    <span className={styles.historyTime}>
+                                        {new Date(h.at).toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'})}
+                                    </span>
+                                </div>
+                                <div>{h.text}</div>
+                            </div>
+                        </div>
+                    )) : <div className={styles.historyEmpty}>{'No messages yet. Press Enter anywhere to chat.'}</div>}
+                </div>
+                <input
+                    className={styles.historyInput}
+                    maxLength={200}
+                    placeholder="Say something"
+                    ref={this.setHistoryInput}
+                    value={this.state.historyText}
+                    onChange={this.handleHistoryChange}
+                    onKeyDown={this.handleHistoryKeyDown}
+                />
+            </div>
+        ), chatHost);
     }
 
     /* ------------------------------------------------------------- render */
@@ -583,6 +690,7 @@ class CollabOverlay extends React.Component {
                         {cornered.map(c => this.renderMessage(c, null, true))}
                     </div>
                 ) : null}
+                {this.renderHistory()}
             </div>
         );
     }
@@ -590,6 +698,7 @@ class CollabOverlay extends React.Component {
 
 CollabOverlay.propTypes = {
     activeTab: PropTypes.number,
+    onActivateTab: PropTypes.func,
     onPeers: PropTypes.func,
     projectId: PropTypes.string,
     ready: PropTypes.bool,
@@ -606,6 +715,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    onActivateTab: tab => dispatch(activateTab(tab)),
     onPeers: peers => dispatch(setCollabPeers(peers))
 });
 

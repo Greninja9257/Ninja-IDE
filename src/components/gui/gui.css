@@ -198,6 +198,20 @@
     position: relative;
 }
 
+/* Ninja: the Chat tab, edged like the costume and sound editors. */
+.chat-tab {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    min-height: 0;
+    border: 1px solid $ui-black-transparent;
+    border-top-right-radius: $space;
+    border-bottom-left-radius: $space;
+    border-bottom-right-radius: $space;
+    background: $ui-white;
+    overflow: hidden;
+}
+
 .stage-and-target-wrapper {
     /*
         Makes rows for children:

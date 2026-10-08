@@ -52,6 +52,8 @@ import addExtensionIcon from './icon--extensions.svg';
 import codeIcon from '!../../lib/tw-recolor/build!./icon--code.svg';
 import costumesIcon from '!../../lib/tw-recolor/build!./icon--costumes.svg';
 import soundsIcon from '!../../lib/tw-recolor/build!./icon--sounds.svg';
+import chatIcon from '!../../lib/tw-recolor/build!./icon--chat.svg';
+import {BLOCKS_TAB_INDEX, CHAT_TAB_INDEX} from '../../reducers/editor-tab';
 
 const messages = defineMessages({
     addExtension: {
@@ -76,6 +78,7 @@ const GUIComponent = props => {
     const {
         accountNavOpen,
         activeTabIndex,
+        chatTabVisible,
         alertsVisible,
         authorId,
         authorThumbnailUrl,
@@ -346,7 +349,8 @@ const GUIComponent = props => {
                             <Tabs
                                 forceRenderTabPanel
                                 className={tabClassNames.tabs}
-                                selectedIndex={activeTabIndex}
+                                selectedIndex={activeTabIndex === CHAT_TAB_INDEX && !chatTabVisible ?
+                                    BLOCKS_TAB_INDEX : activeTabIndex}
                                 selectedTabClassName={tabClassNames.tabSelected}
                                 selectedTabPanelClassName={tabClassNames.tabPanelSelected}
                                 onSelect={onActivateTab}
@@ -399,6 +403,15 @@ const GUIComponent = props => {
                                             id="gui.gui.soundsTab"
                                         />
                                     </Tab>
+                                    {chatTabVisible ? (
+                                        <Tab className={tabClassNames.tab}>
+                                            <img
+                                                draggable={false}
+                                                src={chatIcon()}
+                                            />
+                                            {'Chat'}
+                                        </Tab>
+                                    ) : null}
                                 </TabList>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
@@ -437,6 +450,15 @@ const GUIComponent = props => {
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                                 </TabPanel>
+                                {chatTabVisible ? (
+                                    <TabPanel className={tabClassNames.tabPanel}>
+                                        {/* Filled by the collab overlay, which keeps the messages. */}
+                                        <div
+                                            className={styles.chatTab}
+                                            id="ninja-chat-tab"
+                                        />
+                                    </TabPanel>
+                                ) : null}
                             </Tabs>
                             {backpackVisible && !(blocksTabVisible && codeView === CODE_VIEW_PYTHON) ? (
                                 <Backpack host={backpackHost} />
@@ -470,6 +492,7 @@ const GUIComponent = props => {
 GUIComponent.propTypes = {
     accountNavOpen: PropTypes.bool,
     activeTabIndex: PropTypes.number,
+    chatTabVisible: PropTypes.bool,
     authorId: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]), // can be false
     authorThumbnailUrl: PropTypes.string,
     authorUsername: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]), // can be false

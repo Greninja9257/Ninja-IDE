@@ -32,7 +32,8 @@ const REMOTE_GROUP = 'ninja-collab-remote';
 const RELOAD_GROUP = 'ninja-collab-reload';
 // How often the longest-connected editor sends round a fingerprint of every
 // sprite, and how many checks in a row a sprite must differ on before it's
-// copied over again (edits still on their way make brief differences).
+// copied over again. Copies are only compared when both have seen exactly
+// the same edits (see appliedSeq), so a slow connection isn't a difference.
 const DIGEST_INTERVAL = 3000;
 const MISMATCHES_BEFORE_RESYNC = 2;
 
@@ -144,6 +145,13 @@ class CollabSession {
         this.spriteGlides = new Map(); // sprite -> where someone is dragging it
         this.pendingOps = 0;
         this.applying = 0;
+        // The server numbers every edit in the order it got them. appliedSeq
+        // is the last number this copy includes: someone else's edit once
+        // it's applied here, this person's own once the server has numbered
+        // it. unacked: this person's edits sent but not numbered yet.
+        this.appliedSeq = 0;
+        this.unacked = new Set();
+        this.nextCid = 1;
         this.mismatches = new Map();
         this.install();
         this.connect();
@@ -198,13 +206,29 @@ class CollabSession {
                 const op = await makeOp();
                 if (!op) return;
                 // Not connected right now: keep it for when we are again.
-                if (this.ws && this.ws.readyState === 1 && !this.catchingUp) this.rawSend({t: 'op', op});
+                if (this.ws && this.ws.readyState === 1 && !this.catchingUp) this.transmit(op);
                 else this.outbox.push(op);
             })
             .catch(err => console.warn('collab: could not send a change', err)) // eslint-disable-line no-console
             .then(() => {
                 this.pendingOps--;
             });
+    }
+
+    transmit (op) {
+        const cid = this.nextCid++;
+        this.unacked.add(cid);
+        this.rawSend({t: 'op', cid, op});
+    }
+
+    // Moves appliedSeq on once everything before it in the queue is applied.
+    reached (seq) {
+        if (typeof seq !== 'number') return;
+        this.applying++;
+        this.applyQueue = this.applyQueue.then(() => {
+            if (seq > this.appliedSeq) this.appliedSeq = seq;
+            this.applying--;
+        });
     }
 
     sendCursor (cursor) {
@@ -225,10 +249,13 @@ class CollabSession {
             this.catchingUp = message.catchUp;
             this.buffered = [];
             this.mismatches.clear();
+            // Sent on the last connection and never numbered: gone with it.
+            this.unacked.clear();
             // Alone in the room: this copy is the project, nothing to resend.
             if (!this.catchingUp) {
                 this.outbox = [];
                 this.wasLive = true;
+                this.appliedSeq = message.seq || 0;
             }
             this.handlers.onStatus(this.catchingUp ? 'catching-up' : 'live');
             this.handlers.onPeers([...this.peers.values()], this.me);
@@ -259,46 +286,58 @@ class CollabSession {
             if (this.handlers.onChatRejected) this.handlers.onChatRejected(message.rejected, message.mute_status);
             break;
         case 'snapshot-request':
-            // Someone joined: send them the project as it is right now.
+            // Someone joined: send them the project as it is right now, with
+            // every edit that reached this editor before they did applied, and
+            // which edits it includes, so they apply each one exactly once.
             this.sendQueue = this.sendQueue.then(async () => {
                 await storeProjectAssets(storage, this.vm.assets);
-                this.rawSend({t: 'snapshot', for: message.for, project: JSON.parse(this.vm.toJSON())});
+                await this.applyQueue;
+                this.rawSend({t: 'snapshot', for: message.for, project: JSON.parse(this.vm.toJSON()),
+                    seq: this.appliedSeq, mine: [...this.unacked]});
             }).catch(err => console.warn('collab: could not send the project', err)); // eslint-disable-line no-console
             break;
         case 'snapshot':
             this.applyQueue = this.applyQueue
-                .then(() => this.loadSnapshot(message.project))
+                .then(() => this.loadSnapshot(message.project, message))
                 .catch(err => console.warn('collab: could not load the live project', err)); // eslint-disable-line no-console
             break;
         case 'op':
-            if (this.catchingUp) this.buffered.push(message.op);
-            else this.enqueue(message.op);
+            if (this.catchingUp) this.buffered.push(message);
+            else this.enqueue(message.op, message.seq);
+            break;
+        case 'ack':
+            // The server numbered (or, if seq is null, turned away) one of ours.
+            this.unacked.delete(message.cid);
+            this.reached(message.seq);
             break;
         case 'digest':
-            this.checkDigest(message.from, message.digest);
+            this.checkDigest(message.from, message.digest, message.seq);
             break;
         case 'resync-request':
             this.sendResync(message.from, message.targets);
             break;
         case 'resync':
             this.applyQueue = this.applyQueue
-                .then(() => this.applyResync(message.targets))
+                .then(() => this.applyResync(message.targets, message.seq))
                 .catch(err => console.warn('collab: could not resync', err)); // eslint-disable-line no-console
             break;
         }
     }
 
-    enqueue (op) {
+    enqueue (op, seq) {
         this.applying++;
         this.applyQueue = this.applyQueue
             .then(() => this.apply(op))
             .catch(err => console.warn('collab: could not apply a change', op && op.kind, err)) // eslint-disable-line no-console
             .then(() => {
+                if (typeof seq === 'number' && seq > this.appliedSeq) this.appliedSeq = seq;
                 this.applying--;
             });
     }
 
-    async loadSnapshot (project) {
+    // from: who sent it, the last edit number it includes (seq), and which of
+    // its sender's own edits, not numbered yet, are in it too (mine).
+    async loadSnapshot (project, from = {}) {
         const editing = this.vm.editingTarget && targetKey(this.vm.editingTarget);
         try {
             await this.quiet(() => this.vm.loadProject(project));
@@ -313,16 +352,23 @@ class CollabSession {
         this.catchingUp = false;
         this.wasLive = true;
         this.handlers.onStatus('live');
+        const seq = typeof from.seq === 'number' ? from.seq : 0;
+        this.appliedSeq = seq;
+        const included = new Set((Array.isArray(from.mine) ? from.mine : []).map(cid => `${from.from}:${cid}`));
         const pending = this.buffered;
         this.buffered = [];
-        pending.forEach(op => this.enqueue(op));
+        for (const message of pending) {
+            if (typeof message.seq === 'number' && message.seq <= seq) continue;
+            if (included.has(`${message.from}:${message.cid}`)) this.reached(message.seq);
+            else this.enqueue(message.op, message.seq);
+        }
         // Edits made while disconnected: redo them on top of the live
         // project, and send them to everyone else.
         const mine = this.outbox;
         this.outbox = [];
         for (const op of mine) {
             this.enqueue(op);
-            this.rawSend({t: 'op', op});
+            this.transmit(op);
         }
     }
 
@@ -337,7 +383,8 @@ class CollabSession {
     // Mid-edit (a drag, typing, changes still going out or coming in): not a
     // fair moment to compare.
     busy () {
-        return this.catchingUp || this.pendingOps > 0 || this.applying > 0 || Boolean(this.currentLive());
+        return this.catchingUp || this.pendingOps > 0 || this.applying > 0 || this.unacked.size > 0 ||
+            Boolean(this.currentLive());
     }
 
     digest () {
@@ -350,11 +397,14 @@ class CollabSession {
 
     sendDigest () {
         if (!this.me || !this.peers.size || this.leaderId() !== this.me.id || this.busy()) return;
-        this.rawSend({t: 'digest', digest: this.digest()});
+        this.rawSend({t: 'digest', digest: this.digest(), seq: this.appliedSeq});
     }
 
-    checkDigest (from, theirs) {
+    checkDigest (from, theirs, seq) {
         if (from !== this.leaderId() || !theirs || typeof theirs !== 'object' || this.busy()) return;
+        // Not the same edits seen yet (some still on their way to one of us):
+        // any difference now is just that.
+        if (seq !== this.appliedSeq) return;
         const mine = this.digest();
         const sameSprites = Object.keys(mine).sort().join('\n') === Object.keys(theirs).sort().join('\n');
         const differing = sameSprites ? Object.keys(mine).filter(key => mine[key] !== theirs[key]) : ['*'];
@@ -377,8 +427,13 @@ class CollabSession {
         if (!Array.isArray(keys)) return;
         this.sendQueue = this.sendQueue.then(async () => {
             await storeProjectAssets(storage, this.vm.assets);
+            await this.applyQueue;
+            // Mid-edit here: this copy has something no edit number covers.
+            // They'll ask again after the next check.
+            if (this.unacked.size || this.pendingOps) return;
+            const seq = this.appliedSeq;
             if (keys.includes('*')) {
-                this.rawSend({t: 'resync', to, targets: {'*': JSON.parse(this.vm.toJSON())}});
+                this.rawSend({t: 'resync', to, seq, targets: {'*': JSON.parse(this.vm.toJSON())}});
                 return;
             }
             const targets = {};
@@ -392,14 +447,18 @@ class CollabSession {
                     comments: JSON.parse(JSON.stringify(target.comments || {}))
                 };
             }
-            this.rawSend({t: 'resync', to, targets});
+            this.rawSend({t: 'resync', to, seq, targets});
         }).catch(err => console.warn('collab: could not send a resync', err)); // eslint-disable-line no-console
     }
 
-    async applyResync (targets) {
+    async applyResync (targets, seq) {
         if (!targets || typeof targets !== 'object') return;
+        // Only on top of exactly the edits it was made from: anything newer
+        // here (theirs or ours) would be wiped out by it. The next check
+        // catches the difference again if it's still there.
+        if (seq !== this.appliedSeq || this.unacked.size || this.pendingOps) return;
         if (targets['*']) {
-            await this.loadSnapshot(targets['*']);
+            await this.loadSnapshot(targets['*'], {seq});
             return;
         }
         const vm = this.vm;
@@ -861,16 +920,19 @@ class CollabSession {
     // Call fn marked as someone else's change, so the wrappers above don't
     // send it back out. Only the call itself is marked: edits this person
     // makes while, say, a costume downloads are still theirs. Blockly
-    // delivers the events a change causes on a timer, so the mark lasts
-    // until that timer has run.
+    // delivers events on a timer, together with any this person made in the
+    // meantime, so its events are marked by group instead, as they're made.
     quiet (fn) {
+        const Blockly = window.ScratchBlocks || window.Blockly;
+        const events = Blockly && Blockly.Events;
+        const group = events && events.getGroup();
         this.remote++;
+        if (events) events.setGroup(REMOTE_GROUP);
         try {
             return fn();
         } finally {
-            setTimeout(() => {
-                this.remote--;
-            }, 0);
+            if (events) events.setGroup(group);
+            this.remote--;
         }
     }
 
@@ -1020,6 +1082,10 @@ class CollabSession {
                 window.confirm = () => true;
                 const event = Blockly.Events.fromJson(op.json, ws);
                 event.run(true);
+                // Blockly tells the VM on its next tick; tell it now, so the
+                // VM has this edit by the time it counts as applied (and a
+                // fingerprint or resync made then includes it).
+                if (Blockly.Events.fireNow_) Blockly.Events.fireNow_();
                 return;
             } catch (e) {
                 // Fall back to updating the VM and redrawing.

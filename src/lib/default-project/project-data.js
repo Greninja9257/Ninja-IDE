@@ -72,14 +72,14 @@ const projectData = translateFunction => {
                 costumes: [
                     {
                         // The Ninja mascot, like Scratch's cat.
-                        assetId: '466526d69de9305d3418eed6c1fd83e7',
+                        assetId: 'c2706108ca8df3c46733da80045e1beb',
                         name: translator(messages.costume, {index: 1}),
                         bitmapResolution: 1,
-                        md5ext: '466526d69de9305d3418eed6c1fd83e7.svg',
+                        md5ext: 'c2706108ca8df3c46733da80045e1beb.svg',
                         dataFormat: 'svg',
                         // The middle of the whole drawing, headband tails included.
-                        rotationCenterX: 64.61111,
-                        rotationCenterY: 100.59444
+                        rotationCenterX: 64.57931108192489,
+                        rotationCenterY: 100.59443729001381
                     }
                 ],
                 sounds: [
