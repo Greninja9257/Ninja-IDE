@@ -12,10 +12,10 @@ of changes is in this repository's commits.
 
 ```sh
 npm install
-npm run build   # production build for the Ninja server, served at /ide/
+npm run build   # production build, served at /ide/
 ```
 
-The built files in `build/` are served by the Ninja server. See
+The built files in `build/` are what is deployed, served at `/ide/`. See
 https://docs.turbowarp.org/development/getting-started for the wider TurboWarp development setup.
 
 ## License

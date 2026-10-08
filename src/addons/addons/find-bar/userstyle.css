@@ -8,6 +8,8 @@
   width: 100%;
   height: 100%;
   margin-left: 1em;
+  /* Ninja: after every tab, the Chat tab included (it's added after this). */
+  order: 1;
 }
 .sa-find-bar[hidden] {
   /* !important to override displayNoneWhileDisabled */
