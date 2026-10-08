@@ -6,6 +6,7 @@ import Blocks from '../../containers/blocks.jsx';
 import PythonPanel from './python-panel.jsx';
 
 import {CODE_VIEW_PYTHON} from '../../reducers/ninja-code-view.js';
+import {BLOCKS_TAB_INDEX} from '../../reducers/editor-tab.js';
 
 import styles from './code-panel.css';
 
@@ -18,7 +19,7 @@ import styles from './code-panel.css';
  */
 class CodePanel extends React.Component {
     render () {
-        const {basePath, blocksId, canUseCloud, stageSize, theme, vm,
+        const {basePath, blocksId, canUseCloud, codeTabVisible, stageSize, theme, vm,
             view, onOpenCustomExtensionModal} = this.props;
 
 
@@ -36,7 +37,10 @@ class CodePanel extends React.Component {
                             key={`${blocksId}/${theme.id}`}
                             canUseCloud={canUseCloud}
                             grow={1}
-                            isVisible
+                            // Whether the Code tab is showing: coming back to it is
+                            // when the block editor redraws for any window resize
+                            // while it was hidden (else it stays 0×0, blank).
+                            isVisible={codeTabVisible}
                             options={{media: `${basePath}static/${theme.getBlocksMediaFolder()}/`}}
                             stageSize={stageSize}
                             theme={theme}
@@ -54,6 +58,7 @@ CodePanel.propTypes = {
     basePath: PropTypes.string,
     blocksId: PropTypes.string,
     canUseCloud: PropTypes.bool,
+    codeTabVisible: PropTypes.bool,
     onOpenCustomExtensionModal: PropTypes.func,
     stageSize: PropTypes.string,
     theme: PropTypes.object,
@@ -62,5 +67,8 @@ CodePanel.propTypes = {
 };
 
 export default connect(
-    state => ({view: state.scratchGui.ninjaCodeView.view})
+    state => ({
+        codeTabVisible: state.scratchGui.editorTab.activeTabIndex === BLOCKS_TAB_INDEX,
+        view: state.scratchGui.ninjaCodeView.view
+    })
 )(CodePanel);
