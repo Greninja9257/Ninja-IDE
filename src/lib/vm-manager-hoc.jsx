@@ -29,6 +29,41 @@ const SECURITY_CRITICAL_FONTS = [
  * @param {React.Component} WrappedComponent component to manage VM events for
  * @returns {React.Component} connected component with vm events bound to redux
  */
+/**
+ * Unsandboxed extensions get the VM as Scratch.vm on the global Scratch object
+ * while they load. Each extension keeps its own copy of that object, so once
+ * no extension is loading, swap the global one for a copy without the VM.
+ * @param {VirtualMachine} vm the VM
+ */
+const hideVMFromExtensionGlobals = vm => {
+    const manager = vm.extensionManager;
+    if (!manager || manager.ninjaHidesVM) return;
+    manager.ninjaHidesVM = true;
+    let loading = 0;
+    const hide = () => {
+        if (--loading > 0) return;
+        const shared = window.Scratch;
+        if (shared && Object.prototype.hasOwnProperty.call(shared, 'vm')) {
+            const copy = Object.assign({}, shared);
+            delete copy.vm;
+            window.Scratch = copy;
+        }
+    };
+    const loadExtensionURL = manager.loadExtensionURL.bind(manager);
+    manager.loadExtensionURL = url => {
+        loading++;
+        let result;
+        try {
+            result = Promise.resolve(loadExtensionURL(url));
+        } catch (e) {
+            hide();
+            throw e;
+        }
+        result.then(hide, hide);
+        return result;
+    };
+};
+
 const vmManagerHOC = function (WrappedComponent) {
     class VMManager extends React.Component {
         constructor (props) {
@@ -39,7 +74,9 @@ const vmManagerHOC = function (WrappedComponent) {
         }
         componentDidMount () {
             if (!this.props.vm.initialized) {
-                window.vm = this.props.vm;
+                // The VM is never put on window: anything on the page (a
+                // browser extension, say) could rewrite variables through it.
+                hideVMFromExtensionGlobals(this.props.vm);
                 try {
                     this.audioEngine = new AudioEngine();
                     this.props.vm.attachAudioEngine(this.audioEngine);

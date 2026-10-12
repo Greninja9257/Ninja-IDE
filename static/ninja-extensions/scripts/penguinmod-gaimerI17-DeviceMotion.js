@@ -1,3 +1,6 @@
+// Ninja: wrapped so it keeps its own Scratch (the page's copy has no VM once
+// extensions have loaded) and its variables stay out of the page's scope.
+(function (Scratch) {
 let deviceMotionAccelX = 0;
 let deviceMotionAccelY = 0;
 let deviceMotionAccelZ = 0;
@@ -408,3 +411,5 @@ class gaimeriDeviceMotionExtension {
 }
 
 Scratch.extensions.register(new gaimeriDeviceMotionExtension());
+
+}(Scratch));

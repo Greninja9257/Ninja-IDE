@@ -1,3 +1,6 @@
+// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
+// window, where anything on the page could rewrite project variables.
+(function (vm) {
 // Name: Doodle Recognition
 // ID: imagevisionquickdraw
 // Description: A implementation of Google's Quick Draw image vision model
@@ -392,3 +395,5 @@
 
   Scratch.extensions.register(new imagevisionquickdraw());
 })(Scratch);
+
+}(Scratch.vm));

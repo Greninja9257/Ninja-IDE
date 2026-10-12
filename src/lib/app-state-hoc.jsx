@@ -23,6 +23,31 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
                         only rendering modals, not the GUI.
  * @returns {React.Component} component with redux and intl state provided
  */
+/**
+ * The store as seen from outside the bundle: the same state and actions,
+ * minus the VM.
+ * @param {object} store the Redux store
+ * @returns {object} getState, dispatch and subscribe
+ */
+const publicStore = store => {
+    let seen = null;
+    let safe = null;
+    return Object.freeze({
+        getState () {
+            const state = store.getState();
+            if (state !== seen) {
+                seen = state;
+                safe = state && state.scratchGui ?
+                    Object.assign({}, state, {scratchGui: Object.assign({}, state.scratchGui, {vm: null})}) :
+                    state;
+            }
+            return safe;
+        },
+        dispatch: action => store.dispatch(action),
+        subscribe: listener => store.subscribe(listener)
+    });
+};
+
 const AppStateHOC = function (WrappedComponent, localesOnly) {
     class AppStateWrapper extends React.Component {
         constructor (props) {
@@ -95,7 +120,10 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
                 initialState,
                 enhancer
             );
-            window.ReduxStore = this.store;
+            // Bundled extensions read the GUI state through window.ReduxStore.
+            // They get it without the VM, which would let anything on the page
+            // rewrite the running project's variables.
+            window.ReduxStore = publicStore(this.store);
             AddonHooks.appStateStore = this.store;
         }
         componentDidUpdate (prevProps) {
