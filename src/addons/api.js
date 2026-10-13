@@ -273,7 +273,12 @@ class Tab extends EventTargetShim {
                 const type = detail.action.type;
                 // As addons can't run before DOM exists here, ignore fontsLoaded/SET_FONTS_LOADED
                 // Otherwise, as our font loading is very async, we could activate more often than required.
-                if (reduxEvents.includes(type) && type !== 'fontsLoaded/SET_FONTS_LOADED') {
+                // Ninja: fullscreen rebuilds the editor (and stage header) just as
+                // switching to the player does, so addons that come back after
+                // that come back after fullscreen too.
+                const remounted = type === 'scratch-gui/mode/SET_FULL_SCREEN' &&
+                    reduxEvents.includes('scratch-gui/mode/SET_PLAYER');
+                if ((reduxEvents.includes(type) || remounted) && type !== 'fontsLoaded/SET_FONTS_LOADED') {
                     externalEventSatisfied = true;
                 }
             };

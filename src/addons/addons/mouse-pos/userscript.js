@@ -53,7 +53,11 @@ export default async function ({ addon, console }) {
       reduxEvents: ["scratch-gui/mode/SET_PLAYER", "fontsLoaded/SET_FONTS_LOADED", "scratch-gui/locales/SELECT_LOCALE"],
     });
 
-    if (addon.tab.editorMode === "editor") {
+    // Ninja: in the editor, and in the editor's fullscreen too (not the
+    // project page's player).
+    const inEditor = addon.tab.editorMode === "editor" ||
+      (addon.tab.editorMode === "fullscreen" && !addon.tab.redux.state.scratchGui.mode.isPlayerOnly);
+    if (inEditor) {
       addon.tab.appendToSharedSpace({ space: "afterStopButton", element: posContainerContainer, order: 1 });
     }
   }

@@ -198,10 +198,16 @@
     position: relative;
 }
 
-/* Ninja: the Chat tab, edged like the costume and sound editors. */
+/* Ninja: the Chat tab, edged like the costume and sound editors. It fills the
+   tab's space exactly, so a long chat scrolls inside it rather than making
+   the page taller. */
 .chat-tab {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
-    flex-grow: 1;
     flex-direction: column;
     min-height: 0;
     border: 1px solid $ui-black-transparent;
