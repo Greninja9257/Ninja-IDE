@@ -10,7 +10,6 @@ const ActualAuthorInfo = ({
     className,
     imageUrl,
     projectTitle,
-    // TODO: use userId to link to user's profile
     userId, // eslint-disable-line no-unused-vars
     username
 }) => (
@@ -52,20 +51,21 @@ ActualAuthorInfo.propTypes = {
     username: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
-const AuthorInfo = ({projectId, ...props}) => (
-    projectId ? (
+// Opens the author's Ninja profile.
+const AuthorInfo = props => (
+    props.username ? (
         <a
             className={styles.link}
-            href={`https://scratch.mit.edu/projects/${projectId}`}
+            href={`/users/${props.username}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
         >
             <ActualAuthorInfo {...props} />
         </a>
     ) : <ActualAuthorInfo {...props} />
 );
 AuthorInfo.propTypes = {
-    projectId: PropTypes.string
+    username: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 export default AuthorInfo;
