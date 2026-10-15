@@ -49,6 +49,8 @@ import TWThemeManagerHOC from './tw-theme-manager-hoc.jsx';
 import NeuralNetworks from '../lib/ninja-neural-networks';
 import {installHiddenExtensionStorage} from '../lib/ninja-hidden-extensions';
 import {captureMultiplayerStartState} from '../lib/multiplayer-start-state';
+import {installFontFallback} from '../lib/ninja-font-fallback';
+import log from '../lib/log';
 
 const {RequestMetadata, setMetadata, unsetMetadata} = storage.scratchFetch;
 
@@ -69,6 +71,7 @@ class GUI extends React.Component {
             this.props.vm.extensionManager.addBuiltinExtension('neuralnetworks', NeuralNetworks);
         }
         installHiddenExtensionStorage(this.props.vm);
+        installFontFallback(this.props.vm);
         this.props.onStorageInit(storage);
         this.props.onVmInit(this.props.vm);
         setProjectIdMetadata(this.props.projectId);
@@ -81,7 +84,13 @@ class GUI extends React.Component {
             setProjectIdMetadata(this.props.projectId);
         }
         if (this.props.isShowingProject && !prevProps.isShowingProject) {
-            captureMultiplayerStartState(this.props.vm);
+            // A project that can't be serialized must still open; multiplayer
+            // takes its own snapshot later if this one is missing.
+            try {
+                captureMultiplayerStartState(this.props.vm);
+            } catch (e) {
+                log.error('Could not capture multiplayer start state', e);
+            }
             // this only notifies container when a project changes from not yet loaded to loaded
             // At this time the project view in www doesn't need to know when a project is unloaded
             this.props.onProjectLoaded();
