@@ -15,7 +15,24 @@ class Storage extends ScratchStorage {
         // page's player iframe) every asset download waits on it, with no
         // timeout or fallback.
         this.webHelper.assetTool = this.webHelper.projectTool;
+        this.loading = new Map();
         this.cacheDefaultProject();
+    }
+    // A project using one costume or sound many times asks for it once per
+    // use, all at once, before the browser has cached any of them: a 4.5 MB
+    // costume used 100 times was downloaded 100 times. Loads of the same
+    // asset that overlap share one download (assets are named by their MD5,
+    // so their contents never change).
+    load (assetType, assetId, dataFormat) {
+        if (assetType === this.AssetType.Project) return super.load(assetType, assetId, dataFormat);
+        const key = `${assetType.name}:${assetId}.${dataFormat || assetType.runtimeFormat}`;
+        if (!this.loading.has(key)) {
+            const promise = super.load(assetType, assetId, dataFormat);
+            this.loading.set(key, promise);
+            const done = () => this.loading.delete(key);
+            promise.then(done, done);
+        }
+        return this.loading.get(key);
     }
     addOfficialScratchWebStores () {
         this.addWebStore(
