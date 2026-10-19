@@ -8,6 +8,11 @@ import styles from './monitor.css';
 import {List} from 'react-virtualized';
 import {safeStringify} from '../../lib/tw-safe-stringify.js';
 
+// react-virtualized gives the list `will-change: transform`, so the browser
+// draws it once at its normal size and stretches that picture when the stage
+// is scaled up (fullscreen), blurring it. Without it, it's redrawn sharp.
+const listStyle = {willChange: 'auto'};
+
 class ListMonitorScroller extends React.Component {
     constructor (props) {
         super(props);
@@ -94,6 +99,7 @@ class ListMonitorScroller extends React.Component {
                 rowHeight={24 /* Row size is same for all rows */}
                 rowRenderer={this.rowRenderer}
                 scrollToIndex={scrollToIndex} /* eslint-disable-line no-undefined */
+                style={listStyle}
                 values={values}
                 width={width}
             />
