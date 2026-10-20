@@ -354,9 +354,9 @@ Who wants to make something?`,
                 }
             }
     
-            if (json.img && Array.isArray(json.img) && json.img.length === 2) {
-                this.source_image = json.img[0];
-                this.img_strength = json.img[1];
+            if (json2 && Array.isArray(json2.img) && json2.img.length === 2) {
+                this.source_image = json2.img[0];
+                this.img_strength = json2.img[1];
             }        
         
             if (typeof json2 !== 'object' || json2 === null) {
@@ -368,7 +368,7 @@ Who wants to make something?`,
                 if (Array.isArray(json2[key]) && Array.isArray(json1[key])) {
                     result[key] = [...json2[key]];
                 } else if (typeof json2[key] === 'object' && typeof json1[key] === 'object') {
-                    result[key] = mergeJSON(json1[key], json2[key]);
+                    result[key] = this.mergeJSON(json1[key], json2[key]);
                 } else {
                     result[key] = json2[key];
                 }
@@ -382,9 +382,9 @@ Who wants to make something?`,
 
         getLists() {
             const globalLists = Object.values(
-                vm.runtime.getTargetForStage().variables
+                Scratch.vm.runtime.getTargetForStage().variables
             ).filter((x) => x.type == "list");
-            const localLists = Object.values(vm.editingTarget.variables).filter(
+            const localLists = Object.values(Scratch.vm.editingTarget.variables).filter(
                 (x) => x.type == "list"
             );
             const uniqueLists = [...new Set([...globalLists, ...localLists])];

@@ -112,6 +112,20 @@ const PATCHES = {
         'imgStorage = runtime.extensionStorage["SPmbpCST"].imgStorage ?? {};',
         'imgStorage = runtime.extensionStorage["SPmbpCST"]?.imgStorage ?? {};'
     ]],
+    // Its list menu used the editor's global vm, which Ninja doesn't have, so
+    // building the toolbox threw; and its options merge read an undefined
+    // variable, so every generate block threw.
+    'Pooiod7:KoboldAI': [
+        ['vm.runtime.getTargetForStage().variables', 'Scratch.vm.runtime.getTargetForStage().variables'],
+        ['Object.values(vm.editingTarget.variables)', 'Object.values(Scratch.vm.editingTarget.variables)'],
+        [
+            'if (json.img && Array.isArray(json.img) && json.img.length === 2) {',
+            'if (json2 && Array.isArray(json2.img) && json2.img.length === 2) {'
+        ],
+        ['this.source_image = json.img[0];', 'this.source_image = json2.img[0];'],
+        ['this.img_strength = json.img[1];', 'this.img_strength = json2.img[1];'],
+        ['result[key] = mergeJSON(', 'result[key] = this.mergeJSON(']
+    ],
     // Every "turn video on" loaded another hand model and started another
     // detection loop, none of them ever stopped; and detection could start
     // before the video existed. Load the model once, run one loop on the
