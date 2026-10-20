@@ -1,6 +1,3 @@
-// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
-// window, where anything on the page could rewrite project variables.
-(function (vm) {
 // --- START OF MATHJS BLOCK ---
 
 /*!
@@ -736,5 +733,3 @@ const MathJS = window.math;
   motionSprite.runtime = Scratch.vm.runtime;
   Scratch.extensions.register(motionSprite);
 })(Scratch);
-
-}(Scratch.vm));

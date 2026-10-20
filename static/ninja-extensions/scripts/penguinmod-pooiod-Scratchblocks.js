@@ -1,6 +1,3 @@
-// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
-// window, where anything on the page could rewrite project variables.
-(function (vm) {
 // Scratchblocks v1.8.2 (by pooiod7) - Make Scratch blocks in scratch
 
 (function(Scratch) {
@@ -6977,5 +6974,3 @@
   scratchblocks.init();
 
 })(Scratch);
-
-}(Scratch.vm));

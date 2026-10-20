@@ -1,6 +1,3 @@
-// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
-// window, where anything on the page could rewrite project variables.
-(function (vm) {
 // Name: Shovel Debugger
 // By: TheShovel <https://github.com/TheShovel>
 // License: MIT
@@ -1960,5 +1957,3 @@ ${logHTML}
 
   Scratch.extensions.register(new DebuggerExtensionTS());
 })(Scratch);
-
-}(Scratch.vm));

@@ -1,5 +1,5 @@
 {
-  "count": 196,
+  "count": 212,
   "models": {
     "mobileNet": "ninja-extensions/models/mobilenet/model.json"
   },
@@ -483,8 +483,7 @@
       "tags": [
         "penguinmod",
         "api",
-        "music",
-        "sounds"
+        "sound"
       ],
       "incompatibleWithScratch": true
     },
@@ -666,6 +665,34 @@
       "iconSha256": "0d819206a3f95a58ff26e5445f6ed1654893c3c1c1b19ec37369e0b85a7deb29",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "BoxedPhysics",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/BoxedPhysics/main.js",
+      "name": "Boxed Physics",
+      "nameTranslations": {},
+      "description": "An implementation the Box2D physics engine with support for joints, springs, sliders, and more.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Griffpatch"
+        },
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-BoxedPhysics.js",
+      "extensionSha256": "f830a13d97ebb2cb07947f99fb226c143755d77dba20f48c4c76427b9549a487",
+      "extensionBytes": 452503,
+      "iconURL": "ninja-extensions/icons/pooiod7-BoxedPhysics.svg",
+      "iconSha256": "b1b5dc2c049196392fe6e6f3dda58e1fbc828a16e203a5d354d15e8563649eae",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -1028,12 +1055,37 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-xeltallivclipblend.js",
-      "extensionSha256": "f1afdfdb6b6ac33161bb257c2b72d5badac1ce238c5bdc0a5c6c12a057027bbc",
-      "extensionBytes": 27936,
+      "extensionSha256": "75ae6a27dbfc1476bcad6317ccb8d8ac1a0328361616acfd9f92494b692e5b06",
+      "extensionBytes": 27956,
       "iconURL": "ninja-extensions/icons/turbowarp-xeltallivclipblend.svg",
       "iconSha256": "9d4941574f0fd5b034375a17560305b40bd4950d4a54170149c6c419545e5f09",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "CloneData",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/CloneData/main.js",
+      "name": "Clone Data",
+      "nameTranslations": {},
+      "description": "Track and control clones.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-CloneData.js",
+      "extensionSha256": "dd21e501c3e2e7f5b954d405bbd59b32f16dcc5c8e38a89c09173d068a62decd",
+      "extensionBytes": 20878,
+      "iconURL": "ninja-extensions/icons/pooiod7-CloneData.svg",
+      "iconSha256": "ec030d2d8739dfb54840a608d6e763a6fe5e035da9d2d3609365606f5999f8a5",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -1270,6 +1322,31 @@
         "Sound",
         "Data Management",
         "Online"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "Console",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/Console/main.js",
+      "name": "Console",
+      "nameTranslations": {},
+      "description": "An easy to use console system.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-Console.js",
+      "extensionSha256": "0f535bbc2b6cf222f3647cf4cb79d95b6c5b658005e3f1bbfcb97158af1bbf26",
+      "extensionBytes": 38124,
+      "iconURL": "ninja-extensions/icons/pooiod7-Console.svg",
+      "iconSha256": "2dd20a1362c780795cf65315c2f35d59afc7f39a9f2fe85edbb8172959b7a7a8",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -1847,6 +1924,31 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Pooiod7",
+      "sourceId": "ElementalImages",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/ElementalImages/main.js",
+      "name": "Elemental Images",
+      "nameTranslations": {},
+      "description": "Create and manipulate image elements in scratch.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-ElementalImages.js",
+      "extensionSha256": "505c272184502247eef6a0edb8597841b9e4862bacb287a4af5e173036694af3",
+      "extensionBytes": 11880,
+      "iconURL": "ninja-extensions/icons/pooiod7-ElementalImages.svg",
+      "iconSha256": "dd40be3111593ea20f6e66bbad5f829e5906ad6c343f74d42fa905d55d9b66f0",
+      "tags": [
+        "pooiod7",
+        "finished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "Encoding",
       "sourceURL": "https://extensions.turbowarp.org/encoding.js",
@@ -2003,8 +2105,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-faceSensing.js",
-      "extensionSha256": "b85876c48904e161638c62ec3c23cf9acf4b5ae1a6aa91d05d7379ae33c287cb",
-      "extensionBytes": 2291370,
+      "extensionSha256": "1dc37fe4d4ea2b1139440d3d983d33d3a1c84740e36b5f0989326da8b816a34f",
+      "extensionBytes": 2291566,
       "iconURL": "ninja-extensions/icons/turbowarp-faceSensing.svg",
       "iconSha256": "7f7961b2895788664ff703c08ea1ad62322c6cccb69a4cebc4f0cd1e01ce328e",
       "tags": [
@@ -2075,6 +2177,31 @@
         "sharkpool",
         "Data Management",
         "Online"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "FilePile",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/FilePile/main.js",
+      "name": "FilePile",
+      "nameTranslations": {},
+      "description": "Decentralized peer-to-peer file sharing",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-FilePile.js",
+      "extensionSha256": "427355756401e1fee6e5bd5fff6c973ee4c453dcfe624cd4fe046fa1d904884d",
+      "extensionBytes": 88863,
+      "iconURL": "ninja-extensions/icons/pooiod7-FilePile.svg",
+      "iconSha256": "d9bd9f1755093bee762c6bd4f39b0c3111ee6c8211d99aeb7a4b1d91cc6bf306",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -2487,6 +2614,31 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Pooiod7",
+      "sourceId": "HandPos",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/HandPos/main.js",
+      "name": "Hand Positions",
+      "nameTranslations": {},
+      "description": "Hand tracking in scratch",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-HandPos.js",
+      "extensionSha256": "98fefa25e6c358f0919b067dbcc806b071b59f0380e179b1eecad2ea5e736ff7",
+      "extensionBytes": 8232,
+      "iconURL": "ninja-extensions/icons/pooiod7-HandPos.svg",
+      "iconSha256": "65a7129c9cc9557c77bac7b1c1a6ea06b60037bf094125882d1e4a9ff8df88f7",
+      "tags": [
+        "pooiod7",
+        "finished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "lmsHackedBlocks",
       "sourceURL": "https://extensions.turbowarp.org/Lily/HackedBlocks.js",
@@ -2798,8 +2950,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-Gen1x-iris-text.js",
-      "extensionSha256": "902e5aeb04a9c88aead7fd9fc30cc0a32f14891ac29e38799a0dc913699af6f2",
-      "extensionBytes": 328231,
+      "extensionSha256": "f8522240046bdc99a2498a3cba25bf5545778bf1b3698ee30c363db51e8949ed",
+      "extensionBytes": 328972,
       "iconURL": "ninja-extensions/icons/penguinmod-Gen1x-iris-text.avif",
       "iconSha256": "8bd082bc1ab04705be7408f2ecc3e11cb74cfa5988acaa82e7be2310aa1fa80b",
       "tags": [
@@ -2928,6 +3080,31 @@
       "iconSha256": "f87cf9b1b74980cc8bb746622b93bb794b2a3b3da1bc4c13a4bcc5e1eeb19827",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "KoboldAI",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/KoboldAI/main.js",
+      "name": "Kobold AI",
+      "nameTranslations": {},
+      "description": "Generate text and images for free with the power of The Horde",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-KoboldAI.js",
+      "extensionSha256": "787d52429c75a2cc7391ede84cb03653fda04d3ac8ec3b012d342091360574f1",
+      "extensionBytes": 35572,
+      "iconURL": "ninja-extensions/icons/pooiod7-KoboldAI.svg",
+      "iconSha256": "4b673d1f709ad8e65f9e997b9ac0f4a4f1fb1414b864f66269dbc126cb100b28",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -3127,6 +3304,57 @@
       "iconSha256": "081d7ebf1f808f44d7570d18916e22ede6bb49c3c04bfd32233ae2c60df6fb50",
       "tags": [
         "tw"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "ListsPlus",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/ListsPlus/main.js",
+      "name": "Lists Plus",
+      "nameTranslations": {},
+      "description": "A simple extension to create lists within lists, and place them in variables.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-ListsPlus.js",
+      "extensionSha256": "2cd1590e6dc857384a7f5a8360596da526e32e18c2f12aec2bbaced389ace591",
+      "extensionBytes": 12511,
+      "iconURL": "ninja-extensions/icons/pooiod7-ListsPlus.svg",
+      "iconSha256": "04b0bf1729f0d5fe831bec83ac99da2712cd3645ae5e24a49f29dcaa5abbad8b",
+      "tags": [
+        "pooiod7",
+        "finished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "LocalAI",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/LocalAI/main.js",
+      "name": "Local AI",
+      "nameTranslations": {},
+      "description": "Run your own local text AI right in scratch.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-LocalAI.js",
+      "extensionSha256": "3834f0649293bc83b209a16f7ada5cc610245e4fcc2fff281ad0b39ac3a6bd9e",
+      "extensionBytes": 51602,
+      "iconURL": "ninja-extensions/icons/pooiod7-LocalAI.svg",
+      "iconSha256": "6d0f742c73ba0bdbc13760f169f406792e7529dacd07a1fecf447ba4b29c68eb",
+      "tags": [
+        "pooiod7",
+        "finished",
+        "ai"
       ],
       "incompatibleWithScratch": true
     },
@@ -3380,8 +3608,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-truefantommath.js",
-      "extensionSha256": "70b79ce1b4542f4f986067c8f0f87867af88fbb27eb1c55b399c81785de2db9f",
-      "extensionBytes": 28263,
+      "extensionSha256": "f842875c4b082262a1a012e14796200da7d344c14fa9cec60b99a0113ea1bf10",
+      "extensionBytes": 28324,
       "iconURL": "ninja-extensions/icons/turbowarp-truefantommath.svg",
       "iconSha256": "af6c80e4895b25ab3c7a57f28e91ebfb5889606f78e67dcb50bf70e04f19cbe8",
       "tags": [
@@ -4231,13 +4459,38 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-NishiOwO-ode.js",
-      "extensionSha256": "50654a9b87bdedde74b9c6fc5ff8ae3d8dae76ad20f7e611ad2b28c163cb5cf7",
-      "extensionBytes": 1671966,
+      "extensionSha256": "af4b88cab477894cc87d68c54e9e807416a630382e255a196e5ebf29889f7ff0",
+      "extensionBytes": 1674152,
       "iconURL": "ninja-extensions/icons/penguinmod-NishiOwO-ode.svg",
       "iconSha256": "14d7d7e941ac0f498121c6ec88d6201f065c2f426be955e291c0624ff782d6fa",
       "tags": [
         "penguinmod",
         "new"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "PageOpener",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/PageOpener/main.js",
+      "name": "Page Opener",
+      "nameTranslations": {},
+      "description": "A simple extension to open websites.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-PageOpener.js",
+      "extensionSha256": "795f78f71f3f78a711e50acfaef30c2d476c0894584ea66d3c516a2b5e319157",
+      "extensionBytes": 2725,
+      "iconURL": "ninja-extensions/icons/pooiod7-PageOpener.svg",
+      "iconSha256": "efcd9b6f5709d57aaf8a41541857dc0f5d0f4c6f602a01e08bf459ff227bd64e",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -4585,6 +4838,56 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Pooiod7",
+      "sourceId": "ProjectParser",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/ProjectParser/main.js",
+      "name": "Project Parser",
+      "nameTranslations": {},
+      "description": "Load and parse Scratch3 projects",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-ProjectParser.js",
+      "extensionSha256": "062694fa737ff43ab9d02c8c966652b17db0e515a0ff67bd78fe04756dc64503",
+      "extensionBytes": 131047,
+      "iconURL": "ninja-extensions/icons/pooiod7-ProjectParser.svg",
+      "iconSha256": "98fd62cf4e4731f1d6197da81a6d196ed46062123936daf6c8a45e4c708e202e",
+      "tags": [
+        "pooiod7",
+        "finished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "Puter",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/Puter/main.js",
+      "name": "Puter",
+      "nameTranslations": {},
+      "description": "Cloud services from puter.com",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-Puter.js",
+      "extensionSha256": "46de7320a3a53631318301a8c96c52dc6072ceaaa5fffc86c0b79a7c8ea7d6b3",
+      "extensionBytes": 22549,
+      "iconURL": "ninja-extensions/icons/pooiod7-Puter.svg",
+      "iconSha256": "d56c343e473e7608584976fb41201cc36c86c12b863d553324b97bf318952db5",
+      "tags": [
+        "pooiod7",
+        "unfinished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "QR-Codes",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/QR-Codes.js",
@@ -4608,6 +4911,31 @@
         "Graphics",
         "Data Management",
         "Hardware"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "QuickSkins",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/QuickSkins/main.js",
+      "name": "Quick Skins",
+      "nameTranslations": {},
+      "description": "A simple extension to render images from data uris super quickly",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-QuickSkins.js",
+      "extensionSha256": "74934cbb28ef1f5e3a576fbcbecbca8a0d1c21533a2be9b39ee294312dad7d7e",
+      "extensionBytes": 11552,
+      "iconURL": "ninja-extensions/icons/pooiod7-QuickSkins.svg",
+      "iconSha256": "dcae83fcff96be16075add341c7f3008a2344e1f983b0ad7c1848ee6ec1cdd8e",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -4791,8 +5119,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-lbdrawtest.js",
-      "extensionSha256": "a63cf04c13c4930a6b12677f2bf8d6d4763e7660c0ccf70e90646e6e031c0833",
-      "extensionBytes": 13403,
+      "extensionSha256": "87725329e5c3cf9787641a2f1f680d9b37e8c7876f05df753484029c134a30f4",
+      "extensionBytes": 13400,
       "iconURL": "ninja-extensions/icons/turbowarp-lbdrawtest.svg",
       "iconSha256": "9949b82415ecdf4a64f81101f6227b04f981d651439fd2c4808996ac578e3825",
       "tags": [
@@ -4879,29 +5207,6 @@
       "extensionBytes": 9906,
       "iconURL": "ninja-extensions/icons/ninja-run-speed.svg",
       "iconSha256": "0959b601421e4cfad6cef30e0a789ebdf8015ce20bd239656381cc69a2bd9d46",
-      "tags": [
-        "ninja"
-      ],
-      "incompatibleWithScratch": true
-    },
-    {
-      "source": "Ninja",
-      "sourceId": "ninjastagerecorder",
-      "sourceURL": "",
-      "name": "Stage Recorder",
-      "nameTranslations": {},
-      "description": "Record the stage as a video, starting and stopping whenever the project says, and save it as a file.",
-      "descriptionTranslations": {},
-      "author": [
-        {
-          "name": "Ninja"
-        }
-      ],
-      "extensionURL": "ninja-extensions/scripts/ninja-stage-recorder.js",
-      "extensionSha256": "fb1e63ca362c4666ebbd5d12330aec4ce25bd35ef697ed0c6b5f1aa3a766b6a1",
-      "extensionBytes": 8606,
-      "iconURL": "ninja-extensions/icons/ninja-stage-recorder.svg",
-      "iconSha256": "c5191cbe66d089b57d63ff08b73235391625e73eec5c483c0b33f8515e619b80",
       "tags": [
         "ninja"
       ],
@@ -5030,6 +5335,31 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Pooiod7",
+      "sourceId": "Sam",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/Sam/main.js",
+      "name": "Sam Speech",
+      "nameTranslations": {},
+      "description": "Generate speech from text using sam",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-Sam.js",
+      "extensionSha256": "21758d807568085e12357f2a068b70b4b5ca42160885e06e4d54a76f6af6c469",
+      "extensionBytes": 35346,
+      "iconURL": "ninja-extensions/icons/pooiod7-Sam.svg",
+      "iconSha256": "525447b39c09ce631fa440d07ac5904189f20829ddfcc5611d30c9b5410786de",
+      "tags": [
+        "pooiod7",
+        "finished"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "SharkPool",
       "sourceId": "Scenes",
       "sourceURL": "https://sharkpools-extensions.vercel.app/extension-code/Scenes.js",
@@ -5147,6 +5477,31 @@
         "Utility",
         "Configuration",
         "Runtime"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
+      "source": "Pooiod7",
+      "sourceId": "ScrollUtilities",
+      "sourceURL": "https://p7scratchextensions.pages.dev/ext/ScrollUtilities/main.js",
+      "name": "Scroll Utilities",
+      "nameTranslations": {},
+      "description": "Detect user scrolling on the page",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "pooiod7",
+          "link": "https://scratch.mit.edu/users/pooiod7/"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/pooiod7-ScrollUtilities.js",
+      "extensionSha256": "2508398303df63c19afe1d406cbc0950546966f96b60f22e79be17cdec53e8d4",
+      "extensionBytes": 2625,
+      "iconURL": "ninja-extensions/icons/pooiod7-ScrollUtilities.svg",
+      "iconSha256": "a2726b9737cc90be9b40a41f6800699c43ec23ed1bbe703896cfc8a0f8188a26",
+      "tags": [
+        "pooiod7",
+        "finished"
       ],
       "incompatibleWithScratch": true
     },
@@ -5707,6 +6062,29 @@
       "incompatibleWithScratch": true
     },
     {
+      "source": "Ninja",
+      "sourceId": "ninjastagerecorder",
+      "sourceURL": "",
+      "name": "Stage Recorder",
+      "nameTranslations": {},
+      "description": "Record the stage as a video, starting and stopping whenever the project says, and save it as a file.",
+      "descriptionTranslations": {},
+      "author": [
+        {
+          "name": "Ninja"
+        }
+      ],
+      "extensionURL": "ninja-extensions/scripts/ninja-stage-recorder.js",
+      "extensionSha256": "fb1e63ca362c4666ebbd5d12330aec4ce25bd35ef697ed0c6b5f1aa3a766b6a1",
+      "extensionBytes": 8606,
+      "iconURL": "ninja-extensions/icons/ninja-stage-recorder.svg",
+      "iconSha256": "c5191cbe66d089b57d63ff08b73235391625e73eec5c483c0b33f8515e619b80",
+      "tags": [
+        "ninja"
+      ],
+      "incompatibleWithScratch": true
+    },
+    {
       "source": "TurboWarp",
       "sourceId": "steamworks",
       "sourceURL": "https://extensions.turbowarp.org/steamworks.js",
@@ -5935,8 +6313,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-lmsTempVars2.js",
-      "extensionSha256": "b4e6afc236ddfb48c5d960911f1f3799fa4c37f3bc75dbcd350da99078748b5c",
-      "extensionBytes": 17226,
+      "extensionSha256": "dd6cde954ce276fcf1a4f0f8dc322dd89b64bb04be32a06c36fbff54d514e2f0",
+      "extensionBytes": 17223,
       "iconURL": "ninja-extensions/icons/turbowarp-lmsTempVars2.svg",
       "iconSha256": "6203fa3c98f9e32db3fce0ea8d34aa33f3013e6a3300b06f55907d696cd02288",
       "tags": [
@@ -6234,8 +6612,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-SPtuneShark3.js",
-      "extensionSha256": "b4c22c58041808554cc3c1bce6628a997dea71c268fe2df6f354159577ee5735",
-      "extensionBytes": 134774,
+      "extensionSha256": "e10a569712ddff63ade04dd3be2229c824ed9b3c3559ebfae83b715b106e8e98",
+      "extensionBytes": 134828,
       "iconURL": "ninja-extensions/icons/turbowarp-SPtuneShark3.svg",
       "iconSha256": "19745f42c7222e4603ff80e293c01aee7dc97f140d6c2bab419aba1506113276",
       "tags": [
@@ -6902,8 +7280,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/sharkpool-YouTube-Operations.js",
-      "extensionSha256": "f4462e47bbe1717442fbd51d065cf367574442b50ea5d445165486eba16697b0",
-      "extensionBytes": 21045,
+      "extensionSha256": "713c5e52ec3986f8b230c233f25fa5e64e7c570a9beadeb79d8e8e016a5b8764",
+      "extensionBytes": 20916,
       "iconURL": "ninja-extensions/icons/sharkpool-YouTube-Operations.svg",
       "iconSha256": "3cc40d4b4606675497bd6ae0bfb7575fe185fcae148a9e3c5e49e8014604c65f",
       "tags": [

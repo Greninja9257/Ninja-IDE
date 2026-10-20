@@ -6,6 +6,7 @@ const TW_ROOT = 'https://extensions.turbowarp.org/';
 const SP_ROOT = 'https://sharkpools-extensions.vercel.app/';
 const PM_ROOT = 'https://extensions.penguinmod.com/';
 const PM_LIST = 'https://raw.githubusercontent.com/PenguinMod/PenguinMod-ExtensionsGallery/main/src/lib/extensions.js';
+const P7_ROOT = 'https://p7scratchextensions.pages.dev/';
 // Ninja's own extensions, kept in the repo rather than downloaded.
 const OWN = path.resolve('extensions');
 const OUTPUT = path.resolve('static/ninja-extensions');
@@ -78,6 +79,31 @@ const PENGUINMOD = {
     'TheShovel/shoveldebugger.js': {} // debugger
 };
 
+// Pooiod7's gallery: only its finished extensions. Left out are the work in
+// progress ones, the joke Racoon Facts, Super Storage (its server storage
+// doesn't work), Text to Speech (Ninja has three), Fetch (same extension ID as
+// TurboWarp: Fetch), and Dictation, Video Sharing, Window Hasher and
+// ScratchBlocks, which already come from the PenguinMod gallery.
+const POOIOD7 = [
+    'BoxedPhysics', // Box2D with joints, springs and sliders
+    'CloneData', // track and control clones
+    'Console', // an in-project console
+    'ElementalImages', // images as page elements
+    'FilePile', // file sharing over MQTT
+    'HandPos', // hand tracking
+    'KoboldAI', // text and image generation from The Horde
+    'ListsPlus', // nested lists
+    'LocalAI', // text models run in the browser
+    'PageOpener', // open links
+    'ProjectParser', // load and read Scratch 3 projects
+    'Puter', // puter.com cloud services
+    'QuickSkins', // fast skins from data URIs
+    'Sam', // SAM speech synthesis
+    'ScrollUtilities' // page scrolling
+];
+
+const stripTags = html => html.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+
 // Fixes to upstream code, applied after each download: [find, replace].
 const PATCHES = {
     'SharkPool:My-Blocks-Plus': [[
@@ -85,6 +111,54 @@ const PATCHES = {
         // project without it (a collaborator's live copy, say) threw here.
         'imgStorage = runtime.extensionStorage["SPmbpCST"].imgStorage ?? {};',
         'imgStorage = runtime.extensionStorage["SPmbpCST"]?.imgStorage ?? {};'
+    ]],
+    // Every "turn video on" loaded another hand model and started another
+    // detection loop, none of them ever stopped; and detection could start
+    // before the video existed. Load the model once, run one loop on the
+    // current video, and stop it when the video goes off.
+    'Pooiod7:HandPos': [[
+        'this.runtime.ioDevices.video.disableVideo();',
+        'this.runtime.ioDevices.video.disableVideo();\n                this.stopDetecting();'
+    ], [
+        `                ml5.handPose((handpose) => {
+                    console.log("Model loaded!");
+                    handpose.detectStart(this.video, (results) => {
+                        this.hands = results;
+                    });
+                });
+`,
+        ''
+    ], [
+        `                this.runtime.ioDevices.video.enableVideo().then(() => {
+                    this.video = this.runtime.ioDevices.video.provider.video;
+                    this.video.width = this.stagewidth;
+                    this.video.height = this.stageheight;
+                });
+`,
+        `                await this.runtime.ioDevices.video.enableVideo();
+                this.video = this.runtime.ioDevices.video.provider.video;
+                this.video.width = this.stagewidth;
+                this.video.height = this.stageheight;
+
+                this.model = this.model || new Promise(resolve => ml5.handPose(resolve));
+                const model = await this.model;
+                this.stopDetecting();
+                model.detectStart(this.video, (results) => {
+                    this.hands = results;
+                });
+                this.detecting = model;
+`
+    ], [
+        '        setVideoTransparency(args) {',
+        `        stopDetecting() {
+            if (this.detecting) {
+                this.detecting.detectStop();
+                this.detecting = null;
+            }
+            this.hands = [];
+        }
+
+        setVideoTransparency(args) {`
     ]]
 };
 
@@ -93,7 +167,9 @@ const applyPatches = async (key, asset) => {
     if (!patches) return asset;
     const file = path.join(OUTPUT, asset.path.replace(/^ninja-extensions\//, ''));
     let source = await fs.readFile(file, 'utf8');
-    for (const [find, replace] of patches) {
+    // Patches are written with \n; some upstream files use \r\n.
+    const eol = text => (source.includes('\r\n') ? text.replace(/\r?\n/g, '\r\n') : text);
+    for (const [find, replace] of patches.map(patch => patch.map(eol))) {
         if (!source.includes(find)) {
             console.warn(`Patch for ${key} no longer applies: ${find}`);
             continue;
@@ -144,12 +220,19 @@ const parallelMap = async (items, limit, mapper) => {
 };
 
 const sync = async () => {
-    const [twResponse, spResponse, pmResponse] = await Promise.all([
+    const [twResponse, spResponse, pmResponse, p7Response] = await Promise.all([
         fetch(`${TW_ROOT}generated-metadata/extensions-v0.json`),
         fetch(`${SP_ROOT}Gallery%20Files/Extension-Keys.json`),
-        fetch(PM_LIST)
+        fetch(PM_LIST),
+        fetch(`${P7_ROOT}extensions.json`)
     ]);
-    if (!twResponse.ok || !spResponse.ok || !pmResponse.ok) throw new Error('Unable to download extension indexes');
+    if (!twResponse.ok || !spResponse.ok || !pmResponse.ok || !p7Response.ok) {
+        throw new Error('Unable to download extension indexes');
+    }
+    const p7List = await p7Response.json();
+    const p7 = p7List.filter(extension => POOIOD7.includes(extension.id));
+    const p7Missing = POOIOD7.filter(id => !p7List.some(extension => extension.id === id));
+    if (p7Missing.length) console.warn(`Not in Pooiod7's gallery any more: ${p7Missing.join(', ')}`);
     // The gallery's list is a JS module: an array literal of plain objects.
     const pmSource = (await pmResponse.text()).replace(/^[\s\S]*?export default/, '').trim().replace(/;$/, '');
     const pmList = new Function(`return ${pmSource};`)(); // eslint-disable-line no-new-func
@@ -195,6 +278,41 @@ const sync = async () => {
             iconURL: icon.path,
             iconSha256: icon.sha256,
             tags: ['penguinmod', ...(extension.tags || []).map(String)],
+            incompatibleWithScratch: true
+        };
+    });
+
+    const pooiod7 = await parallelMap(p7, 10, async extension => {
+        const baseName = `pooiod7-${safeName(extension.id)}`;
+        const scriptURL = `${P7_ROOT}ext/${extension.id}/main.js`;
+        const [downloaded, icon] = await Promise.all([
+            saveAsset(scriptURL, `scripts/${baseName}.js`),
+            saveAsset(`${P7_ROOT}ext/${extension.id}/cover.svg`, `icons/${baseName}.svg`)
+                .catch(() => saveAsset(`${TW_ROOT}images/unknown.svg`, `icons/${baseName}.svg`))
+        ]);
+        const script = await applyPatches(`Pooiod7:${extension.id}`, downloaded);
+        // "// By: name <link>" and "// Original: name" in the script's header.
+        const header = readHeader(await fs.readFile(path.join(OUTPUT, 'scripts', `${baseName}.js`), 'utf8'));
+        const toAuthor = value => {
+            const [, name, link] = /^(.*?)\s*(?:<([^>]+)>)?$/.exec(value);
+            return link ? {name, link} : {name};
+        };
+        const author = [header.original, header.by].filter(Boolean).map(toAuthor);
+        return {
+            source: 'Pooiod7',
+            sourceId: extension.id,
+            sourceURL: scriptURL,
+            name: extension.title,
+            nameTranslations: {},
+            description: stripTags(extension.description || ''),
+            descriptionTranslations: {},
+            author: author.length ? author : [{name: 'pooiod7', link: 'https://scratch.mit.edu/users/pooiod7/'}],
+            extensionURL: script.path,
+            extensionSha256: script.sha256,
+            extensionBytes: script.bytes,
+            iconURL: icon.path,
+            iconSha256: icon.sha256,
+            tags: ['pooiod7', ...(extension.tags || []).map(String)],
             incompatibleWithScratch: true
         };
     });
@@ -274,7 +392,7 @@ const sync = async () => {
         };
     });
 
-    manifest.push(...penguinMod, ...ninja);
+    manifest.push(...penguinMod, ...pooiod7, ...ninja);
     manifest.sort((a, b) => a.name.localeCompare(b.name) || a.source.localeCompare(b.source));
     const mobileNet = await saveAsset(`${MOBILENET_ROOT}model.json`, 'models/mobilenet/model.json');
     const mobileNetJSON = JSON.parse(await fs.readFile(path.join(OUTPUT, 'models/mobilenet/model.json')));

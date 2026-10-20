@@ -1,6 +1,3 @@
-// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
-// window, where anything on the page could rewrite project variables.
-(function (vm) {
 // Name: Perlin Noise
 // ID: SPperlin
 // Description: Generate Perlin Noise
@@ -189,5 +186,3 @@
   
   Scratch.extensions.register(new SPperlin());
 })(Scratch);
-
-}(Scratch.vm));

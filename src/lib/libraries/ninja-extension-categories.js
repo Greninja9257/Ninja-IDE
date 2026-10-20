@@ -17,13 +17,15 @@ const CATEGORIES = {
         'SharkPool:SVG-Spritesheets', 'SharkPool:Tile-Grids', 'SharkPool:Turbo-Skins',
         'PenguinMod:Gen1x-iris-text', 'PenguinMod:Gen1x-lighting', 'PenguinMod:TheShovel-qoan-renderer',
         'PenguinMod:ObviousAlexC-3DMath', 'PenguinMod:pooiod-Scratchblocks', 'PenguinMod:DogeisCut-Resolution',
-        'PenguinMod:NishiOwO-ode', 'PenguinMod:LordCat0-ProjectInterfaces'
+        'PenguinMod:NishiOwO-ode', 'PenguinMod:LordCat0-ProjectInterfaces',
+        'Pooiod7:ElementalImages', 'Pooiod7:QuickSkins'
     ],
     sound: [
         'music', 'text2speech',
         'TurboWarp:lmsSoundExpanded', 'TurboWarp:SPtuneShark3',
         'SharkPool:MIDI-Tools', 'SharkPool:Recording', 'SharkPool:Sound-Waves', 'SharkPool:Text-to-Speech-V2',
-        'PenguinMod:Gen1x-beat_sync', 'PenguinMod:DogeisCut-BeepBoxPlayer', 'PenguinMod:NishiOwO-libxmp'
+        'PenguinMod:Gen1x-beat_sync', 'PenguinMod:DogeisCut-BeepBoxPlayer', 'PenguinMod:NishiOwO-libxmp',
+        'Pooiod7:Sam'
     ],
     data: [
         'neuralnetworks',
@@ -39,7 +41,8 @@ const CATEGORIES = {
         'SharkPool:Variables-Expanded',
         'PenguinMod:qxsck-big-decimal', 'PenguinMod:Gen1x-random_utils', 'PenguinMod:gaimerI17-crypto',
         'PenguinMod:MikeDev101-e2ee', 'PenguinMod:Gen1x-storage_plus', 'PenguinMod:Embin-embintranslation',
-        'PenguinMod:Gen1x-chess-ext'
+        'PenguinMod:Gen1x-chess-ext',
+        'Pooiod7:ListsPlus', 'Pooiod7:ProjectParser', 'Pooiod7:LocalAI'
     ],
     input: [
         'videoSensing', 'faceSensing', 'makeymakey', 'microbit', 'ev3', 'boost', 'wedo2', 'gdxfor',
@@ -48,14 +51,16 @@ const CATEGORIES = {
         'TurboWarp:MouseCursor', 'TurboWarp:pointerlock', 'TurboWarp:obviousalexsensing',
         'SharkPool:Camera-Sensing-Plus', 'SharkPool:Hyper-Sense', 'SharkPool:Popup-Phoenix',
         'PenguinMod:pooiod-Dictation', 'PenguinMod:TheShovel-doodlerec', 'PenguinMod:gaimerI17-DeviceMotion',
-        'PenguinMod:pooiod-VideoSharing'
+        'PenguinMod:pooiod-VideoSharing',
+        'Pooiod7:HandPos', 'Pooiod7:ScrollUtilities'
     ],
     network: [
         'translate',
         'TurboWarp:fetch', 'TurboWarp:gsaHTTPRequests', 'TurboWarp:truefantomnetwork', 'TurboWarp:steamworks',
         'TurboWarp:cubesterWebhooks', 'TurboWarp:gsaWebsocket',
         'SharkPool:Fetch-Plus',
-        'Ninja:ninjaapi', 'PenguinMod:MikeDev101-webrtc', 'PenguinMod:NamelessCat-corsproxy'
+        'Ninja:ninjaapi', 'PenguinMod:MikeDev101-webrtc', 'PenguinMod:NamelessCat-corsproxy',
+        'Pooiod7:FilePile'
     ],
     utility: [
         'procedures_enable_return', 'tw', 'custom_extension',
@@ -72,7 +77,8 @@ const CATEGORIES = {
         'SharkPool:Sprite-Panel',
         'Ninja:ninjarunspeed', 'Ninja:ninjastagerecorder',
         'PenguinMod:MubiLop-toastnotifs', 'PenguinMod:TheShovel-extexp', 'PenguinMod:Ashime-MoreFields',
-        'PenguinMod:pooiod-WindowHasher', 'PenguinMod:TheShovel-shoveldebugger'
+        'PenguinMod:pooiod-WindowHasher', 'PenguinMod:TheShovel-shoveldebugger',
+        'Pooiod7:BoxedPhysics', 'Pooiod7:CloneData', 'Pooiod7:Console', 'Pooiod7:PageOpener'
     ],
     niche: [
         // One outside service
@@ -80,7 +86,7 @@ const CATEGORIES = {
         'SharkPool:Spotify', 'SharkPool:SoundCloud-API', 'SharkPool:YouTube-Operations',
         'SharkPool:Google-Spreadsheets', 'TurboWarp:longvegdictionary', 'SharkPool:Money-Utilities',
         'TurboWarp:cloudlink', 'SharkPool:Community-Spotlight', 'PenguinMod:justablock-gitpenguin',
-        'PenguinMod:RubyDevs-turboweather', 'PenguinMod:bop_tw-Twitch',
+        'PenguinMod:RubyDevs-turboweather', 'PenguinMod:bop_tw-Twitch', 'Pooiod7:KoboldAI', 'Pooiod7:Puter',
         // Only meaningful on the Scratch website
         'TurboWarp:clouddataping',
         'TurboWarp:numericalencoding2',

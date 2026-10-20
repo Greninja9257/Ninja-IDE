@@ -1,6 +1,3 @@
-// Ninja: wrapped to give it the VM directly. Ninja never puts the VM on
-// window, where anything on the page could rewrite project variables.
-(function (vm) {
 // Name: Obscuras MIDI Tools v5
 // ID: ObscurasMIDITools
 // Description: Utilities For Making Midi Notes Into Functions
@@ -842,5 +839,3 @@
 
   Scratch.extensions.register(new ObscurasMIDITools());
 })(Scratch);
-
-}(Scratch.vm));
