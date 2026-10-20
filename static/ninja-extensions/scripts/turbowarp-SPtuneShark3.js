@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Tune Shark V3
 // ID: SPtuneShark3
 // Description: An advanced audio engine, providing complex sound control.
@@ -1824,3 +1825,5 @@
 
   Scratch.extensions.register(new SPtuneShark3());
 })(Scratch);
+
+})(Scratch.vm);

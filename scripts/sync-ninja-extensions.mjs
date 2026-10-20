@@ -112,6 +112,18 @@ const PATCHES = {
         'imgStorage = runtime.extensionStorage["SPmbpCST"].imgStorage ?? {};',
         'imgStorage = runtime.extensionStorage["SPmbpCST"]?.imgStorage ?? {};'
     ]],
+    // Not wrapped in a function, so its motion events read the global Scratch,
+    // which no longer has the VM once loading ends (see provideVM): every event
+    // threw and its hats never ran. Keep the Scratch it was loaded with.
+    'PenguinMod:gaimerI17-DeviceMotion': [
+        ['let deviceMotionAccelX = 0;', '(function (Scratch) {\nlet deviceMotionAccelX = 0;'],
+        [
+            'Scratch.extensions.register(new gaimeriDeviceMotionExtension());',
+            'Scratch.extensions.register(new gaimeriDeviceMotionExtension());\n})(Scratch);'
+        ]
+    ],
+    // Its colour had an alpha byte, which the block renderer rejects.
+    'Pooiod7:Sam': [["color1: '#cb00ddff',", "color1: '#cb00dd',"]],
     // Its list menu used the editor's global vm, which Ninja doesn't have, so
     // building the toolbox threw; and its options merge read an undefined
     // variable, so every generate block threw.
@@ -176,11 +188,22 @@ const PATCHES = {
     ]]
 };
 
+// Some extensions use the editor's global vm, as TurboWarp and PenguinMod have.
+// Ninja never puts the VM on window (anything on the page could rewrite cloud
+// variables through it), so give each of those its own vm from Scratch.vm,
+// which the global Scratch has while an extension loads. Not for ones that
+// declare their own: a let or const vm in the wrapper's scope is an error.
+const usesGlobalVM = source => /(?<![\w$.])vm\s*(\.|\[)/.test(source) &&
+    !/\b(let|const|class)\s+vm\b/.test(source);
+const provideVM = source => `(function (vm) {\n${source}\n})(Scratch.vm);\n`;
+
 const applyPatches = async (key, asset) => {
-    const patches = PATCHES[key];
-    if (!patches) return asset;
+    const patches = PATCHES[key] || [];
     const file = path.join(OUTPUT, asset.path.replace(/^ninja-extensions\//, ''));
     let source = await fs.readFile(file, 'utf8');
+    const needsVM = usesGlobalVM(source);
+    if (!patches.length && !needsVM) return asset;
+    if (needsVM) source = provideVM(source);
     // Patches are written with \n; some upstream files use \r\n.
     const eol = text => (source.includes('\r\n') ? text.replace(/\r?\n/g, '\r\n') : text);
     for (const [find, replace] of patches.map(patch => patch.map(eol))) {
@@ -273,10 +296,11 @@ const sync = async () => {
         const scriptURL = `${PM_ROOT}extensions/${extension.code}`;
         const iconURL = extension.banner ? `${PM_ROOT}images/${extension.banner}` : `${TW_ROOT}images/unknown.svg`;
         const iconExtension = path.extname(new URL(iconURL).pathname) || '.svg';
-        const [script, icon] = await Promise.all([
+        const [downloaded, icon] = await Promise.all([
             saveAsset(scriptURL, `scripts/${baseName}.js`),
             saveAsset(iconURL, `icons/${baseName}${iconExtension}`)
         ]);
+        const script = await applyPatches(`PenguinMod:${sourceId}`, downloaded);
         return {
             source: 'PenguinMod',
             sourceId,

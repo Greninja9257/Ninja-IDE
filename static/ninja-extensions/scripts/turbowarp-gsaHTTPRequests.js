@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: HTTP
 // ID: gsaHTTPRequests
 // Description: Comprehensive extension for interacting with external websites.
@@ -782,3 +783,5 @@
   // @ts-ignore
   Scratch.extensions.register(instance);
 })(Scratch);
+
+})(Scratch.vm);

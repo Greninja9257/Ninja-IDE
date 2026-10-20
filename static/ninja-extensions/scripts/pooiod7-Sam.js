@@ -89,7 +89,7 @@
             return {
                 id: 'P7SamSpeech',
                 name: 'SAM Speech',
-                color1: '#cb00ddff',
+                color1: '#cb00dd',
                 blocks: [
                     {
                         opcode: 'speakText',

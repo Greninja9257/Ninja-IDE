@@ -1,3 +1,4 @@
+(function (Scratch) {
 let deviceMotionAccelX = 0;
 let deviceMotionAccelY = 0;
 let deviceMotionAccelZ = 0;
@@ -408,3 +409,4 @@ class gaimeriDeviceMotionExtension {
 }
 
 Scratch.extensions.register(new gaimeriDeviceMotionExtension());
+})(Scratch);

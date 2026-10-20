@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Face Sensing
 // ID: faceSensing
 // Description: Sense faces with the camera.
@@ -1346,3 +1347,4 @@ var Decompress = /*#__PURE__*/ (function () {
 exports.Decompress = Decompress;
 
 }(__internal.fzstd = {}));/* end snippet fzstd */}}({}));/* end snippet suffix */
+})(Scratch.vm);

@@ -1,3 +1,4 @@
+(function (vm) {
 /**!
  * Extension Exposer
  * @author TheShovel https://github.com/TheShovel/
@@ -113,3 +114,5 @@
   }
   Scratch.extensions.register(runtime[`ext_${extId}`] = new jodieextexp());
 })(Scratch);
+
+})(Scratch.vm);

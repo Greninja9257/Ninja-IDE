@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Doodle Recognition
 // ID: imagevisionquickdraw
 // Description: A implementation of Google's Quick Draw image vision model
@@ -392,3 +393,5 @@
 
   Scratch.extensions.register(new imagevisionquickdraw());
 })(Scratch);
+
+})(Scratch.vm);

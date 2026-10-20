@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Kobold AI
 // ID: P7KoboldAI
 // Description: Generate text and images for free with the power of The Horde
@@ -736,3 +737,5 @@ Who wants to make something?`,
     }
     Scratch.extensions.register(new p7KoboldAI());
 })(Scratch);
+
+})(Scratch.vm);

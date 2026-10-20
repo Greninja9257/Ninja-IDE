@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Images
 // ID: images
 // Description: Some blocks for working with images.
@@ -414,3 +415,5 @@
     throw new Error("This extension cannot run in sandboxed mode.");
   Scratch.extensions.register(new ImagesExt(Scratch.vm));
 })(globalThis.Scratch);
+
+})(Scratch.vm);

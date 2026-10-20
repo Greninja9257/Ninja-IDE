@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Extra Controls
 // ID: SPadvControl
 // Description: New Advanced Control Blocks
@@ -1214,3 +1215,5 @@
 
   Scratch.extensions.register(new SPadvControl());
 })(Scratch);
+
+})(Scratch.vm);

@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Perlin Noise
 // ID: SPperlin
 // Description: Generate Perlin Noise
@@ -186,3 +187,5 @@
   
   Scratch.extensions.register(new SPperlin());
 })(Scratch);
+
+})(Scratch.vm);

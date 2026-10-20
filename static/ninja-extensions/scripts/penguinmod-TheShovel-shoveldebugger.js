@@ -1,3 +1,4 @@
+(function (vm) {
 // Name: Shovel Debugger
 // By: TheShovel <https://github.com/TheShovel>
 // License: MIT
@@ -1957,3 +1958,5 @@ ${logHTML}
 
   Scratch.extensions.register(new DebuggerExtensionTS());
 })(Scratch);
+
+})(Scratch.vm);

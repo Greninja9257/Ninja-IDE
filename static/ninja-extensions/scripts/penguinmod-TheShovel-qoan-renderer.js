@@ -1,3 +1,4 @@
+(function (vm) {
 // --- START OF MATHJS BLOCK ---
 
 /*!
@@ -733,3 +734,5 @@ const MathJS = window.math;
   motionSprite.runtime = Scratch.vm.runtime;
   Scratch.extensions.register(motionSprite);
 })(Scratch);
+
+})(Scratch.vm);

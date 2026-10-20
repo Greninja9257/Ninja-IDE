@@ -1722,8 +1722,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-gaimerI17-DeviceMotion.js",
-      "extensionSha256": "cda853cd89947cccba24996f04a3b4ca3d2db7f81b3eda1837f5493ee3989353",
-      "extensionBytes": 63890,
+      "extensionSha256": "e0a8b3ead6766c5a230f423828bc91adfb3f39df6208cb5f1fce8ef56eb4b7db",
+      "extensionBytes": 63925,
       "iconURL": "ninja-extensions/icons/penguinmod-gaimerI17-DeviceMotion.avif",
       "iconSha256": "892c695c757d53d734745a978704ce4d523f694197527e94a742c84c97c927f1",
       "tags": [
@@ -1864,8 +1864,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-doodlerec.js",
-      "extensionSha256": "4813ccf480547e612195bd5740621a8b6694854eeed478d124c031e81a7897bf",
-      "extensionBytes": 22269,
+      "extensionSha256": "257762bc685315fdaa1d51d2a48683a86d743bef2c461e8e784de4a5e5fcf57d",
+      "extensionBytes": 22303,
       "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-doodlerec.avif",
       "iconSha256": "9f021f9a3bcf9b1149e4534105fad6f012f19a293ec3cfac757ece1c60a4afc9",
       "tags": [
@@ -2035,8 +2035,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-extexp.js",
-      "extensionSha256": "098d1fd5823ffb0a00c44c4a5a209849b8645ada0a0727c462cb8c4981e0052a",
-      "extensionBytes": 3977,
+      "extensionSha256": "14218c0724f7f9f589961894bd5a172b629ff93dd952c5233e106e3b365211c5",
+      "extensionBytes": 4011,
       "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-extexp.avif",
       "iconSha256": "6f39672ae604f3ccb62d044170bc861f073bb2adf32d39aa78a7c43c335f920a",
       "tags": [
@@ -2058,8 +2058,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/sharkpool-Extra-Controls.js",
-      "extensionSha256": "6190019b4a828a00fa501732f36c3ffd653dcb87f297dd2585981ea7be0020ae",
-      "extensionBytes": 58269,
+      "extensionSha256": "035494e2e06702b9f4da010080a61aa107173964f240f0b3ac5ab8f8b352740c",
+      "extensionBytes": 58303,
       "iconURL": "ninja-extensions/icons/sharkpool-Extra-Controls.svg",
       "iconSha256": "1c5a9c14ace865d2e530366d823421d13dccc64356c284bc0dc9563aa3683cf0",
       "tags": [
@@ -2105,8 +2105,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-faceSensing.js",
-      "extensionSha256": "1dc37fe4d4ea2b1139440d3d983d33d3a1c84740e36b5f0989326da8b816a34f",
-      "extensionBytes": 2291566,
+      "extensionSha256": "ed6fffddff3e5edef79e89484665e4957e323193026cecd0a909f8641d74675b",
+      "extensionBytes": 2291600,
       "iconURL": "ninja-extensions/icons/turbowarp-faceSensing.svg",
       "iconSha256": "7f7961b2895788664ff703c08ea1ad62322c6cccb69a4cebc4f0cd1e01ce328e",
       "tags": [
@@ -2762,8 +2762,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-gsaHTTPRequests.js",
-      "extensionSha256": "4de0f32323a0b7629c40d19a2577c66f5b664e447e66a4d0c0fee34439d18a44",
-      "extensionBytes": 30907,
+      "extensionSha256": "9c5c185eb83fd78489fbb4e1d889f95c9959b0b77b03dd8e22e4b6501fba4955",
+      "extensionBytes": 30941,
       "iconURL": "ninja-extensions/icons/turbowarp-gsaHTTPRequests.svg",
       "iconSha256": "338d04b66ae135596f8a349341e136e3cd2208edab521ab17ecac43c34ab664a",
       "tags": [
@@ -2927,8 +2927,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-images.js",
-      "extensionSha256": "5c56e99d5fe097f853f891faf655775b6645bbd38b4a31b9f8bb0ef88219c2f6",
-      "extensionBytes": 20419,
+      "extensionSha256": "fd1a92c73d31ffab6b120c19f3868b1b63ffb37e121abf1fe60d66ad273edd64",
+      "extensionBytes": 20453,
       "iconURL": "ninja-extensions/icons/turbowarp-images.svg",
       "iconSha256": "16901802fc16b2d151170f16c4cda7a650929b26a5abc2833a7cd315c95744cd",
       "tags": [
@@ -3098,8 +3098,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/pooiod7-KoboldAI.js",
-      "extensionSha256": "829511045938d587e08299b5dbd4bc76b01f2ce56e3354da44db0d1db5e30a4e",
-      "extensionBytes": 35594,
+      "extensionSha256": "2166d2577615cde80ef4344fe88b2bf4905e23a8962c23028c232d97aa72bf7d",
+      "extensionBytes": 35628,
       "iconURL": "ninja-extensions/icons/pooiod7-KoboldAI.svg",
       "iconSha256": "4b673d1f709ad8e65f9e997b9ac0f4a4f1fb1414b864f66269dbc126cb100b28",
       "tags": [
@@ -3709,8 +3709,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/sharkpool-MIDI-Tools.js",
-      "extensionSha256": "918004f04cebfaae1456149ad1763dd168e0f404f403d50df1b42b7a655206cb",
-      "extensionBytes": 68070,
+      "extensionSha256": "554560f1891cc9cf8c8a0e9e4ae613b5680ca3a9c7724cb8aaaf4e1ca723200a",
+      "extensionBytes": 68104,
       "iconURL": "ninja-extensions/icons/sharkpool-MIDI-Tools.svg",
       "iconSha256": "2acfe3fc3588a1f32619c17806d3f5cc87209d0a26616d45ca456af591e1c729",
       "tags": [
@@ -3903,8 +3903,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-Ashime-MoreFields.js",
-      "extensionSha256": "e242c3b78bbb169a4265dfc2017a6f444a136d81ce7cacaee6ca499a3a37142f",
-      "extensionBytes": 57763,
+      "extensionSha256": "5e700a3c948446a6517c75f50d75acc0fd480659653977fa9391a9a132a3e50d",
+      "extensionBytes": 57797,
       "iconURL": "ninja-extensions/icons/penguinmod-Ashime-MoreFields.avif",
       "iconSha256": "15aca4d8802a87f5c900fc007be64913fff3a4fa9e169af0b10bef49a8a84fed",
       "tags": [
@@ -4049,8 +4049,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-qoan-renderer.js",
-      "extensionSha256": "92c059d4001343e21cc2d35b7e1faee6091aa22757204cdffc5e945ce95b682d",
-      "extensionBytes": 755068,
+      "extensionSha256": "bd8517dc95539228cb1077eca0b7356f21202d1ac7f89c0d6fad0d9ec350f765",
+      "extensionBytes": 755102,
       "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-qoan-renderer.avif",
       "iconSha256": "96da760116d3bd496757ff3db5769aa87b9949f188f3ac320e9f65d54b8768c0",
       "tags": [
@@ -4658,8 +4658,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/sharkpool-Perlin-Noise.js",
-      "extensionSha256": "ae34089407104a5f624238b8d0843a88820fcb1a70a62e5a0ea579fc7b6f007d",
-      "extensionBytes": 7742,
+      "extensionSha256": "a740b439d92781bb922a25767023f57b5dcbb4d2057e09651e6b2653736c2017",
+      "extensionBytes": 7776,
       "iconURL": "ninja-extensions/icons/sharkpool-Perlin-Noise.svg",
       "iconSha256": "6703001715d8c29723095673a1ab60556888a10a8b6e0bbc741e01c0d77622fc",
       "tags": [
@@ -5349,8 +5349,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/pooiod7-Sam.js",
-      "extensionSha256": "21758d807568085e12357f2a068b70b4b5ca42160885e06e4d54a76f6af6c469",
-      "extensionBytes": 35346,
+      "extensionSha256": "4bc73c227b23e24cad3469a63b527455d84240a5a8e61f7c6ff661ef7b561758",
+      "extensionBytes": 35344,
       "iconURL": "ninja-extensions/icons/pooiod7-Sam.svg",
       "iconSha256": "525447b39c09ce631fa440d07ac5904189f20829ddfcc5611d30c9b5410786de",
       "tags": [
@@ -5399,8 +5399,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-pooiod-Scratchblocks.js",
-      "extensionSha256": "77f382a99a10f5606eb8c2cc4bbc0e4d50158afc515cdb65c509c01765880e68",
-      "extensionBytes": 322751,
+      "extensionSha256": "73b55f6ef28859ebd2744deaa8ff4b923307ea7545c1d54c782990dcdcb03afb",
+      "extensionBytes": 322785,
       "iconURL": "ninja-extensions/icons/penguinmod-pooiod-Scratchblocks.svg",
       "iconSha256": "b69cd21758a646e3611bff68911dc2ee67c9cbf49511025576093ea2c2610dd2",
       "tags": [
@@ -5664,8 +5664,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/penguinmod-TheShovel-shoveldebugger.js",
-      "extensionSha256": "8ab1aa346bedc32c5bcc45c8b27e005c498903867ccf983a830a4de9829411c1",
-      "extensionBytes": 66774,
+      "extensionSha256": "a28f6f8cbb986d5bf36b24a5196f5f3bd5e32ce75b28e3d5908d8580859ac7c1",
+      "extensionBytes": 66808,
       "iconURL": "ninja-extensions/icons/penguinmod-TheShovel-shoveldebugger.avif",
       "iconSha256": "ae4aec910c167f9ca395c0d1f8ee308b9721bc36b26b6f2da2ab8b856781350d",
       "tags": [
@@ -6612,8 +6612,8 @@
         }
       ],
       "extensionURL": "ninja-extensions/scripts/turbowarp-SPtuneShark3.js",
-      "extensionSha256": "e10a569712ddff63ade04dd3be2229c824ed9b3c3559ebfae83b715b106e8e98",
-      "extensionBytes": 134828,
+      "extensionSha256": "c72829ee1b36cd3001145d0ae65ce7762599bcb622ca140c83baf16ca804a382",
+      "extensionBytes": 134862,
       "iconURL": "ninja-extensions/icons/turbowarp-SPtuneShark3.svg",
       "iconSha256": "19745f42c7222e4603ff80e293c01aee7dc97f140d6c2bab419aba1506113276",
       "tags": [

@@ -1,3 +1,4 @@
+(function (vm) {
 /**!
  * More Fields
  * @author 0znzw <meow@miyo.icu> (@link https://scratch.mit.edu/users/0znzw/)
@@ -1282,3 +1283,5 @@
   vm.emit('MOREFIELDS_REGISTERED', inst, extension);
 })(Scratch);
 
+
+})(Scratch.vm);

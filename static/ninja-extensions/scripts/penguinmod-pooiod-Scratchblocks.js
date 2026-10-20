@@ -1,3 +1,4 @@
+(function (vm) {
 // Scratchblocks v1.8.2 (by pooiod7) - Make Scratch blocks in scratch
 
 (function(Scratch) {
@@ -6974,3 +6975,5 @@
   scratchblocks.init();
 
 })(Scratch);
+
+})(Scratch.vm);
